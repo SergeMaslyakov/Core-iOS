@@ -136,7 +136,6 @@
 		DA9ECB462243190100EDAF4A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		DA9ECB482243190100EDAF4A /* RxKeyboard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxKeyboard.framework; path = ../Carthage/Build/iOS/RxKeyboard.framework; sourceTree = "<group>"; };
 		DA9ECB492243190100EDAF4A /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = ../Carthage/Build/iOS/RxSwiftExt.framework; sourceTree = "<group>"; };
-		DA9ECB4B2243190100EDAF4A /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = ../Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		DA9ECB5A224320A800EDAF4A /* NetworkClient+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkClient+Rx.swift"; sourceTree = "<group>"; };
 		DA9ECB5D224383B400EDAF4A /* SVProgressHUD+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SVProgressHUD+Rx.swift"; sourceTree = "<group>"; };
 		DA9ECB5F2243841500EDAF4A /* RxSwiftUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftUtilities.framework; path = ../Carthage/Build/iOS/RxSwiftUtilities.framework; sourceTree = "<group>"; };
@@ -377,7 +376,6 @@
 				DA5B94C1224424C0006245B7 /* PhoneNumberKit.framework */,
 				DA9ECB5F2243841500EDAF4A /* RxSwiftUtilities.framework */,
 				DA9ECB602243841500EDAF4A /* SVProgressHUD.framework */,
-				DA9ECB4B2243190100EDAF4A /* RxAtomic.framework */,
 				DA9ECB432243190100EDAF4A /* RxBlocking.framework */,
 				DA9ECB462243190100EDAF4A /* RxCocoa.framework */,
 				DA9ECB422243190000EDAF4A /* RxGesture.framework */,
