@@ -40,6 +40,7 @@
 		FB2CFB9C226B9C8200B85FB9 /* PrintLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CFB9B226B9C8200B85FB9 /* PrintLogger.swift */; };
 		FB41B99D225A31C90049F3BC /* KeychainDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B99C225A31C90049F3BC /* KeychainDataStorage.swift */; };
 		FB41B9A2225A3A230049F3BC /* UserDefaultsDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B9A1225A3A230049F3BC /* UserDefaultsDataStorageTests.swift */; };
+		FB48FDF8229062E2007F28CC /* QRCodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */; };
 		FB513E582233DFC300F11CC9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB513E3E2233DFC300F11CC9 /* Container.swift */; };
 		FB513E592233DFC300F11CC9 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB513E402233DFC300F11CC9 /* NetworkClient.swift */; };
 		FB513E5A2233DFC300F11CC9 /* NetworkRequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB513E422233DFC300F11CC9 /* NetworkRequestBehavior.swift */; };
@@ -175,6 +176,7 @@
 		FB2CFB9B226B9C8200B85FB9 /* PrintLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintLogger.swift; sourceTree = "<group>"; };
 		FB41B99C225A31C90049F3BC /* KeychainDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainDataStorage.swift; sourceTree = "<group>"; };
 		FB41B9A1225A3A230049F3BC /* UserDefaultsDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStorageTests.swift; sourceTree = "<group>"; };
+		FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeUtils.swift; sourceTree = "<group>"; };
 		FB513E3E2233DFC300F11CC9 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		FB513E402233DFC300F11CC9 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		FB513E422233DFC300F11CC9 /* NetworkRequestBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestBehavior.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FD11E021477A5F008C2EF8 /* Core.h */,
+				FB48FDF9229062F5007F28CC /* Utils */,
 				FBE815682281DBF800FB5CF7 /* Validators */,
 				FBD0461A22689CF500722DDA /* Thirdparty */,
 				FBCA630C226673F50021655F /* Logger */,
@@ -492,6 +495,15 @@
 				FB41B9A1225A3A230049F3BC /* UserDefaultsDataStorageTests.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		FB48FDF9229062F5007F28CC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */,
+				FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FB513E3D2233DFC300F11CC9 /* DI */ = {
@@ -587,7 +599,6 @@
 				FB513EAB2234FDF600F11CC9 /* XibView.swift */,
 				FB513EB42234FDF600F11CC9 /* ConfigurableCell.swift */,
 				FBC412ED226CD55800AB3554 /* AvatarImageView.swift */,
-				FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */,
 				FBE8154422819C6600FB5CF7 /* PassthroughView.swift */,
 				FBE8154622819C9F00FB5CF7 /* GradientView.swift */,
 			);
@@ -964,6 +975,7 @@
 				FBE815752281DF2100FB5CF7 /* PasswordValidator.swift in Sources */,
 				FB7BCE032243C2EE00EDB121 /* DateFormatter+Helpers.swift in Sources */,
 				FB7BCDF42243BFE000EDB121 /* NetworkQualityType.swift in Sources */,
+				FB48FDF8229062E2007F28CC /* QRCodeUtils.swift in Sources */,
 				FB7BCDF32243BFE000EDB121 /* NetworkReachabilityService.swift in Sources */,
 				FBD0463722689D5800722DDA /* Codextended.swift in Sources */,
 				FB7BCDF22243BFE000EDB121 /* NetworkQualityMonitoring.swift in Sources */,

@@ -7,4 +7,5 @@ public enum AppError: Error {
     case reachabilityUnavailable
 
     case cantExportAssets
+    case cantCreateQRCode
 }
