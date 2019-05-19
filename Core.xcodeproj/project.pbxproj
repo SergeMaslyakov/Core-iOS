@@ -95,6 +95,7 @@
 		FB7BCE4B2246976F00EDB121 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */; };
 		FB7BCE4D2246B5B800EDB121 /* RefreshJobWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */; };
 		FB7BCE512246C05900EDB121 /* PhoneNumberKit+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE502246C05900EDB121 /* PhoneNumberKit+Rx.swift */; };
+		FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */; };
 		FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */; };
 		FBC412EE226CD55800AB3554 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC412ED226CD55800AB3554 /* AvatarImageView.swift */; };
 		FBC412F0226CE12400AB3554 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC412EF226CE12400AB3554 /* Nuke.framework */; };
@@ -231,6 +232,7 @@
 		FB7BCE452246962800EDB121 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceTests.swift; sourceTree = "<group>"; };
 		FB7BCE502246C05900EDB121 /* PhoneNumberKit+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumberKit+Rx.swift"; sourceTree = "<group>"; };
+		FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormattingUtils.swift; sourceTree = "<group>"; };
 		FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialDispatchQueueScheduler+Factory.swift"; sourceTree = "<group>"; };
 		FBC412ED226CD55800AB3554 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		FBC412EF226CE12400AB3554 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = ../Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 			children = (
 				FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */,
 				FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */,
+				FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 				FB7BCDFF2243C28100EDB121 /* AppStoreVersionAPI.swift in Sources */,
 				FB513E642233DFC300F11CC9 /* NetworkRequestEncoding.swift in Sources */,
 				FBE8154722819C9F00FB5CF7 /* GradientView.swift in Sources */,
+				FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */,
 				FB78EE8D2289A8D2006ED949 /* URLRequest+Helpers.swift in Sources */,
 				FB1ACDC322668D1E00C562C4 /* HTTPStatusCodes+Extensions.swift in Sources */,
 				FB1ACDC722674BD700C562C4 /* WWWFormRequestEncoder.swift in Sources */,
