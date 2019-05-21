@@ -54,6 +54,11 @@ public final class KeychainDataStorage: DataStorageProtocol {
                 logger.error("KeychainDataStorage: error during writing data \(status)")
                 throw DataStorageError.keychainWriteError(status)
             }
+
+            // update item silently
+            if status == errSecDuplicateItem {
+                try updateData(data, forKey: key)
+            }
         } else {
             try removeData(forKey: keyWithPrefix(key))
         }
