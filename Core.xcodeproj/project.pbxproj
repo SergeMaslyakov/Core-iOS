@@ -97,7 +97,8 @@
 		FB7BCE512246C05900EDB121 /* PhoneNumberKit+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE502246C05900EDB121 /* PhoneNumberKit+Rx.swift */; };
 		FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */; };
 		FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */; };
-		FBAA456922944F8A00D75E88 /* ImageMultipartFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA456822944F8A00D75E88 /* ImageMultipartFormEncoder.swift */; };
+		FBAA456922944F8A00D75E88 /* MultipartFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA456822944F8A00D75E88 /* MultipartFormEncoder.swift */; };
+		FBAA456E2294A3F000D75E88 /* MultipartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA456D2294A3F000D75E88 /* MultipartData.swift */; };
 		FBC412EE226CD55800AB3554 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC412ED226CD55800AB3554 /* AvatarImageView.swift */; };
 		FBC412F0226CE12400AB3554 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC412EF226CE12400AB3554 /* Nuke.framework */; };
 		FBCA630E226674110021655F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCA630D226674110021655F /* Logger.swift */; };
@@ -235,7 +236,8 @@
 		FB7BCE502246C05900EDB121 /* PhoneNumberKit+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumberKit+Rx.swift"; sourceTree = "<group>"; };
 		FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormattingUtils.swift; sourceTree = "<group>"; };
 		FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialDispatchQueueScheduler+Factory.swift"; sourceTree = "<group>"; };
-		FBAA456822944F8A00D75E88 /* ImageMultipartFormEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMultipartFormEncoder.swift; sourceTree = "<group>"; };
+		FBAA456822944F8A00D75E88 /* MultipartFormEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormEncoder.swift; sourceTree = "<group>"; };
+		FBAA456D2294A3F000D75E88 /* MultipartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartData.swift; sourceTree = "<group>"; };
 		FBC412ED226CD55800AB3554 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		FBC412EF226CE12400AB3554 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = ../Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		FBCA630D226674110021655F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -561,9 +563,10 @@
 				FB513E4E2233DFC300F11CC9 /* JSONRequestEncoder.swift */,
 				FB513E4F2233DFC300F11CC9 /* JSONResponseDecoder.swift */,
 				FB513E502233DFC300F11CC9 /* NetworkRequestEncoding.swift */,
-				FBAA456822944F8A00D75E88 /* ImageMultipartFormEncoder.swift */,
+				FBAA456822944F8A00D75E88 /* MultipartFormEncoder.swift */,
 				FB513E512233DFC300F11CC9 /* NetworkResponseDecoding.swift */,
 				FB513E522233DFC300F11CC9 /* CodingError.swift */,
+				FBAA456D2294A3F000D75E88 /* MultipartData.swift */,
 			);
 			path = Coding;
 			sourceTree = "<group>";
@@ -921,6 +924,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB7BCE052243C45C00EDB121 /* AppStoreLookupEndpoint.swift in Sources */,
+				FBAA456E2294A3F000D75E88 /* MultipartData.swift in Sources */,
 				FB513E612233DFC300F11CC9 /* EndpointDescriptor.swift in Sources */,
 				FB513EA42234FDEB00F11CC9 /* DataStorageProtocol.swift in Sources */,
 				FB513E5C2233DFC300F11CC9 /* QueryInjectingBehavior.swift in Sources */,
@@ -951,7 +955,7 @@
 				FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */,
 				FB513E622233DFC300F11CC9 /* JSONRequestEncoder.swift in Sources */,
 				FB7BCE352246923900EDB121 /* ConcurrentDispatchQueueScheduler+Factory.swift in Sources */,
-				FBAA456922944F8A00D75E88 /* ImageMultipartFormEncoder.swift in Sources */,
+				FBAA456922944F8A00D75E88 /* MultipartFormEncoder.swift in Sources */,
 				FB2CFB9A226B924100B85FB9 /* AppFlagsServiceImpl.swift in Sources */,
 				FBC412EE226CD55800AB3554 /* AvatarImageView.swift in Sources */,
 				FB513E6A2233DFC300F11CC9 /* NetworkError.swift in Sources */,
