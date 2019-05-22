@@ -1,16 +1,9 @@
 import Foundation
 
-/// Simple encoder (it's not suitable for big images and videos)
+///
+/// Simple multipart encoder (it doesn't suit for big images and videos)
+///
 public final class MultipartFormEncoder: NetworkRequestEncoding {
-
-    private enum EncodingCharacters {
-        static let crlf = "\r\n"
-        static let crlfcrlf = "\r\n\r\n"
-    }
-
-    private enum BoundaryType {
-        case initial, final
-    }
 
     private let dataKey: String
     private let boundaryToken: String
@@ -19,6 +12,8 @@ public final class MultipartFormEncoder: NetworkRequestEncoding {
         self.boundaryToken = boundaryToken
         self.dataKey = dataKey
     }
+
+    // MARK: - NetworkRequestEncoding
 
     public func encode(params: [String: Any]) throws -> Data {
         guard let data = params[dataKey] as? MultipartData else { throw CodingError.missingData }
@@ -29,6 +24,29 @@ public final class MultipartFormEncoder: NetworkRequestEncoding {
         return createMultipartBody(fromMultipartData: data, params: mutableParams)
     }
 
+    // MARK: - Implementation
+
+    private enum BoundaryType {
+        case initial(String)
+        case final(String)
+
+        static let crlf = "\r\n"
+        static let crlfCrlf = "\r\n\r\n"
+
+        var boundary: Data {
+            let boundaryText: String
+
+            switch self {
+            case .initial(let token):
+                boundaryText = "--\(token)\r\n"
+            case .final(let token):
+                boundaryText = "--\(token)--\r\n"
+            }
+
+            return boundaryText.data(using: .utf8, allowLossyConversion: false) ?? Data()
+        }
+    }
+
     private func createMultipartBody(fromMultipartData data: MultipartData, params: [String: Any]) -> Data {
         var multipartData = Data()
 
@@ -37,40 +55,28 @@ public final class MultipartFormEncoder: NetworkRequestEncoding {
 
             let data = "\(value)".data(using: .utf8) ?? Data()
 
-            multipartData.append(boundaryData(forBoundaryType: .initial, boundary: boundaryToken))
+            multipartData.append(BoundaryType.initial(boundaryToken).boundary)
 
-            multipartData.append("Content-Disposition: form-data; name=\"\(key)\"\(EncodingCharacters.crlf)".data(using: .utf8) ?? Data())
-            multipartData.append("Content-Length: \(data.count)\(EncodingCharacters.crlfcrlf)".data(using: .utf8) ?? Data())
+            multipartData.append("Content-Disposition: form-data; name=\"\(key)\"\(BoundaryType.crlf)".data(using: .utf8) ?? Data())
+            multipartData.append("Content-Length: \(data.count)\(BoundaryType.crlfCrlf)".data(using: .utf8) ?? Data())
             multipartData.append(data)
-            multipartData.append("\(EncodingCharacters.crlf)".data(using: .utf8) ?? Data())
+            multipartData.append("\(BoundaryType.crlf)".data(using: .utf8) ?? Data())
         }
 
         /// binary data
-        multipartData.append(boundaryData(forBoundaryType: .initial, boundary: boundaryToken))
-        let contentDisposition = "Content-Disposition: form-data; name=\"file\"; filename=\"\(data.filename)\"\(EncodingCharacters.crlf)"
+        multipartData.append(BoundaryType.initial(boundaryToken).boundary)
+        let contentDisposition = "Content-Disposition: form-data; name=\"file\"; filename=\"\(data.filename)\"\(BoundaryType.crlf)"
 
         multipartData.append(contentDisposition.data(using: .utf8) ?? Data())
-        multipartData.append("Content-Length: \(data.data.count)\(EncodingCharacters.crlf)".data(using: .utf8) ?? Data())
-        multipartData.append("Content-Type: \(data.mimeType)\(EncodingCharacters.crlfcrlf)".data(using: .utf8) ?? Data())
+        multipartData.append("Content-Length: \(data.data.count)\(BoundaryType.crlf)".data(using: .utf8) ?? Data())
+        multipartData.append("Content-Type: \(data.mimeType)\(BoundaryType.crlfCrlf)".data(using: .utf8) ?? Data())
         multipartData.append(data.data)
-        multipartData.append("\(EncodingCharacters.crlf)".data(using: .utf8) ?? Data())
+        multipartData.append("\(BoundaryType.crlf)".data(using: .utf8) ?? Data())
 
         /// final
-        multipartData.append(boundaryData(forBoundaryType: .final, boundary: boundaryToken))
+        multipartData.append(BoundaryType.final(boundaryToken).boundary)
 
         return multipartData
     }
 
-    private func boundaryData(forBoundaryType type: BoundaryType, boundary: String) -> Data {
-        let boundaryText: String
-
-        switch type {
-        case .initial:
-            boundaryText = "--\(boundary)\(EncodingCharacters.crlf)"
-        case .final:
-            boundaryText = "--\(boundary)--\(EncodingCharacters.crlf)"
-        }
-
-        return boundaryText.data(using: .utf8, allowLossyConversion: false) ?? Data()
-    }
 }
