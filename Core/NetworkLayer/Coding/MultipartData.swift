@@ -2,13 +2,13 @@ import Foundation
 
 public struct MultipartData {
 
-    public init(data: Data, mimetype: String, filename: String) {
+    public init(data: Data, mimeType: String, filename: String) {
         self.data = data
-        self.mimetype = mimetype
+        self.mimeType = mimeType
         self.filename = filename
     }
 
     let data: Data
-    let mimetype: String
+    let mimeType: String
     let filename: String
 }

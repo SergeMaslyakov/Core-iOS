@@ -19,14 +19,13 @@ public final class MultipartFormEncoder: NetworkRequestEncoding {
         self.dataKey = dataKey
     }
 
-    public func encode(params: [String: Any]) throws -> (data: Data, contentLength: Int) {
+    public func encode(params: [String: Any]) throws -> Data {
         guard let data = params[dataKey] as? MultipartData else { throw CodingError.missingData }
 
         var mutableParams = params
         mutableParams.removeValue(forKey: dataKey)
 
-        let body = createMultipartBody(fromMultipartData: data, params: mutableParams)
-        return (body, data.data.count)
+        return createMultipartBody(fromMultipartData: data, params: mutableParams)
     }
 
     private func createMultipartBody(fromMultipartData data: MultipartData, params: [String: Any]) -> Data {
@@ -39,22 +38,29 @@ public final class MultipartFormEncoder: NetworkRequestEncoding {
         let contentDisposition = "Content-Disposition: form-data; name=\"file\"; filename=\"\(data.filename)\"\r\n"
 
         multipartData.append(contentDisposition.data(using: .utf8) ?? Data())
-        multipartData.append("Content-Type: \(data.mimetype)\r\n\r\n".data(using: .utf8) ?? Data())
+        multipartData.append("Content-Type: \(data.mimeType)\r\n".data(using: .utf8) ?? Data())
+        multipartData.append("Content-Length: \(data.data.count)\r\n\r\n".data(using: .utf8) ?? Data())
         multipartData.append(data.data)
         multipartData.append("\r\n".data(using: .utf8) ?? Data())
 
         /// params
         params.forEach { (key: String, value: Any) in
 
-            let contentDisposition = "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n"
+            let data = "\(value)".data(using: .utf8) ?? Data()
 
             multipartData.append(boundaryData(forBoundaryType: .encapsulated, boundary: boundaryToken))
-            multipartData.append(contentDisposition.data(using: .utf8) ?? Data())
-            multipartData.append("\(value)\r\n".data(using: .utf8) ?? Data())
+            multipartData.append("Content-Disposition: form-data; name=\"\(key)\"\r\n".data(using: .utf8) ?? Data())
+            multipartData.append("Content-Transfer-Encoding: binary\r\n".data(using: .utf8) ?? Data())
+            multipartData.append("Content-Type: multipart/form-data; charset=utf-8".data(using: .utf8) ?? Data())
+            multipartData.append("Content-Length: \(data.count)\r\n\r\n".data(using: .utf8) ?? Data())
+            multipartData.append(data)
+            multipartData.append("\r\n".data(using: .utf8) ?? Data())
         }
 
         /// final
         multipartData.append(boundaryData(forBoundaryType: .final, boundary: boundaryToken))
+
+        print(String(data: multipartData, encoding: .utf8))
 
         return multipartData
     }

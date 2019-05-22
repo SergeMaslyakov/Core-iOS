@@ -86,9 +86,9 @@ extension NetworkClient {
         /// Body
         if let params = endpoint.params {
             do {
-                let bodyTuple = try encoder.encode(params: params)
-                urlRequest.httpBody = bodyTuple.data
-                urlRequest.setValue("\(bodyTuple.contentLength)", forHTTPHeaderField: "Content-Length")
+                let body = try encoder.encode(params: params)
+                urlRequest.httpBody = body
+                urlRequest.setValue("\(body.count)", forHTTPHeaderField: "Content-Length")
             } catch {
                 throw NetworkError.encodingError(error)
             }

@@ -39,9 +39,8 @@ public final class WWWFormRequestEncoder: NetworkRequestEncoding {
 
     public init() {}
 
-    public func encode(params: [String: Any]) throws -> (data: Data, contentLength: Int) {
-        let data = Data(query(params).utf8)
-        return (data, data.count)
+    public func encode(params: [String: Any]) throws -> Data {
+        return Data(query(params).utf8)
     }
 
     private func query(_ parameters: [String: Any]) -> String {
