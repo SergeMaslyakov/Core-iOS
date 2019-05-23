@@ -22,6 +22,7 @@ public enum NetworkError: Error {
     public var statusCode: HTTPStatusCode {
         switch self {
         case .httpError(let status): return status
+        case .httpErrorWithData(let status, _): return status
         default: return .badResponse
         }
     }
