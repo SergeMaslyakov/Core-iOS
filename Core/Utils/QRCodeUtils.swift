@@ -3,7 +3,7 @@ import RxSwift
 
 public enum QRCodeUtils {
 
-    static func generateQRCode(for message: String) -> Observable<UIImage> {
+    public static func generateQRCode(for message: String) -> Observable<UIImage> {
 
         return Observable.create { observer -> Disposable in
 
