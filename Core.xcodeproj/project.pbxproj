@@ -32,6 +32,7 @@
 		FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */; };
 		FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */; };
 		FB0ED137228B55CD00D4F033 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0ED136228B55CD00D4F033 /* RxRelay.framework */; };
+		FB153BE322A007BD00EBEB80 /* UITextView+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB153BE222A007BD00EBEB80 /* UITextView+Html.swift */; };
 		FB1ACDC322668D1E00C562C4 /* HTTPStatusCodes+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1ACDC022668D1E00C562C4 /* HTTPStatusCodes+Extensions.swift */; };
 		FB1ACDC522668D1E00C562C4 /* HTTPStatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1ACDC222668D1E00C562C4 /* HTTPStatusCodes.swift */; };
 		FB1ACDC722674BD700C562C4 /* WWWFormRequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1ACDC622674BD700C562C4 /* WWWFormRequestEncoder.swift */; };
@@ -170,6 +171,7 @@
 		FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Rx.swift"; sourceTree = "<group>"; };
 		FB0ED136228B55CD00D4F033 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = ../Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		FB153BE222A007BD00EBEB80 /* UITextView+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Html.swift"; sourceTree = "<group>"; };
 		FB1ACDC022668D1E00C562C4 /* HTTPStatusCodes+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HTTPStatusCodes+Extensions.swift"; sourceTree = "<group>"; };
 		FB1ACDC122668D1E00C562C4 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FB1ACDC222668D1E00C562C4 /* HTTPStatusCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCodes.swift; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				FB513EB02234FDF600F11CC9 /* UIView+Helpers.swift */,
 				FB513EB12234FDF600F11CC9 /* UIImage+Helpers.swift */,
 				DAC7E86A2246F14600B94425 /* UIColor+Helpers.swift */,
+				FB153BE222A007BD00EBEB80 /* UITextView+Html.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				FB513EB62234FDF600F11CC9 /* String+Localizable.swift in Sources */,
 				FB513E592233DFC300F11CC9 /* NetworkClient.swift in Sources */,
 				FB513E672233DFC300F11CC9 /* NetworkClientImpl.swift in Sources */,
+				FB153BE322A007BD00EBEB80 /* UITextView+Html.swift in Sources */,
 				FB7BCE462246962800EDB121 /* CountryServiceImpl.swift in Sources */,
 				FB513E682233DFC300F11CC9 /* DefaultAuthorizationProvider.swift in Sources */,
 				FBE815772281DF2F00FB5CF7 /* PasswordValidatorImpl.swift in Sources */,

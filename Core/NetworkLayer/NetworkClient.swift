@@ -150,6 +150,9 @@ extension NetworkClient {
                 } catch {
                     completion(.failure(.httpError(statusCode)))
                 }
+            } else if let textData = data, response.containsTextContent {
+                let text = String(data: textData, encoding: .utf8) ?? ""
+                completion(.failure(.httpErrorWithData(statusCode, text)))
             } else {
                 completion(.failure(.httpError(statusCode)))
             }
