@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA5B94C3224424C0006245B7 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B94C1224424C0006245B7 /* PhoneNumberKit.framework */; };
 		DA9ECB4C2243190100EDAF4A /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB422243190000EDAF4A /* RxGesture.framework */; };
 		DA9ECB4D2243190100EDAF4A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB432243190100EDAF4A /* RxBlocking.framework */; };
 		DA9ECB4E2243190100EDAF4A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB442243190100EDAF4A /* RxSwift.framework */; };
@@ -95,7 +94,6 @@
 		FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE452246962800EDB121 /* CountryModel.swift */; };
 		FB7BCE4B2246976F00EDB121 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */; };
 		FB7BCE4D2246B5B800EDB121 /* RefreshJobWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */; };
-		FB7BCE512246C05900EDB121 /* PhoneNumberKit+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE502246C05900EDB121 /* PhoneNumberKit+Rx.swift */; };
 		FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */; };
 		FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */; };
 		FBAA456922944F8A00D75E88 /* MultipartFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA456822944F8A00D75E88 /* MultipartFormEncoder.swift */; };
@@ -111,7 +109,6 @@
 		FBE8154722819C9F00FB5CF7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8154622819C9F00FB5CF7 /* GradientView.swift */; };
 		FBE815672281DAE600FB5CF7 /* NSPredicate+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815662281DAE500FB5CF7 /* NSPredicate+Email.swift */; };
 		FBE8156B2281DC2300FB5CF7 /* PhoneValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8156A2281DC2300FB5CF7 /* PhoneValidator.swift */; };
-		FBE8156D2281DC3F00FB5CF7 /* PhoneValidatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8156C2281DC3F00FB5CF7 /* PhoneValidatorImpl.swift */; };
 		FBE815702281DE2D00FB5CF7 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8156F2281DE2D00FB5CF7 /* EmailValidator.swift */; };
 		FBE815722281DE3D00FB5CF7 /* EmailValidatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815712281DE3D00FB5CF7 /* EmailValidatorImpl.swift */; };
 		FBE815752281DF2100FB5CF7 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815742281DF2100FB5CF7 /* PasswordValidator.swift */; };
@@ -235,7 +232,6 @@
 		FB7BCE442246962800EDB121 /* CountryCodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
 		FB7BCE452246962800EDB121 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceTests.swift; sourceTree = "<group>"; };
-		FB7BCE502246C05900EDB121 /* PhoneNumberKit+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumberKit+Rx.swift"; sourceTree = "<group>"; };
 		FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormattingUtils.swift; sourceTree = "<group>"; };
 		FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialDispatchQueueScheduler+Factory.swift"; sourceTree = "<group>"; };
 		FBAA456822944F8A00D75E88 /* MultipartFormEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormEncoder.swift; sourceTree = "<group>"; };
@@ -253,7 +249,6 @@
 		FBE8154622819C9F00FB5CF7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FBE815662281DAE500FB5CF7 /* NSPredicate+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Email.swift"; sourceTree = "<group>"; };
 		FBE8156A2281DC2300FB5CF7 /* PhoneValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidator.swift; sourceTree = "<group>"; };
-		FBE8156C2281DC3F00FB5CF7 /* PhoneValidatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidatorImpl.swift; sourceTree = "<group>"; };
 		FBE8156F2281DE2D00FB5CF7 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		FBE815712281DE3D00FB5CF7 /* EmailValidatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorImpl.swift; sourceTree = "<group>"; };
 		FBE815742281DF2100FB5CF7 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
@@ -271,7 +266,6 @@
 			files = (
 				FBC412F0226CE12400AB3554 /* Nuke.framework in Frameworks */,
 				FBCA6312226675C20021655F /* SwiftyBeaver.framework in Frameworks */,
-				DA5B94C3224424C0006245B7 /* PhoneNumberKit.framework in Frameworks */,
 				DA9ECB612243841500EDAF4A /* RxSwiftUtilities.framework in Frameworks */,
 				DA9ECB622243841500EDAF4A /* SVProgressHUD.framework in Frameworks */,
 				DA9ECB4E2243190100EDAF4A /* RxSwift.framework in Frameworks */,
@@ -332,7 +326,6 @@
 				DA9ECB5D224383B400EDAF4A /* SVProgressHUD+Rx.swift */,
 				FB7BCE342246923900EDB121 /* ConcurrentDispatchQueueScheduler+Factory.swift */,
 				FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */,
-				FB7BCE502246C05900EDB121 /* PhoneNumberKit+Rx.swift */,
 				FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */,
 			);
 			path = Rx;
@@ -774,7 +767,6 @@
 			isa = PBXGroup;
 			children = (
 				FBE8156A2281DC2300FB5CF7 /* PhoneValidator.swift */,
-				FBE8156C2281DC3F00FB5CF7 /* PhoneValidatorImpl.swift */,
 			);
 			path = PhoneValidator;
 			sourceTree = "<group>";
@@ -963,7 +955,6 @@
 				FBC412EE226CD55800AB3554 /* AvatarImageView.swift in Sources */,
 				FB513E6A2233DFC300F11CC9 /* NetworkError.swift in Sources */,
 				FB513E582233DFC300F11CC9 /* Container.swift in Sources */,
-				FBE8156D2281DC3F00FB5CF7 /* PhoneValidatorImpl.swift in Sources */,
 				FB41B99D225A31C90049F3BC /* KeychainDataStorage.swift in Sources */,
 				FB513E662233DFC300F11CC9 /* CodingError.swift in Sources */,
 				FB513EB72234FDF600F11CC9 /* AppBundle.swift in Sources */,
@@ -1005,7 +996,6 @@
 				FB78EE8D2289A8D2006ED949 /* URLRequest+Helpers.swift in Sources */,
 				FB1ACDC322668D1E00C562C4 /* HTTPStatusCodes+Extensions.swift in Sources */,
 				FB1ACDC722674BD700C562C4 /* WWWFormRequestEncoder.swift in Sources */,
-				FB7BCE512246C05900EDB121 /* PhoneNumberKit+Rx.swift in Sources */,
 				DAC7E86B2246F14600B94425 /* UIColor+Helpers.swift in Sources */,
 				FBCA630E226674110021655F /* Logger.swift in Sources */,
 				FB7BCDFA2243C0D500EDB121 /* Date+Helpers.swift in Sources */,
