@@ -1,5 +1,9 @@
 import Foundation
 
+///
+/// Acknowledgements:
+/// - Alamofire - https://github.com/Alamofire
+///
 public final class WWWFormRequestEncoder: NetworkRequestEncoding {
 
     /// Configures how `Array` parameters are encoded.

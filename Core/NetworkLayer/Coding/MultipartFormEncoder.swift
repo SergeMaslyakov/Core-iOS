@@ -3,6 +3,9 @@ import Foundation
 ///
 /// Simple multipart encoder (it doesn't suit for big images and videos)
 ///
+/// Acknowledgements:
+/// - Alamofire - https://github.com/Alamofire
+///
 public final class MultipartFormEncoder: NetworkRequestEncoding {
 
     private let dataKey: String
