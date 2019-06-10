@@ -10,7 +10,7 @@ public final class SmsCodesManager {
 
     public init(resendTimeout: TimeInterval) {
         self.resendTimeout = resendTimeout
-        self.accessQueue = DispatchQueue(label: "sms_codes_manager.access_queue", qos: .background, attributes: .concurrent)
+        self.accessQueue = DispatchQueue(label: "sms-codes-manager.access-queue", qos: .background, attributes: .concurrent)
     }
 
     public func setTimestamp(forPhone phone: Phone) {

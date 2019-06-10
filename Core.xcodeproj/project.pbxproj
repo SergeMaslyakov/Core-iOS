@@ -28,6 +28,8 @@
 		DD654CB9FB9ED94D932E0DEA /* UserActivityParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD654C6B4A6898E67248912B /* UserActivityParser.swift */; };
 		E0FD11E721477A5F008C2EF8 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FD11DD21477A5F008C2EF8 /* Core.framework */; };
 		E0FD11EE21477A5F008C2EF8 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = E0FD11E021477A5F008C2EF8 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB02DDEC22AE72A20028284E /* BiometricAuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */; };
+		FB02DDEE22AE76940028284E /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDED22AE76940028284E /* BiometricAuthService.swift */; };
 		FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */; };
 		FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */; };
 		FB0ED137228B55CD00D4F033 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0ED136228B55CD00D4F033 /* RxRelay.framework */; };
@@ -165,6 +167,8 @@
 		E0FD122E214786AE008C2EF8 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		E0FD122F214786AE008C2EF8 /* ReleaseTest.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseTest.xcconfig; sourceTree = "<group>"; };
 		E0FD1232214786EF008C2EF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthServiceImpl.swift; sourceTree = "<group>"; };
+		FB02DDED22AE76940028284E /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
 		FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Rx.swift"; sourceTree = "<group>"; };
 		FB0ED136228B55CD00D4F033 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = ../Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 		DA768A9A224303BA0001C87C /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				FB02DDEA22AE72270028284E /* Biometry */,
 				FBF2617D2287A3E2006DB6C4 /* SmsCodesManager */,
 				FB2CFB96226B920A00B85FB9 /* AppFlags */,
 				FB7BCE402246962800EDB121 /* CountryService */,
@@ -469,6 +474,15 @@
 				E0FD1232214786EF008C2EF8 /* Info.plist */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		FB02DDEA22AE72270028284E /* Biometry */ = {
+			isa = PBXGroup;
+			children = (
+				FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */,
+				FB02DDED22AE76940028284E /* BiometricAuthService.swift */,
+			);
+			path = Biometry;
 			sourceTree = "<group>";
 		};
 		FB0B17EA22691C2300CEB6F4 /* HTTPStatusCodes */ = {
@@ -924,6 +938,7 @@
 				FB513EA42234FDEB00F11CC9 /* DataStorageProtocol.swift in Sources */,
 				FB513E5C2233DFC300F11CC9 /* QueryInjectingBehavior.swift in Sources */,
 				FB513EBE2234FDF600F11CC9 /* UIImage+Helpers.swift in Sources */,
+				FB02DDEE22AE76940028284E /* BiometricAuthService.swift in Sources */,
 				FBE815672281DAE600FB5CF7 /* NSPredicate+Email.swift in Sources */,
 				FB513EB92234FDF600F11CC9 /* XibView.swift in Sources */,
 				FB513EA22234FDEB00F11CC9 /* UserDefaultsDataStorage.swift in Sources */,
@@ -945,6 +960,7 @@
 				FB7BCE092243C8A300EDB121 /* AppVersionCheckerWorkerImpl.swift in Sources */,
 				FB513E822234FB7B00F11CC9 /* AppBundleFileLoader.swift in Sources */,
 				FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */,
+				FB02DDEC22AE72A20028284E /* BiometricAuthServiceImpl.swift in Sources */,
 				FB513E692233DFC300F11CC9 /* AuthorizationProvider.swift in Sources */,
 				FB7BCE072243C7FA00EDB121 /* AppStoreVersionAPIImpl.swift in Sources */,
 				FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */,
