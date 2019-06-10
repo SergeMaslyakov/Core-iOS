@@ -10,7 +10,6 @@ public protocol BiometricAuthService {
 
     func obtainBiometryType() -> BiometryType
     func removePincode()
-    func retrievePincode(completion: @escaping (_ pincode: String?, _ error: Error?) -> Void)
-    func storePincode(pincode: String, completion: ((_ success: Bool, _ error: Error?) -> Void)?)
-
+    func retrievePincode(completion: @escaping (_ result: Result<String?, Error>) -> Void)
+    func storePincode(_ pincode: String) -> Result<Bool, Error>
 }

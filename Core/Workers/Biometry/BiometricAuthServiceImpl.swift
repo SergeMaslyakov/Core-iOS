@@ -64,7 +64,7 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
 
     }
 
-    public func retrievePincode(completion: @escaping (_ pincode: String?, _ error: Error?) -> Void) {
+    public func retrievePincode(completion: @escaping (_ result: Result<String?, Error>) -> Void) {
         var authError: NSError?
 
         if biometricContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
@@ -72,30 +72,44 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
                                             localizedReason: touchIDMessage) { success, error in
                                                 // FYI: It's a background thread
                                                 if success {
-                                                    let data = try? self.securedStorage.getData(forKey: self.pincodeKey)
-                                                    var pincode: String?
+                                                    do {
+                                                        let data = try self.securedStorage.getData(forKey: self.pincodeKey)
+                                                        var pincode: String?
 
-                                                    if let data = data as? Data {
-                                                        pincode = String(data: data, encoding: .utf8)
-                                                    }
+                                                        if let data = data as? Data {
+                                                            pincode = String(data: data, encoding: .utf8)
+                                                        }
 
-                                                    DispatchQueue.main.async {
-                                                        completion(pincode, nil)
+                                                        DispatchQueue.main.async {
+                                                            completion(.success(pincode))
+                                                        }
+                                                    } catch {
+                                                        DispatchQueue.main.async {
+                                                            completion(.failure(error))
+                                                        }
                                                     }
                                                 } else {
                                                     DispatchQueue.main.async {
-                                                        completion(nil, error)
+                                                        if let err = error {
+                                                            completion(.failure(err))
+                                                        } else {
+                                                            completion(.success(nil))
+                                                        }
                                                     }
                                                 }
             }
         } else {
             DispatchQueue.main.async {
-                completion(nil, authError)
+                if let err = authError {
+                    completion(.failure(err))
+                } else {
+                    completion(.success(nil))
+                }
             }
         }
     }
 
-    public func storePincode(pincode: String, completion: ((_ success: Bool, _ error: Error?) -> Void)?) {
+    public func storePincode(_ pincode: String) -> Result<Bool, Error> {
         let data = pincode.data(using: .utf8)
 
         do {
@@ -111,10 +125,10 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
             }
 
             markPincodeAsStored(true)
-            completion?(true, nil)
+            return .success(true)
         } catch {
             markPincodeAsStored(false)
-            completion?(false, error)
+            return .failure(error)
         }
     }
 
