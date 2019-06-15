@@ -145,7 +145,7 @@ extension NetworkClient {
         if !statusCode.isSuccess {
             if let jsonData = data, response.containsJSONContent {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: jsonData, options: [])
+                    let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
                     completion(.failure(.httpErrorWithData(statusCode, json)))
                 } catch {
                     completion(.failure(.httpError(statusCode)))
