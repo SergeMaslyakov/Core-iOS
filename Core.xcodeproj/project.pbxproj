@@ -105,6 +105,7 @@
 		FBCA630E226674110021655F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCA630D226674110021655F /* Logger.swift */; };
 		FBCA63102266748A0021655F /* SwiftyBeaverLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCA630F2266748A0021655F /* SwiftyBeaverLogger.swift */; };
 		FBCA6312226675C20021655F /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCA6311226675C20021655F /* SwiftyBeaver.framework */; };
+		FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */; };
 		FBD0463722689D5800722DDA /* Codextended.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0462A22689D5700722DDA /* Codextended.swift */; };
 		FBDB8AC92285C566009ECBCC /* HTTPURLResponse+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDB8AC82285C566009ECBCC /* HTTPURLResponse+Helpers.swift */; };
 		FBE8154522819C6600FB5CF7 /* PassthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8154422819C6600FB5CF7 /* PassthroughView.swift */; };
@@ -245,6 +246,7 @@
 		FBCA630D226674110021655F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		FBCA630F2266748A0021655F /* SwiftyBeaverLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverLogger.swift; sourceTree = "<group>"; };
 		FBCA6311226675C20021655F /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringUtils.swift; sourceTree = "<group>"; };
 		FBD0461D22689D5700722DDA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FBD0462422689D5700722DDA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FBD0462A22689D5700722DDA /* Codextended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codextended.swift; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 				FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */,
 				FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */,
 				FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */,
+				FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				FB7BCDFA2243C0D500EDB121 /* Date+Helpers.swift in Sources */,
 				FBF046D02238307E009A7337 /* ErrorPresentationServiceImpl.swift in Sources */,
 				FB513E632233DFC300F11CC9 /* JSONResponseDecoder.swift in Sources */,
+				FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */,
 				FB7BCDF12243BFE000EDB121 /* RadioTechnologyType.swift in Sources */,
 				FBE815722281DE3D00FB5CF7 /* EmailValidatorImpl.swift in Sources */,
 				DD654BBDFB9265A64E44A9FB /* DeepLinkHandler.swift in Sources */,
