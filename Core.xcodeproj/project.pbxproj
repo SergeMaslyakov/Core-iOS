@@ -133,7 +133,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DA5B94C1224424C0006245B7 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = ../Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorkerTests.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
 		DA9ECB432243190100EDAF4A /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = ../Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -383,7 +382,6 @@
 				FB0ED136228B55CD00D4F033 /* RxRelay.framework */,
 				FBC412EF226CE12400AB3554 /* Nuke.framework */,
 				FBCA6311226675C20021655F /* SwiftyBeaver.framework */,
-				DA5B94C1224424C0006245B7 /* PhoneNumberKit.framework */,
 				DA9ECB5F2243841500EDAF4A /* RxSwiftUtilities.framework */,
 				DA9ECB602243841500EDAF4A /* SVProgressHUD.framework */,
 				DA9ECB432243190100EDAF4A /* RxBlocking.framework */,
