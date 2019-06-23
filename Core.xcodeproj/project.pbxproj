@@ -108,6 +108,8 @@
 		FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */; };
 		FBD0463722689D5800722DDA /* Codextended.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0462A22689D5700722DDA /* Codextended.swift */; };
 		FBDB8AC92285C566009ECBCC /* HTTPURLResponse+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDB8AC82285C566009ECBCC /* HTTPURLResponse+Helpers.swift */; };
+		FBE5385D22BFB367002CF9F7 /* LocationManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5385B22BFB367002CF9F7 /* LocationManagerImpl.swift */; };
+		FBE5385E22BFB367002CF9F7 /* LocationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5385C22BFB367002CF9F7 /* LocationManger.swift */; };
 		FBE8154522819C6600FB5CF7 /* PassthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8154422819C6600FB5CF7 /* PassthroughView.swift */; };
 		FBE8154722819C9F00FB5CF7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE8154622819C9F00FB5CF7 /* GradientView.swift */; };
 		FBE815672281DAE600FB5CF7 /* NSPredicate+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815662281DAE500FB5CF7 /* NSPredicate+Email.swift */; };
@@ -250,6 +252,8 @@
 		FBD0462422689D5700722DDA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FBD0462A22689D5700722DDA /* Codextended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codextended.swift; sourceTree = "<group>"; };
 		FBDB8AC82285C566009ECBCC /* HTTPURLResponse+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Helpers.swift"; sourceTree = "<group>"; };
+		FBE5385B22BFB367002CF9F7 /* LocationManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerImpl.swift; sourceTree = "<group>"; };
+		FBE5385C22BFB367002CF9F7 /* LocationManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManger.swift; sourceTree = "<group>"; };
 		FBE8154422819C6600FB5CF7 /* PassthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughView.swift; sourceTree = "<group>"; };
 		FBE8154622819C9F00FB5CF7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FBE815662281DAE500FB5CF7 /* NSPredicate+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Email.swift"; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 		DA768A9A224303BA0001C87C /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				FBE5385A22BFB367002CF9F7 /* LocationManager */,
 				FB02DDEA22AE72270028284E /* Biometry */,
 				FBF2617D2287A3E2006DB6C4 /* SmsCodesManager */,
 				FB2CFB96226B920A00B85FB9 /* AppFlags */,
@@ -768,6 +773,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FBE5385A22BFB367002CF9F7 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				FBE5385B22BFB367002CF9F7 /* LocationManagerImpl.swift */,
+				FBE5385C22BFB367002CF9F7 /* LocationManger.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 		FBE815682281DBF800FB5CF7 /* Validators */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +962,7 @@
 				DA9ECB5E224383B400EDAF4A /* SVProgressHUD+Rx.swift in Sources */,
 				FB7BCDF52243BFE000EDB121 /* ReachabilityStatus.swift in Sources */,
 				FB2CFB9C226B9C8200B85FB9 /* PrintLogger.swift in Sources */,
+				FBE5385E22BFB367002CF9F7 /* LocationManger.swift in Sources */,
 				FB2CFB98226B923300B85FB9 /* AppFlagsService.swift in Sources */,
 				FB7BCDF72243BFE000EDB121 /* AppVersionCheckerWorker.swift in Sources */,
 				FB7BCDFC2243C18800EDB121 /* AppVersion.swift in Sources */,
@@ -959,6 +974,7 @@
 				FB513E652233DFC300F11CC9 /* NetworkResponseDecoding.swift in Sources */,
 				FB513EBD2234FDF600F11CC9 /* UIView+Helpers.swift in Sources */,
 				FB7BCE092243C8A300EDB121 /* AppVersionCheckerWorkerImpl.swift in Sources */,
+				FBE5385D22BFB367002CF9F7 /* LocationManagerImpl.swift in Sources */,
 				FB513E822234FB7B00F11CC9 /* AppBundleFileLoader.swift in Sources */,
 				FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */,
 				FB02DDEC22AE72A20028284E /* BiometricAuthServiceImpl.swift in Sources */,
