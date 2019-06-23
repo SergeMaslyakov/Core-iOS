@@ -47,7 +47,7 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
     }
 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last, CLLocationCoordinate2DIsValid(location.coordinate)  {
+        if let location = locations.last, CLLocationCoordinate2DIsValid(location.coordinate) {
             userLocation.accept(location)
         }
     }
