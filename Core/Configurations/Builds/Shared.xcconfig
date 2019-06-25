@@ -15,7 +15,7 @@ FRAMEWORK_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/../Carthage/Build/iOS
 // Packing
 DEFINES_MODULE = YES
 INFOPLIST_FILE = Core/Configurations/Info.plist
-PRODUCT_BUNDLE_IDENTIFIER = com.currency.converter.core
+PRODUCT_BUNDLE_IDENTIFIER = ru.core.ios
 PRODUCT_NAME = $(TARGET_NAME:c99extidentifier)
 
 // Signing

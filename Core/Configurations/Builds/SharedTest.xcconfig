@@ -5,7 +5,7 @@ LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/
 
 // Packaging
 INFOPLIST_FILE = CoreTests/Configurations/Info.plist
-PRODUCT_BUNDLE_IDENTIFIER = com.example.iosproject.CoreTests
+PRODUCT_BUNDLE_IDENTIFIER = com.core.ios.CoreTests
 PRODUCT_NAME = $(TARGET_NAME)
 
 // Build Options
