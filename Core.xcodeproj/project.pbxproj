@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */; };
 		DA9ECB4C2243190100EDAF4A /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB422243190000EDAF4A /* RxGesture.framework */; };
 		DA9ECB4D2243190100EDAF4A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB432243190100EDAF4A /* RxBlocking.framework */; };
 		DA9ECB4E2243190100EDAF4A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB442243190100EDAF4A /* RxSwift.framework */; };
@@ -107,6 +108,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Utils.swift"; sourceTree = "<group>"; };
 		DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorkerTests.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
 		DA9ECB432243190100EDAF4A /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = ../Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */,
 				FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */,
 				FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */,
+				95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				FB7BCDFC2243C18800EDB121 /* AppVersion.swift in Sources */,
 				FBF046CE2238305D009A7337 /* ErrorPresentationService.swift in Sources */,
 				FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */,
+				95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */,
 				FB7BCDF82243BFE000EDB121 /* RefreshJobWorker.swift in Sources */,
 				FB513EBD2234FDF600F11CC9 /* UIView+Helpers.swift in Sources */,
 				FBE5385D22BFB367002CF9F7 /* LocationManagerImpl.swift in Sources */,
