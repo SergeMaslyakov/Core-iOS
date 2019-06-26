@@ -3,9 +3,13 @@ import UIKit
 public enum AttributedStringUtils {
 
     public static func makeTextLink(text: String, textLinkRange: [NSRange], font: UIFont, textColor: UIColor, linkColor: UIColor) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 4
+
         let attributedString = NSMutableAttributedString(string: text, attributes: [
                 .font: font,
-                .foregroundColor: textColor
+                .foregroundColor: textColor,
+                .paragraphStyle: paragraphStyle
             ])
 
         let ranges = textLinkRange.isEmpty ? [NSRange(location: 0, length: text.count)] : textLinkRange
