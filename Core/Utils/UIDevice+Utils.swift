@@ -28,7 +28,7 @@ public extension UIDevice {
         }
 
         init?(height: CGFloat) {
-            guard let device = Device.allCases.first(where: { $0.screenHeight == height }) else  { return nil }
+            guard let device = Device.allCases.first(where: { $0.screenHeight == height }) else { return nil }
             self = device
         }
     }
