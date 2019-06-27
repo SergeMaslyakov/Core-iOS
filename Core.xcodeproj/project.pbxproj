@@ -72,6 +72,7 @@
 		FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE452246962800EDB121 /* CountryModel.swift */; };
 		FB7BCE4B2246976F00EDB121 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */; };
 		FB7BCE4D2246B5B800EDB121 /* RefreshJobWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */; };
+		FB970D9622C5424300416E2F /* DisposableStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB970D9522C5424300416E2F /* DisposableStick.swift */; };
 		FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */; };
 		FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */; };
 		FBC412EE226CD55800AB3554 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC412ED226CD55800AB3554 /* AvatarImageView.swift */; };
@@ -186,6 +187,7 @@
 		FB7BCE442246962800EDB121 /* CountryCodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
 		FB7BCE452246962800EDB121 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceTests.swift; sourceTree = "<group>"; };
+		FB970D9522C5424300416E2F /* DisposableStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableStick.swift; sourceTree = "<group>"; };
 		FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormattingUtils.swift; sourceTree = "<group>"; };
 		FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialDispatchQueueScheduler+Factory.swift"; sourceTree = "<group>"; };
 		FBC412ED226CD55800AB3554 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
@@ -547,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				FB7BCE122243CDC200EDB121 /* NotificationToken.swift */,
+				FB970D9522C5424300416E2F /* DisposableStick.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				FB7BCE472246962800EDB121 /* CountryService.swift in Sources */,
 				FB513EB62234FDF600F11CC9 /* String+Localizable.swift in Sources */,
 				FB153BE322A007BD00EBEB80 /* UITextView+Html.swift in Sources */,
+				FB970D9622C5424300416E2F /* DisposableStick.swift in Sources */,
 				FB7BCE462246962800EDB121 /* CountryServiceImpl.swift in Sources */,
 				FBE815772281DF2F00FB5CF7 /* PasswordValidatorImpl.swift in Sources */,
 				FB513EBB2234FDF600F11CC9 /* UIViewController+Helpers.swift in Sources */,
