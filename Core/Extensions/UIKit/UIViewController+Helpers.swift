@@ -7,11 +7,12 @@ public extension UIViewController {
         return self.init(nibName: overriddenXib ?? identifier, bundle: bundle)
     }
 
-    static func loadFromStoryboard(_ name: String? = nil, bundle: Bundle? = nil) -> UIViewController {
+    static func loadFromStoryboard(_ name: String? = nil, id: String? = nil, bundle: Bundle? = nil) -> UIViewController {
         let identifier = String(describing: self)
+        let id = id ?? identifier
         let storyboard = name ?? identifier.replacingOccurrences(of: "ViewController", with: "")
 
-        return UIStoryboard(name: storyboard, bundle: bundle).instantiateViewController(withIdentifier: identifier)
+        return UIStoryboard(name: storyboard, bundle: bundle).instantiateViewController(withIdentifier: id)
     }
 
     static func emptyViewControllerWithAssert() -> UIViewController {
