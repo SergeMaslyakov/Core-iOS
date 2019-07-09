@@ -3,7 +3,7 @@ import UIKit
 public extension UICollectionViewCell {
 
     static func emptyCellWithAssert() -> UICollectionViewCell {
-        assert(false, "Empty UICollectionViewCell")
+        assertionFailure()
         return UICollectionViewCell()
     }
 }

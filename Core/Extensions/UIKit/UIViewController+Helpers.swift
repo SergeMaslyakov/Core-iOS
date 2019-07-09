@@ -16,7 +16,7 @@ public extension UIViewController {
     }
 
     static func emptyViewControllerWithAssert() -> UIViewController {
-        assert(false, "Empty UIViewController")
+        assertionFailure()
         return UIViewController()
     }
 
