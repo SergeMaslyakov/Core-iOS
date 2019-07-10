@@ -30,13 +30,12 @@ public extension UIView {
         superView.layoutIfNeeded()
     }
 
-    func setConstraintHeigh(_ value: Int) {
+    func addHeightConstraint(_ value: Int) {
         translatesAutoresizingMaskIntoConstraints = false
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[view(\(value))]",
-            options: [],
-            metrics: nil,
-            views: ["view": self]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(\(value))]",
+                                                      options: [],
+                                                      metrics: nil,
+                                                      views: ["view": self]))
     }
 
     func snapshotImage(in frame: CGRect? = nil) -> UIImage? {
