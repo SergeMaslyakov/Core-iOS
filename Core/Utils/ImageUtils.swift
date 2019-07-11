@@ -6,14 +6,14 @@ import RxSwift
 
 public enum ImageUtils {
 
-    static func resizeBatch(assets: [PHAsset], imageScalingSize: CGFloat) -> Observable<[UIImage]> {
+    public static func resizeBatch(assets: [PHAsset], imageScalingSize: CGFloat) -> Observable<[UIImage]> {
         let observables = assets.compactMap {
             $0.rx.image.flatMap { ImageUtils.resize(image: $0, imageScalingSize: imageScalingSize) }
         }
         return Observable.combineLatest(observables)
     }
 
-    static func resize(image: UIImage, imageScalingSize: CGFloat) -> Observable<UIImage> {
+    public static func resize(image: UIImage, imageScalingSize: CGFloat) -> Observable<UIImage> {
         return Observable.create { observer -> Disposable in
 
             let originalSize = image.size
@@ -36,7 +36,7 @@ public enum ImageUtils {
         }
     }
 
-    static func resize(image: UIImage, byScaling size: CGSize) -> UIImage? {
+    public static func resize(image: UIImage, byScaling size: CGSize) -> UIImage? {
 
         let imgRef = Utils.cgImageWithCorrectOrientation(image)
         let originalWidth = CGFloat(imgRef?.width ?? 0)
@@ -52,6 +52,28 @@ public enum ImageUtils {
         }
 
         return nil
+    }
+
+    public static func makeColoredImage(color: UIColor, bounds: CGRect) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0)
+        color.setFill()
+        UIRectFill(bounds)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    public static func scaleImage(_ image: UIImage, maxWidth width: CGFloat) -> UIImage {
+        let currentSize = image.size
+        let newSize = CGSize(width: width, height: currentSize.height * width / currentSize.width)
+        let renderer = UIGraphicsImageRenderer(size: newSize)
+
+        let resultImage = renderer.image { _ in
+            image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        }
+
+        return resultImage
     }
 
     private enum Utils {
@@ -134,15 +156,4 @@ public enum ImageUtils {
         }
     }
 
-    static func scaleImage(_ image: UIImage, maxWidth width: CGFloat) -> UIImage {
-        let currentSize = image.size
-        let newSize = CGSize(width: width, height: currentSize.height * width / currentSize.width)
-        let renderer = UIGraphicsImageRenderer(size: newSize)
-
-        let resultImage = renderer.image { _ in
-            image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        }
-
-        return resultImage
-    }
 }
