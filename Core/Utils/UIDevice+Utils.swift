@@ -23,7 +23,7 @@ public extension UIDevice {
             case .iphone6:
                 return 1134
             case .iphone6Plus:
-                return 2208
+                return 1920
             }
         }
 
