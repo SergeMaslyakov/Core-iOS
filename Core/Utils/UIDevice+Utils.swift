@@ -35,6 +35,10 @@ public extension UIDevice {
 
     static let device: Device = Device(height: UIScreen.main.nativeBounds.height) ?? .iphone6
 
+    var isX2Layout: Bool {
+        return UIDevice.device == .iphone5 || UIDevice.device == .iphone6
+    }
+
     var isIphone5: Bool {
         return UIDevice.device == .iphone5
     }
