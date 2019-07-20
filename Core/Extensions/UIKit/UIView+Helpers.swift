@@ -38,6 +38,14 @@ public extension UIView {
                                                       views: ["view": self]))
     }
 
+    func addWidthConstraint(_ value: Int) {
+        translatesAutoresizingMaskIntoConstraints = false
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(\(value))]",
+            options: [],
+            metrics: nil,
+            views: ["view": self]))
+    }
+
     func snapshotImage(in frame: CGRect? = nil) -> UIImage? {
         let bounds = frame ?? self.bounds
         let renderer = UIGraphicsImageRenderer(size: bounds.size)
