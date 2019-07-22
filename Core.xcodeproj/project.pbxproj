@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
 		95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */; };
 		DA9ECB4C2243190100EDAF4A /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB422243190000EDAF4A /* RxGesture.framework */; };
 		DA9ECB4D2243190100EDAF4A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB432243190100EDAF4A /* RxBlocking.framework */; };
@@ -109,6 +110,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
 		95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Utils.swift"; sourceTree = "<group>"; };
 		DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorkerTests.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				FB513EB12234FDF600F11CC9 /* UIImage+Helpers.swift */,
 				DAC7E86A2246F14600B94425 /* UIColor+Helpers.swift */,
 				FB153BE222A007BD00EBEB80 /* UITextView+Html.swift */,
+				95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */,
 				FB513EBC2234FDF600F11CC9 /* UICollectionViewCell+Helpers.swift in Sources */,
 				FBE815702281DE2D00FB5CF7 /* EmailValidator.swift in Sources */,
+				95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */,
 				FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */,
 				FBE815752281DF2100FB5CF7 /* PasswordValidator.swift in Sources */,
 				FB7BCE032243C2EE00EDB121 /* DateFormatter+Helpers.swift in Sources */,
