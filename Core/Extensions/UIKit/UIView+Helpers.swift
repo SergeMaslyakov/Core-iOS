@@ -2,8 +2,8 @@ import UIKit
 
 public extension UIView {
 
-    static func loadFromXib() -> UIView? {
-        let nib = UINib(nibName: String(describing: self), bundle: Bundle(for: self))
+    static func loadFromXib(_ name: String? = nil, _ bundle: Bundle? = nil) -> UIView? {
+        let nib = UINib(nibName: name ?? String(describing: self), bundle: bundle ?? Bundle(for: self))
         let view = nib.instantiate(withOwner: self, options: nil).first as? UIView
 
         return view
