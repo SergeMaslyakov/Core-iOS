@@ -55,13 +55,18 @@ public extension UIView {
         }
     }
 
+    func applyRasterization() {
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
+    }
+
     func maskRoundCorners(_ corners: UIRectCorner = .allCorners, radius: CGFloat) {
         guard radius > 0 else { return }
 
-        let path = UIBezierPath(roundedRect: bounds,
-                                byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: radius, height: radius))
+        let size = CGSize(width: radius, height: radius)
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: size)
         let mask = CAShapeLayer()
+
         mask.path = path.cgPath
 
         layer.mask = mask
