@@ -78,7 +78,7 @@ public enum ImageUtils {
 
     private enum Utils {
 
-        // swiftlint:disable function_body_length
+        // swiftlint:disable function_body_length superfluous_disable_command
         static func cgImageWithCorrectOrientation(_ image: UIImage) -> CGImage? {
 
             if image.imageOrientation == UIImage.Orientation.up {
@@ -137,7 +137,7 @@ public enum ImageUtils {
             let cgImage = context.makeImage()
             return cgImage
         }
-        // swiftlint:enable function_body_length
+        // swiftlint:enable function_body_length superfluous_disable_command
 
         static func draw(image: UIImage, in bounds: CGRect, scale: CGFloat) -> UIImage? {
             guard bounds.width > 0.0 && bounds.height > 0.0 else {
