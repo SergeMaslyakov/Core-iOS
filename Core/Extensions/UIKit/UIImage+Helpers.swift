@@ -11,4 +11,18 @@ public extension UIImage {
 
         return image
     }
+
+    func roundedImage(cornerRadius: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+
+        let maskPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: size), cornerRadius: cornerRadius)
+        maskPath.addClip()
+
+        draw(in: CGRect(origin: .zero, size: size))
+
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return roundedImage
+    }
 }
