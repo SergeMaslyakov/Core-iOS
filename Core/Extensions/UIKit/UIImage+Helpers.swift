@@ -3,7 +3,7 @@ import UIKit
 public extension UIImage {
 
     static func image(with color: UIColor, bounds: CGRect) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0)
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
         color.setFill()
         UIRectFill(bounds)
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -13,7 +13,7 @@ public extension UIImage {
     }
 
     func roundedImage(cornerRadius: CGFloat) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
 
         let maskPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: size), cornerRadius: cornerRadius)
         maskPath.addClip()
@@ -25,4 +25,18 @@ public extension UIImage {
 
         return image
     }
+
+    func merge(backgroundImage: UIImage, with foregroundImage: UIImage, at point: CGPoint) -> UIImage {
+
+        UIGraphicsBeginImageContextWithOptions(backgroundImage.size, false, UIScreen.main.scale)
+
+        backgroundImage.draw(at: .zero)
+        foregroundImage.draw(at: point)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
 }
