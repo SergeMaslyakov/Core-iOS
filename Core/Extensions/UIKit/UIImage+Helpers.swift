@@ -26,11 +26,11 @@ public extension UIImage {
         return image
     }
 
-    func merge(backgroundImage: UIImage, with foregroundImage: UIImage, at point: CGPoint) -> UIImage {
+    func merge(foregroundImage: UIImage, at point: CGPoint) -> UIImage {
 
-        UIGraphicsBeginImageContextWithOptions(backgroundImage.size, false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
 
-        backgroundImage.draw(at: .zero)
+        draw(at: .zero)
         foregroundImage.draw(at: point)
 
         let image = UIGraphicsGetImageFromCurrentImageContext()!
