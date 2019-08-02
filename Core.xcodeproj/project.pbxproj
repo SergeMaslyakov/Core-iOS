@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
+		95BD163D22F47FEA00CFFD68 /* SyncMemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */; };
 		95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */; };
 		DA9ECB4C2243190100EDAF4A /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB422243190000EDAF4A /* RxGesture.framework */; };
 		DA9ECB4D2243190100EDAF4A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB432243190100EDAF4A /* RxBlocking.framework */; };
@@ -111,6 +112,7 @@
 
 /* Begin PBXFileReference section */
 		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
+		95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMemoryCache.swift; sourceTree = "<group>"; };
 		95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Utils.swift"; sourceTree = "<group>"; };
 		DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorkerTests.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 			children = (
 				FB7BCE122243CDC200EDB121 /* NotificationToken.swift */,
 				FB970D9522C5424300416E2F /* DisposableStick.swift */,
+				95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 				FB48FDF8229062E2007F28CC /* QRCodeUtils.swift in Sources */,
 				FB7BCDF32243BFE000EDB121 /* NetworkReachabilityService.swift in Sources */,
 				FBD0463722689D5800722DDA /* Codextended.swift in Sources */,
+				95BD163D22F47FEA00CFFD68 /* SyncMemoryCache.swift in Sources */,
 				FB7BCDF22243BFE000EDB121 /* NetworkQualityMonitoring.swift in Sources */,
 				FBE8154522819C6600FB5CF7 /* PassthroughView.swift in Sources */,
 				FBCA63102266748A0021655F /* SwiftyBeaverLogger.swift in Sources */,
