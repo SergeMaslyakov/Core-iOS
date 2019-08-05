@@ -51,4 +51,10 @@ public enum MKMapUtils {
 
         return Box(center: center, span: span, sw: sw, ne: ne)
     }
+
+    public static func addInsetsInMeters(span: MKCoordinateSpan, inset: Double) -> MKCoordinateSpan {
+        // one degree of latitude is approximately 111 kilometers (69 miles) at all times.
+        // one degree of longitude spans a distance of approximately 111 kilometers (69 miles) at the equator but shrinks to 0 kilometers at the poles.
+        return MKCoordinateSpan(latitudeDelta: span.latitudeDelta + inset/111000, longitudeDelta: span.longitudeDelta + inset/111000)
+    }
 }

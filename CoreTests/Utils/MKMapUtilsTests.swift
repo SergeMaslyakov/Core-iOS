@@ -1,5 +1,5 @@
 import XCTest
-import CoreLocation
+import MapKit
 
 @testable import Core
 
@@ -7,6 +7,7 @@ class MKMapUtilsTests: XCTestCase {
 
     private var singleCoord: CLLocationCoordinate2D!
     private var coords: [CLLocationCoordinate2D]!
+    private var span: MKCoordinateSpan!
 
     override func setUp() {
         super.setUp()
@@ -19,10 +20,15 @@ class MKMapUtilsTests: XCTestCase {
             CLLocationCoordinate2D(latitude: 40.738524, longitude: -73.985737),
             CLLocationCoordinate2D(latitude: 40.737643, longitude: -73.987627)
         ]
+
+        span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        singleCoord = nil
+        coords = nil
+        span = nil
+
         super.tearDown()
     }
 
@@ -45,4 +51,11 @@ class MKMapUtilsTests: XCTestCase {
         XCTAssertTrue(box.sw.longitude == -73.987833)
     }
 
+    func testAddingInsetForSpan() {
+
+        let spanWithInset = MKMapUtils.addInsetsInMeters(span: span, inset: 1000)
+
+        XCTAssertTrue(spanWithInset.latitudeDelta > span.latitudeDelta)
+        XCTAssertTrue(spanWithInset.longitudeDelta > span.longitudeDelta)
+    }
 }
