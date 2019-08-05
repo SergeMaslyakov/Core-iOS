@@ -37,7 +37,17 @@ public enum MKMapUtils {
         let latitudeDelta = abs((ne.latitude - sw.latitude) / 2)
         let longitudeDelta = abs((ne.longitude - sw.longitude) / 2)
         let center = CLLocationCoordinate2D(latitude: ne.latitude - latitudeDelta, longitude: ne.longitude - longitudeDelta)
-        let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+
+        let span: MKCoordinateSpan
+
+        if coordinates.count == 1 {
+            let region = MKCoordinateRegion(center: coordinates[0],
+                                            latitudinalMeters: 600,
+                                            longitudinalMeters: 600)
+            span = region.span
+        } else {
+            span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+        }
 
         return Box(center: center, span: span, sw: sw, ne: ne)
     }

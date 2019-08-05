@@ -10,6 +10,7 @@
 		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
 		95BD163D22F47FEA00CFFD68 /* SyncMemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */; };
 		95BD163F22F820E200CFFD68 /* MKMapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163E22F820E200CFFD68 /* MKMapUtils.swift */; };
+		95BD164422F8787A00CFFD68 /* MKMapUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */; };
 		95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */; };
 		DA9ECB4C2243190100EDAF4A /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB422243190000EDAF4A /* RxGesture.framework */; };
 		DA9ECB4D2243190100EDAF4A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB432243190100EDAF4A /* RxBlocking.framework */; };
@@ -115,6 +116,7 @@
 		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
 		95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMemoryCache.swift; sourceTree = "<group>"; };
 		95BD163E22F820E200CFFD68 /* MKMapUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtils.swift; sourceTree = "<group>"; };
+		95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtilsTests.swift; sourceTree = "<group>"; };
 		95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Utils.swift"; sourceTree = "<group>"; };
 		DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorkerTests.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
@@ -251,6 +253,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95BD164222F8786700CFFD68 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		DA768A97224303090001C87C /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +395,7 @@
 		E0FD11EA21477A5F008C2EF8 /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				95BD164222F8786700CFFD68 /* Utils */,
 				FB41B99E225A39D00049F3BC /* Storage */,
 				DAC7E898224F7E0300B94425 /* AppVersion */,
 				DA768A97224303090001C87C /* Workers */,
@@ -881,6 +892,7 @@
 				FB7BCE4B2246976F00EDB121 /* CountryServiceTests.swift in Sources */,
 				DAC7E89A224F7E1F00B94425 /* AppVersionTests.swift in Sources */,
 				FB7BCE4D2246B5B800EDB121 /* RefreshJobWorkerTests.swift in Sources */,
+				95BD164422F8787A00CFFD68 /* MKMapUtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

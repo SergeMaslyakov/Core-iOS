@@ -55,7 +55,7 @@ public enum ImageUtils {
     }
 
     public static func makeColoredImage(color: UIColor, bounds: CGRect) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
         color.setFill()
         UIRectFill(bounds)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
