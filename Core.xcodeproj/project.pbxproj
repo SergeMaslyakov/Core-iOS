@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
 		95BD163D22F47FEA00CFFD68 /* SyncMemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */; };
+		95BD163F22F820E200CFFD68 /* MKMapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163E22F820E200CFFD68 /* MKMapUtils.swift */; };
 		95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */; };
 		DA9ECB4C2243190100EDAF4A /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB422243190000EDAF4A /* RxGesture.framework */; };
 		DA9ECB4D2243190100EDAF4A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB432243190100EDAF4A /* RxBlocking.framework */; };
@@ -113,6 +114,7 @@
 /* Begin PBXFileReference section */
 		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
 		95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMemoryCache.swift; sourceTree = "<group>"; };
+		95BD163E22F820E200CFFD68 /* MKMapUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtils.swift; sourceTree = "<group>"; };
 		95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Utils.swift"; sourceTree = "<group>"; };
 		DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorkerTests.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */,
 				FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */,
 				95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */,
+				95BD163E22F820E200CFFD68 /* MKMapUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 			files = (
 				FB513EA42234FDEB00F11CC9 /* DataStorageProtocol.swift in Sources */,
 				FB513EBE2234FDF600F11CC9 /* UIImage+Helpers.swift in Sources */,
+				95BD163F22F820E200CFFD68 /* MKMapUtils.swift in Sources */,
 				FB02DDEE22AE76940028284E /* BiometricAuthService.swift in Sources */,
 				FBE815672281DAE600FB5CF7 /* NSPredicate+Email.swift in Sources */,
 				FB513EB92234FDF600F11CC9 /* XibView.swift in Sources */,
