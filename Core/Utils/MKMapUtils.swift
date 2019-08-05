@@ -5,12 +5,20 @@ public enum MKMapUtils {
     public struct Box {
         public let center: CLLocationCoordinate2D
         public let span: MKCoordinateSpan
-
-        public let sw: CLLocationCoordinate2D
-        public let ne: CLLocationCoordinate2D
     }
 
     public static func makeCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> Box? {
+        guard coordinates.count > 1 else { return calculateCoordinateRegion(from: coordinates) }
+
+        let polygon: MKPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
+        let mapRect = polygon.boundingMapRect.insetBy(dx: 100, dy: 100)
+
+        let region = MKCoordinateRegion(mapRect)
+
+        return Box(center: region.center, span: region.span)
+    }
+
+    private static func calculateCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> Box? {
         guard let initial = coordinates.first else { return nil }
 
         var sw: CLLocationCoordinate2D = initial
@@ -49,7 +57,7 @@ public enum MKMapUtils {
             span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
         }
 
-        return Box(center: center, span: span, sw: sw, ne: ne)
+        return Box(center: center, span: span)
     }
 
     public static func addInsetsInMeters(span: MKCoordinateSpan, inset: Double) -> MKCoordinateSpan {
