@@ -54,11 +54,26 @@ public enum ImageUtils {
         return nil
     }
 
-    public static func makeColoredImage(color: UIColor, bounds: CGRect) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0)
+    public static func makeColoredImage(color: UIColor, bounds: CGRect) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
         color.setFill()
         UIRectFill(bounds)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    public static func makeColoredRoundImage(color: UIColor, bounds: CGRect, cornerRadius: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+
+        color.setFill()
+
+        let maskPath = UIBezierPath(roundedRect: CGRect(origin: .zero, size: bounds.size), cornerRadius: cornerRadius)
+        maskPath.addClip()
+        UIRectFill(bounds)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
         return image

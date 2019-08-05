@@ -2,7 +2,15 @@ import MapKit
 
 public enum MKMapUtils {
 
-    public static func makeCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> MKCoordinateRegion? {
+    public struct Box {
+        public let center: CLLocationCoordinate2D
+        public let span: MKCoordinateSpan
+
+        public let sw: CLLocationCoordinate2D
+        public let ne: CLLocationCoordinate2D
+    }
+
+    public static func makeCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> Box? {
         guard let initial = coordinates.first else { return nil }
 
         var sw: CLLocationCoordinate2D = initial
@@ -31,6 +39,6 @@ public enum MKMapUtils {
         let center = CLLocationCoordinate2D(latitude: ne.latitude - latitudeDelta, longitude: ne.longitude - longitudeDelta)
         let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
 
-        return MKCoordinateRegion(center: center, span: span)
+        return Box(center: center, span: span, sw: sw, ne: ne)
     }
 }
