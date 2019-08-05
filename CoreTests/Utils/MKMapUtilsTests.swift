@@ -36,19 +36,16 @@ class MKMapUtilsTests: XCTestCase {
 
         let box = MKMapUtils.makeCoordinateRegion(from: [singleCoord])!
 
-        XCTAssertTrue(box.center.latitude == 40.759211)
-        XCTAssertTrue(box.center.longitude == -73.984638)
+        XCTAssertTrue(abs(box.center.latitude - 40.759211) < 0.0000001)
+        XCTAssertTrue(abs(box.center.longitude - -73.984638) < 0.0000001)
     }
 
     func testMakingRegionFromCoords() {
 
         let box = MKMapUtils.makeCoordinateRegion(from: coords)!
 
-        XCTAssertTrue(box.ne.latitude == 40.738524)
-        XCTAssertTrue(box.ne.longitude == -73.985737)
-
-        XCTAssertTrue(box.sw.latitude == 40.735868)
-        XCTAssertTrue(box.sw.longitude == -73.987833)
+        XCTAssertTrue(abs(box.center.latitude - 40.737196013) < 0.0000001)
+        XCTAssertTrue(abs(box.center.longitude - -73.986784999) < 0.0000001)
     }
 
     func testAddingInsetForSpan() {
