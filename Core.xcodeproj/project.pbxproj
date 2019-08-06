@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
+		95AE3DA022F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */; };
+		95AE3DA122F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9D22F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift */; };
+		95AE3DA222F9CCB70060FFFC /* ModalPushTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9F22F9CCB70060FFFC /* ModalPushTransitionAnimator.swift */; };
 		95BD163D22F47FEA00CFFD68 /* SyncMemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */; };
 		95BD163F22F820E200CFFD68 /* MKMapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163E22F820E200CFFD68 /* MKMapUtils.swift */; };
 		95BD164422F8787A00CFFD68 /* MKMapUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */; };
@@ -114,6 +117,9 @@
 
 /* Begin PBXFileReference section */
 		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
+		95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalBubbleTransitionAnimator.swift; sourceTree = "<group>"; };
+		95AE3D9D22F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalFadeTransitionAnimator.swift; sourceTree = "<group>"; };
+		95AE3D9F22F9CCB70060FFFC /* ModalPushTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPushTransitionAnimator.swift; sourceTree = "<group>"; };
 		95BD163C22F47FE900CFFD68 /* SyncMemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMemoryCache.swift; sourceTree = "<group>"; };
 		95BD163E22F820E200CFFD68 /* MKMapUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtils.swift; sourceTree = "<group>"; };
 		95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtilsTests.swift; sourceTree = "<group>"; };
@@ -253,6 +259,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95AE3D9922F9CCB70060FFFC /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				95AE3D9A22F9CCB70060FFFC /* ModalBubbleTransition */,
+				95AE3D9C22F9CCB70060FFFC /* ModalFadeTransition */,
+				95AE3D9E22F9CCB70060FFFC /* ModalPushTransition */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		95AE3D9A22F9CCB70060FFFC /* ModalBubbleTransition */ = {
+			isa = PBXGroup;
+			children = (
+				95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */,
+			);
+			path = ModalBubbleTransition;
+			sourceTree = "<group>";
+		};
+		95AE3D9C22F9CCB70060FFFC /* ModalFadeTransition */ = {
+			isa = PBXGroup;
+			children = (
+				95AE3D9D22F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift */,
+			);
+			path = ModalFadeTransition;
+			sourceTree = "<group>";
+		};
+		95AE3D9E22F9CCB70060FFFC /* ModalPushTransition */ = {
+			isa = PBXGroup;
+			children = (
+				95AE3D9F22F9CCB70060FFFC /* ModalPushTransitionAnimator.swift */,
+			);
+			path = ModalPushTransition;
+			sourceTree = "<group>";
+		};
 		95BD164222F8786700CFFD68 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +548,7 @@
 		FB513EAA2234FDF600F11CC9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				95AE3D9922F9CCB70060FFFC /* Transitions */,
 				FB513EAB2234FDF600F11CC9 /* XibView.swift */,
 				FB513EB42234FDF600F11CC9 /* ConfigurableCell.swift */,
 				FBC412ED226CD55800AB3554 /* AvatarImageView.swift */,
@@ -826,6 +867,7 @@
 				95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */,
 				FB7BCDF82243BFE000EDB121 /* RefreshJobWorker.swift in Sources */,
 				FB513EBD2234FDF600F11CC9 /* UIView+Helpers.swift in Sources */,
+				95AE3DA022F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift in Sources */,
 				FBE5385D22BFB367002CF9F7 /* LocationManagerImpl.swift in Sources */,
 				FB513E822234FB7B00F11CC9 /* AppBundleFileLoader.swift in Sources */,
 				FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */,
@@ -856,6 +898,7 @@
 				FBE815752281DF2100FB5CF7 /* PasswordValidator.swift in Sources */,
 				FB7BCE032243C2EE00EDB121 /* DateFormatter+Helpers.swift in Sources */,
 				FB7BCDF42243BFE000EDB121 /* NetworkQualityType.swift in Sources */,
+				95AE3DA122F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift in Sources */,
 				FB48FDF8229062E2007F28CC /* QRCodeUtils.swift in Sources */,
 				FB7BCDF32243BFE000EDB121 /* NetworkReachabilityService.swift in Sources */,
 				FBD0463722689D5800722DDA /* Codextended.swift in Sources */,
@@ -864,6 +907,7 @@
 				FBE8154522819C6600FB5CF7 /* PassthroughView.swift in Sources */,
 				FBCA63102266748A0021655F /* SwiftyBeaverLogger.swift in Sources */,
 				FB513EA32234FDEB00F11CC9 /* DataStorageError.swift in Sources */,
+				95AE3DA222F9CCB70060FFFC /* ModalPushTransitionAnimator.swift in Sources */,
 				FBE8156B2281DC2300FB5CF7 /* PhoneValidator.swift in Sources */,
 				FBE8154722819C9F00FB5CF7 /* GradientView.swift in Sources */,
 				FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */,
