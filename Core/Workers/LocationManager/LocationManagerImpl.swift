@@ -6,14 +6,32 @@ import RxCocoa
 
 public final class LocationManagerImpl: NSObject, LocationManager {
 
-    public let authStatus: BehaviorRelay<CLAuthorizationStatus>
-    public let userLocation: BehaviorRelay<CLLocation?>
+    public var authStatus: Observable<CLAuthorizationStatus> {
+        return authStatusRelay.asObservable()
+    }
+
+    public var userLocation: Observable<CLLocation?> {
+        return userLocationRelay.asObservable()
+    }
+
+    public var defaultCoord: Observable<CLLocationCoordinate2D> {
+        return defaultCoordRelay.asObservable()
+    }
+
+    public var lastKnownUserLocation: CLLocation {
+        return userLocationRelay.value ?? CLLocation(latitude: defaultCoordRelay.value.latitude, longitude: defaultCoordRelay.value.longitude)
+    }
+
+    private let authStatusRelay: BehaviorRelay<CLAuthorizationStatus>
+    private let userLocationRelay: BehaviorRelay<CLLocation?>
+    private let defaultCoordRelay: BehaviorRelay<CLLocationCoordinate2D>
 
     private let locationManager = CLLocationManager()
 
-    public override init() {
-        self.userLocation = BehaviorRelay(value: nil)
-        self.authStatus = BehaviorRelay(value: CLLocationManager.authorizationStatus())
+    public init(defaultCoord: CLLocationCoordinate2D) {
+        self.userLocationRelay = BehaviorRelay(value: nil)
+        self.authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
+        self.defaultCoordRelay = BehaviorRelay(value: defaultCoord)
 
         super.init()
 
@@ -35,20 +53,20 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
 
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 
-        authStatus.accept(status)
+        authStatusRelay.accept(status)
 
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
 
             if let location = manager.location, CLLocationCoordinate2DIsValid(location.coordinate) {
-                userLocation.accept(location)
+                userLocationRelay.accept(location)
             }
         }
     }
 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last, CLLocationCoordinate2DIsValid(location.coordinate) {
-            userLocation.accept(location)
+            userLocationRelay.accept(location)
         }
     }
 
