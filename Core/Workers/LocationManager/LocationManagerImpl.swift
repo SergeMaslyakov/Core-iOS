@@ -14,6 +14,10 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         return userLocationRelay.asObservable()
     }
 
+    public var userHeading: Observable<CLHeading?> {
+        return userHeadingRelay.asObservable()
+    }
+
     public var defaultCoord: Observable<CLLocationCoordinate2D> {
         return defaultCoordRelay.asObservable()
     }
@@ -22,14 +26,20 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         return userLocationRelay.value ?? CLLocation(latitude: defaultCoordRelay.value.latitude, longitude: defaultCoordRelay.value.longitude)
     }
 
+    public var lastKnownUserHeading: CLHeading {
+        return userHeadingRelay.value ?? CLHeading()
+    }
+
     private let authStatusRelay: BehaviorRelay<CLAuthorizationStatus>
     private let userLocationRelay: BehaviorRelay<CLLocation?>
+    private let userHeadingRelay: BehaviorRelay<CLHeading?>
     private let defaultCoordRelay: BehaviorRelay<CLLocationCoordinate2D>
 
     private let locationManager = CLLocationManager()
 
     public init(defaultCoord: CLLocationCoordinate2D) {
         self.userLocationRelay = BehaviorRelay(value: nil)
+        self.userHeadingRelay = BehaviorRelay(value: nil)
         self.authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
         self.defaultCoordRelay = BehaviorRelay(value: defaultCoord)
 
@@ -42,6 +52,7 @@ public final class LocationManagerImpl: NSObject, LocationManager {
             locationManager.requestWhenInUseAuthorization()
         case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
         default:
             break
         }
@@ -57,10 +68,14 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
 
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
 
             if let location = manager.location, CLLocationCoordinate2DIsValid(location.coordinate) {
                 userLocationRelay.accept(location)
             }
+        } else {
+            locationManager.stopUpdatingLocation()
+            locationManager.stopUpdatingHeading()
         }
     }
 
@@ -70,4 +85,11 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
         }
     }
 
+    public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        userHeadingRelay.accept(newHeading)
+    }
+
+    public func locationManagerShouldDisplayHeadingCalibration(_ manager: CLLocationManager) -> Bool {
+        return true
+    }
 }
