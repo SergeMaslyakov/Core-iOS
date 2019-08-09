@@ -2,11 +2,13 @@ import UIKit
 
 public extension UIImage {
 
-    static func image(with color: UIColor, bounds: CGRect) -> UIImage? {
+    static func image(with color: UIColor, bounds: CGRect) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+
         color.setFill()
         UIRectFill(bounds)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
         return image
@@ -39,4 +41,15 @@ public extension UIImage {
         return image
     }
 
+    func drawText(text: NSAttributedString, at point: CGPoint) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+
+        draw(at: .zero)
+        text.draw(at: point)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return image
+    }
 }
