@@ -15,7 +15,7 @@ public enum AttributedStringUtils {
         let ranges = textLinkRange.isEmpty ? [NSRange(location: 0, length: text.count)] : textLinkRange
 
         ranges.forEach { range in
-            /// I don't want how to set the link color.
+            /// I don't know how to set the link color..
             //let link = text[Range(nsRange, in: text) ?? text.startIndex..<text.endIndex]
             //attributedString.addAttribute(.link, value: link, range: nsRange)
             attributedString.addAttribute(.foregroundColor, value: linkColor, range: range)

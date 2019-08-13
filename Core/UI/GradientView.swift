@@ -39,9 +39,8 @@ public class GradientView: PassthroughView {
     }
 
     private var gradientLayer: CAGradientLayer {
-        // swiftlint:disable force_cast
+        // swiftlint:disable:next force_cast
         return layer as! CAGradientLayer
-        // swiftlint:enable force_cast
     }
 
     private func updatePoints() {

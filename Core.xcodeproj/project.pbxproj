@@ -48,6 +48,7 @@
 		FB2CFB98226B923300B85FB9 /* AppFlagsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CFB97226B923300B85FB9 /* AppFlagsService.swift */; };
 		FB2CFB9A226B924100B85FB9 /* AppFlagsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CFB99226B924100B85FB9 /* AppFlagsServiceImpl.swift */; };
 		FB2CFB9C226B9C8200B85FB9 /* PrintLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CFB9B226B9C8200B85FB9 /* PrintLogger.swift */; };
+		FB397E4A2303486A001E02B6 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB397E492303486A001E02B6 /* AVPlayerView.swift */; };
 		FB41B99D225A31C90049F3BC /* KeychainDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B99C225A31C90049F3BC /* KeychainDataStorage.swift */; };
 		FB41B9A2225A3A230049F3BC /* UserDefaultsDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB41B9A1225A3A230049F3BC /* UserDefaultsDataStorageTests.swift */; };
 		FB48FDF8229062E2007F28CC /* QRCodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */; };
@@ -81,7 +82,6 @@
 		FB7BCE482246962800EDB121 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = FB7BCE442246962800EDB121 /* CountryCodes.json */; };
 		FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE452246962800EDB121 /* CountryModel.swift */; };
 		FB7BCE4B2246976F00EDB121 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */; };
-		FB7BCE4D2246B5B800EDB121 /* RefreshJobWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */; };
 		FB970D9622C5424300416E2F /* DisposableStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB970D9522C5424300416E2F /* DisposableStick.swift */; };
 		FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */; };
 		FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */; };
@@ -103,8 +103,6 @@
 		FBE815752281DF2100FB5CF7 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815742281DF2100FB5CF7 /* PasswordValidator.swift */; };
 		FBE815772281DF2F00FB5CF7 /* PasswordValidatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815762281DF2F00FB5CF7 /* PasswordValidatorImpl.swift */; };
 		FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF046BD2236F6E9009A7337 /* Array+Helpers.swift */; };
-		FBF046CE2238305D009A7337 /* ErrorPresentationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF046CD2238305D009A7337 /* ErrorPresentationService.swift */; };
-		FBF046D02238307E009A7337 /* ErrorPresentationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF046CF2238307E009A7337 /* ErrorPresentationServiceImpl.swift */; };
 		FBF2617F2287A3E2006DB6C4 /* SmsCodesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +129,6 @@
 		95BD163E22F820E200CFFD68 /* MKMapUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtils.swift; sourceTree = "<group>"; };
 		95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtilsTests.swift; sourceTree = "<group>"; };
 		95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Utils.swift"; sourceTree = "<group>"; };
-		DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorkerTests.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
 		DA9ECB432243190100EDAF4A /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = ../Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		DA9ECB442243190100EDAF4A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -173,6 +170,7 @@
 		FB2CFB97226B923300B85FB9 /* AppFlagsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlagsService.swift; sourceTree = "<group>"; };
 		FB2CFB99226B924100B85FB9 /* AppFlagsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlagsServiceImpl.swift; sourceTree = "<group>"; };
 		FB2CFB9B226B9C8200B85FB9 /* PrintLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintLogger.swift; sourceTree = "<group>"; };
+		FB397E492303486A001E02B6 /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		FB41B99C225A31C90049F3BC /* KeychainDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainDataStorage.swift; sourceTree = "<group>"; };
 		FB41B9A1225A3A230049F3BC /* UserDefaultsDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataStorageTests.swift; sourceTree = "<group>"; };
 		FB48FDF7229062E2007F28CC /* QRCodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeUtils.swift; sourceTree = "<group>"; };
@@ -230,8 +228,6 @@
 		FBE815742281DF2100FB5CF7 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		FBE815762281DF2F00FB5CF7 /* PasswordValidatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatorImpl.swift; sourceTree = "<group>"; };
 		FBF046BD2236F6E9009A7337 /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
-		FBF046CD2238305D009A7337 /* ErrorPresentationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentationService.swift; sourceTree = "<group>"; };
-		FBF046CF2238307E009A7337 /* ErrorPresentationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentationServiceImpl.swift; sourceTree = "<group>"; };
 		FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsCodesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,7 +325,6 @@
 		DA768A97224303090001C87C /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				DA768A98224303220001C87C /* RefreshJobWorkerTests.swift */,
 				FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */,
 			);
 			path = Workers;
@@ -452,7 +447,6 @@
 				FB513EA52234FDF600F11CC9 /* Supporting */,
 				FB513E802234FB6A00F11CC9 /* PersistentLayer */,
 				E0FD1225214784D5008C2EF8 /* Configurations */,
-				FBF046CC22383021009A7337 /* Presentation */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -579,6 +573,7 @@
 				FBC412ED226CD55800AB3554 /* AvatarImageView.swift */,
 				FBE8154422819C6600FB5CF7 /* PassthroughView.swift */,
 				FBE8154622819C9F00FB5CF7 /* GradientView.swift */,
+				FB397E492303486A001E02B6 /* AVPlayerView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -736,15 +731,6 @@
 			path = PasswordValidator;
 			sourceTree = "<group>";
 		};
-		FBF046CC22383021009A7337 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				FBF046CD2238305D009A7337 /* ErrorPresentationService.swift */,
-				FBF046CF2238307E009A7337 /* ErrorPresentationServiceImpl.swift */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 		FBF2617D2287A3E2006DB6C4 /* SmsCodesManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -879,7 +865,6 @@
 				FBE5385E22BFB367002CF9F7 /* LocationManger.swift in Sources */,
 				FB2CFB98226B923300B85FB9 /* AppFlagsService.swift in Sources */,
 				FB7BCDFC2243C18800EDB121 /* AppVersion.swift in Sources */,
-				FBF046CE2238305D009A7337 /* ErrorPresentationService.swift in Sources */,
 				FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */,
 				95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */,
 				953C3F712301626500E720F0 /* MapGeocodingData+Apple.swift in Sources */,
@@ -895,6 +880,7 @@
 				FBC412EE226CD55800AB3554 /* AvatarImageView.swift in Sources */,
 				FB513E582233DFC300F11CC9 /* Container.swift in Sources */,
 				FB41B99D225A31C90049F3BC /* KeychainDataStorage.swift in Sources */,
+				FB397E4A2303486A001E02B6 /* AVPlayerView.swift in Sources */,
 				FB513EB72234FDF600F11CC9 /* AppBundle.swift in Sources */,
 				FB513EC12234FDF600F11CC9 /* ConfigurableCell.swift in Sources */,
 				FB7BCE472246962800EDB121 /* CountryService.swift in Sources */,
@@ -934,7 +920,6 @@
 				DAC7E86B2246F14600B94425 /* UIColor+Helpers.swift in Sources */,
 				FBCA630E226674110021655F /* Logger.swift in Sources */,
 				FB7BCDFA2243C0D500EDB121 /* Date+Helpers.swift in Sources */,
-				FBF046D02238307E009A7337 /* ErrorPresentationServiceImpl.swift in Sources */,
 				FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */,
 				FB7BCDF12243BFE000EDB121 /* RadioTechnologyType.swift in Sources */,
 				FBE815722281DE3D00FB5CF7 /* EmailValidatorImpl.swift in Sources */,
@@ -955,7 +940,6 @@
 				FB41B9A2225A3A230049F3BC /* UserDefaultsDataStorageTests.swift in Sources */,
 				FB7BCE4B2246976F00EDB121 /* CountryServiceTests.swift in Sources */,
 				DAC7E89A224F7E1F00B94425 /* AppVersionTests.swift in Sources */,
-				FB7BCE4D2246B5B800EDB121 /* RefreshJobWorkerTests.swift in Sources */,
 				95BD164422F8787A00CFFD68 /* MKMapUtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
