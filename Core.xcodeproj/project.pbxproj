@@ -71,7 +71,6 @@
 		FB7BCDF32243BFE000EDB121 /* NetworkReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCDE92243BFE000EDB121 /* NetworkReachabilityService.swift */; };
 		FB7BCDF42243BFE000EDB121 /* NetworkQualityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCDEA2243BFE000EDB121 /* NetworkQualityType.swift */; };
 		FB7BCDF52243BFE000EDB121 /* ReachabilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCDEB2243BFE000EDB121 /* ReachabilityStatus.swift */; };
-		FB7BCDF82243BFE000EDB121 /* RefreshJobWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCDF02243BFE000EDB121 /* RefreshJobWorker.swift */; };
 		FB7BCDFA2243C0D500EDB121 /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCDF92243C0D500EDB121 /* Date+Helpers.swift */; };
 		FB7BCDFC2243C18800EDB121 /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCDFB2243C18800EDB121 /* AppVersion.swift */; };
 		FB7BCE032243C2EE00EDB121 /* DateFormatter+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE022243C2EE00EDB121 /* DateFormatter+Helpers.swift */; };
@@ -106,7 +105,7 @@
 		FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF046BD2236F6E9009A7337 /* Array+Helpers.swift */; };
 		FBF046CE2238305D009A7337 /* ErrorPresentationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF046CD2238305D009A7337 /* ErrorPresentationService.swift */; };
 		FBF046D02238307E009A7337 /* ErrorPresentationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF046CF2238307E009A7337 /* ErrorPresentationServiceImpl.swift */; };
-		FBF2617F2287A3E2006DB6C4 /* SmsCodesManages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2617E2287A3E2006DB6C4 /* SmsCodesManages.swift */; };
+		FBF2617F2287A3E2006DB6C4 /* SmsCodesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,7 +197,6 @@
 		FB7BCDE92243BFE000EDB121 /* NetworkReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityService.swift; sourceTree = "<group>"; };
 		FB7BCDEA2243BFE000EDB121 /* NetworkQualityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkQualityType.swift; sourceTree = "<group>"; };
 		FB7BCDEB2243BFE000EDB121 /* ReachabilityStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityStatus.swift; sourceTree = "<group>"; };
-		FB7BCDF02243BFE000EDB121 /* RefreshJobWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshJobWorker.swift; sourceTree = "<group>"; };
 		FB7BCDF92243C0D500EDB121 /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		FB7BCDFB2243C18800EDB121 /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		FB7BCE022243C2EE00EDB121 /* DateFormatter+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Helpers.swift"; sourceTree = "<group>"; };
@@ -234,7 +232,7 @@
 		FBF046BD2236F6E9009A7337 /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
 		FBF046CD2238305D009A7337 /* ErrorPresentationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentationService.swift; sourceTree = "<group>"; };
 		FBF046CF2238307E009A7337 /* ErrorPresentationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentationServiceImpl.swift; sourceTree = "<group>"; };
-		FBF2617E2287A3E2006DB6C4 /* SmsCodesManages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsCodesManages.swift; sourceTree = "<group>"; };
+		FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsCodesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,7 +345,6 @@
 				FB2CFB96226B920A00B85FB9 /* AppFlags */,
 				FB7BCE402246962800EDB121 /* CountryService */,
 				FB7BCDE62243BFE000EDB121 /* NetworkMonitoring */,
-				FB7BCDEF2243BFE000EDB121 /* RefreshJob */,
 				DD6540D5B5C615E70FF9385C /* DeepLinkManager */,
 			);
 			path = Workers;
@@ -625,14 +622,6 @@
 			path = NetworkMonitoring;
 			sourceTree = "<group>";
 		};
-		FB7BCDEF2243BFE000EDB121 /* RefreshJob */ = {
-			isa = PBXGroup;
-			children = (
-				FB7BCDF02243BFE000EDB121 /* RefreshJobWorker.swift */,
-			);
-			path = RefreshJob;
-			sourceTree = "<group>";
-		};
 		FB7BCE112243CDAF00EDB121 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,7 +748,7 @@
 		FBF2617D2287A3E2006DB6C4 /* SmsCodesManager */ = {
 			isa = PBXGroup;
 			children = (
-				FBF2617E2287A3E2006DB6C4 /* SmsCodesManages.swift */,
+				FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */,
 			);
 			path = SmsCodesManager;
 			sourceTree = "<group>";
@@ -893,7 +882,6 @@
 				FBF046CE2238305D009A7337 /* ErrorPresentationService.swift in Sources */,
 				FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */,
 				95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */,
-				FB7BCDF82243BFE000EDB121 /* RefreshJobWorker.swift in Sources */,
 				953C3F712301626500E720F0 /* MapGeocodingData+Apple.swift in Sources */,
 				FB513EBD2234FDF600F11CC9 /* UIView+Helpers.swift in Sources */,
 				95AE3DA022F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift in Sources */,
@@ -917,7 +905,7 @@
 				FB7BCE462246962800EDB121 /* CountryServiceImpl.swift in Sources */,
 				FBE815772281DF2F00FB5CF7 /* PasswordValidatorImpl.swift in Sources */,
 				FB513EBB2234FDF600F11CC9 /* UIViewController+Helpers.swift in Sources */,
-				FBF2617F2287A3E2006DB6C4 /* SmsCodesManages.swift in Sources */,
+				FBF2617F2287A3E2006DB6C4 /* SmsCodesManager.swift in Sources */,
 				FB513EB82234FDF600F11CC9 /* AppError.swift in Sources */,
 				FB7BCE132243CDC200EDB121 /* NotificationToken.swift in Sources */,
 				FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */,
