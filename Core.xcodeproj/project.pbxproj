@@ -11,6 +11,7 @@
 		953C3F712301626500E720F0 /* MapGeocodingData+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6D2301626500E720F0 /* MapGeocodingData+Apple.swift */; };
 		953C3F722301626500E720F0 /* MapGeocodingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6E2301626500E720F0 /* MapGeocodingData.swift */; };
 		953C3F732301626500E720F0 /* MapGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6F2301626500E720F0 /* MapGeocoder.swift */; };
+		953C3FC72304655300E720F0 /* MapGeoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3FC62304655300E720F0 /* MapGeoBox.swift */; };
 		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
 		95AE3DA022F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */; };
 		95AE3DA122F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9D22F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift */; };
@@ -121,6 +122,7 @@
 		953C3F6D2301626500E720F0 /* MapGeocodingData+Apple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapGeocodingData+Apple.swift"; sourceTree = "<group>"; };
 		953C3F6E2301626500E720F0 /* MapGeocodingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGeocodingData.swift; sourceTree = "<group>"; };
 		953C3F6F2301626500E720F0 /* MapGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGeocoder.swift; sourceTree = "<group>"; };
+		953C3FC62304655300E720F0 /* MapGeoBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGeoBox.swift; sourceTree = "<group>"; };
 		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
 		95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalBubbleTransitionAnimator.swift; sourceTree = "<group>"; };
 		95AE3D9D22F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalFadeTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				953C3F6B2301626500E720F0 /* AppleGeocoder */,
 				953C3F6E2301626500E720F0 /* MapGeocodingData.swift */,
 				953C3F6F2301626500E720F0 /* MapGeocoder.swift */,
+				953C3FC62304655300E720F0 /* MapGeoBox.swift */,
 			);
 			path = MapGeocoder;
 			sourceTree = "<group>";
@@ -863,6 +866,7 @@
 				FB7BCDF52243BFE000EDB121 /* ReachabilityStatus.swift in Sources */,
 				FB2CFB9C226B9C8200B85FB9 /* PrintLogger.swift in Sources */,
 				FBE5385E22BFB367002CF9F7 /* LocationManger.swift in Sources */,
+				953C3FC72304655300E720F0 /* MapGeoBox.swift in Sources */,
 				FB2CFB98226B923300B85FB9 /* AppFlagsService.swift in Sources */,
 				FB7BCDFC2243C18800EDB121 /* AppVersion.swift in Sources */,
 				FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */,
