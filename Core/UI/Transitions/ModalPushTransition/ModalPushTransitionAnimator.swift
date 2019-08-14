@@ -31,7 +31,7 @@ public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimat
         UIView.animate(withDuration: 0.6,
                        delay: 0,
                        usingSpringWithDamping: 1,
-                       initialSpringVelocity: 7, options: [.curveEaseOut],
+                       initialSpringVelocity: 4, options: [.curveEaseOut],
                        animations: {
 
             toVC.view.frame = fromVC.view.frame
