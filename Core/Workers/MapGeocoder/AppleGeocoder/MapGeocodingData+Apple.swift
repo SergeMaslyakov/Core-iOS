@@ -9,6 +9,7 @@ public extension MapGeocodingData {
         }
 
         self.coord = location.coordinate
+        self.name = placemark.name ?? ""
         self.address = addressExtractor?(placemark) ?? ""
     }
 
