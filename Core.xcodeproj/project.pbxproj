@@ -12,6 +12,7 @@
 		953C3F722301626500E720F0 /* MapGeocodingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6E2301626500E720F0 /* MapGeocodingData.swift */; };
 		953C3F732301626500E720F0 /* MapGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6F2301626500E720F0 /* MapGeocoder.swift */; };
 		953C3FC72304655300E720F0 /* MapGeoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3FC62304655300E720F0 /* MapGeoBox.swift */; };
+		953C3FCB23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3FCA23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift */; };
 		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
 		95AE3DA022F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */; };
 		95AE3DA122F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9D22F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift */; };
@@ -123,6 +124,7 @@
 		953C3F6E2301626500E720F0 /* MapGeocodingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGeocodingData.swift; sourceTree = "<group>"; };
 		953C3F6F2301626500E720F0 /* MapGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGeocoder.swift; sourceTree = "<group>"; };
 		953C3FC62304655300E720F0 /* MapGeoBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGeoBox.swift; sourceTree = "<group>"; };
+		953C3FCA23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Helpers.swift"; sourceTree = "<group>"; };
 		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
 		95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalBubbleTransitionAnimator.swift; sourceTree = "<group>"; };
 		95AE3D9D22F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalFadeTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				FB7BCDF92243C0D500EDB121 /* Date+Helpers.swift */,
 				FB7BCE022243C2EE00EDB121 /* DateFormatter+Helpers.swift */,
 				FBE815662281DAE500FB5CF7 /* NSPredicate+Email.swift */,
+				953C3FCA23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				FB41B99D225A31C90049F3BC /* KeychainDataStorage.swift in Sources */,
 				FB397E4A2303486A001E02B6 /* AVPlayerView.swift in Sources */,
 				FB513EB72234FDF600F11CC9 /* AppBundle.swift in Sources */,
+				953C3FCB23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift in Sources */,
 				FB513EC12234FDF600F11CC9 /* ConfigurableCell.swift in Sources */,
 				FB7BCE472246962800EDB121 /* CountryService.swift in Sources */,
 				FB513EB62234FDF600F11CC9 /* String+Localizable.swift in Sources */,
