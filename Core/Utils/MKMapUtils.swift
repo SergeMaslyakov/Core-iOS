@@ -2,12 +2,7 @@ import MapKit
 
 public enum MKMapUtils {
 
-    public struct Box {
-        public let center: CLLocationCoordinate2D
-        public let span: MKCoordinateSpan
-    }
-
-    public static func makeCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> Box? {
+    public static func makeCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> MapGeoBox? {
         guard coordinates.count > 1 else { return calculateCoordinateRegion(from: coordinates) }
 
         let polygon: MKPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
@@ -15,11 +10,14 @@ public enum MKMapUtils {
 
         let region = MKCoordinateRegion(mapRect)
 
-        return Box(center: region.center, span: region.span)
+        return MapGeoBox(ne: CLLocationCoordinate2D(latitude: region.center.latitude + region.span.latitudeDelta,
+                                                    longitude: region.center.longitude + region.span.longitudeDelta),
+                         sw: CLLocationCoordinate2D(latitude: region.center.latitude - region.span.latitudeDelta,
+                                                    longitude: region.center.longitude - region.span.longitudeDelta))
     }
 
-    private static func calculateCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> Box? {
-        guard let initial = coordinates.first else { return nil }
+    private static func calculateCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> MapGeoBox? {
+        guard let initial = coordinates.first, coordinates.count > 1 else { return nil }
 
         var sw: CLLocationCoordinate2D = initial
         var ne: CLLocationCoordinate2D = initial
@@ -42,22 +40,7 @@ public enum MKMapUtils {
             }
         }
 
-        let latitudeDelta = abs((ne.latitude - sw.latitude) / 2)
-        let longitudeDelta = abs((ne.longitude - sw.longitude) / 2)
-        let center = CLLocationCoordinate2D(latitude: ne.latitude - latitudeDelta, longitude: ne.longitude - longitudeDelta)
-
-        let span: MKCoordinateSpan
-
-        if coordinates.count == 1 {
-            let region = MKCoordinateRegion(center: coordinates[0],
-                                            latitudinalMeters: 600,
-                                            longitudinalMeters: 600)
-            span = region.span
-        } else {
-            span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
-        }
-
-        return Box(center: center, span: span)
+        return MapGeoBox(ne: ne, sw: sw)
     }
 
     public static func addInsetsInMeters(span: MKCoordinateSpan, inset: Double) -> MKCoordinateSpan {
