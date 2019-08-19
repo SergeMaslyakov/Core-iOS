@@ -64,6 +64,27 @@ public enum ImageUtils {
         return image
     }
 
+    public static func makeGradientImage(colors: [UIColor], points: [CGPoint], bounds: CGRect) -> UIImage {
+        let layer = CAGradientLayer()
+        layer.frame = bounds
+        layer.colors = colors.map { $0.cgColor }
+
+        if points.count > 1 {
+            layer.startPoint = points[0]
+            layer.endPoint = points[1]
+        } else if points.count == 1 {
+            layer.startPoint = points[0]
+        }
+
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
     public static func makeColoredRoundImage(color: UIColor, bounds: CGRect, cornerRadius: CGFloat) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
 
