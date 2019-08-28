@@ -13,4 +13,12 @@ public struct MapGeocodingData {
         self.address = address
     }
 
+    public init(coord: CLLocationCoordinate2D) {
+        self.coord = coord
+
+        let coordStr = coord.toString()
+        self.name = coordStr
+        self.address = coordStr
+    }
+
 }

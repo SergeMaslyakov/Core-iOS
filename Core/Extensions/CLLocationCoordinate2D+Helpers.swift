@@ -6,4 +6,11 @@ public extension CLLocationCoordinate2D {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
 
+    func toString(verbose: Bool = false) -> String {
+        if verbose {
+            return String(format: "lat: %.5f, lon: %.5f", latitude, longitude)
+        }
+
+        return String(format: "%.5f, %.5f", latitude, longitude)
+    }
 }
