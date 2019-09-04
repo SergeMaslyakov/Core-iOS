@@ -1,5 +1,7 @@
 import CoreLocation
 
+extension CLLocationCoordinate2D: Comparable {}
+
 public extension CLLocationCoordinate2D {
 
     var location: CLLocation {
@@ -12,5 +14,19 @@ public extension CLLocationCoordinate2D {
         }
 
         return String(format: "%.5f, %.5f", latitude, longitude)
+    }
+
+    // MARK: - Comparable
+
+    static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+
+    static func < (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude < rhs.latitude && lhs.longitude < rhs.longitude
+    }
+
+    static func > (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude > rhs.latitude &&  lhs.longitude > rhs.longitude
     }
 }
