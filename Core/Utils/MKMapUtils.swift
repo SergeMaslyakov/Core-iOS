@@ -10,10 +10,13 @@ public enum MKMapUtils {
 
         let region = MKCoordinateRegion(mapRect)
 
-        return MapGeoBox(ne: CLLocationCoordinate2D(latitude: region.center.latitude + region.span.latitudeDelta,
-                                                    longitude: region.center.longitude + region.span.longitudeDelta),
-                         sw: CLLocationCoordinate2D(latitude: region.center.latitude - region.span.latitudeDelta,
-                                                    longitude: region.center.longitude - region.span.longitudeDelta))
+        let ne = CLLocationCoordinate2D(latitude: region.center.latitude + region.span.latitudeDelta,
+                                        longitude: region.center.longitude + region.span.longitudeDelta)
+
+        let sw = CLLocationCoordinate2D(latitude: region.center.latitude - region.span.latitudeDelta,
+                                        longitude: region.center.longitude - region.span.longitudeDelta)
+
+        return MapGeoBox(ne: ne, sw: sw)
     }
 
     private static func calculateCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> MapGeoBox? {
