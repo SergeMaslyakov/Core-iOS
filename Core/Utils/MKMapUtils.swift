@@ -2,6 +2,23 @@ import MapKit
 
 public enum MKMapUtils {
 
+    public static func regionToRect(_ region: MKCoordinateRegion) -> MKMapRect {
+        let topLeft = CLLocationCoordinate2D(latitude: region.center.latitude + region.span.latitudeDelta/2.0,
+                                             longitude: region.center.longitude - region.span.longitudeDelta/2.0)
+
+        let bottomRight = CLLocationCoordinate2D(latitude: region.center.latitude - region.span.latitudeDelta/2.0,
+                                                 longitude: region.center.longitude + (region.span.longitudeDelta/2.0))
+
+        let topLeftMapPoint = MKMapPoint(topLeft)
+        let bottomRightMapPoint = MKMapPoint(bottomRight)
+
+        let origin = MKMapPoint(x: topLeftMapPoint.x, y: topLeftMapPoint.y)
+        let size = MKMapSize(width: abs(bottomRightMapPoint.x - topLeftMapPoint.x),
+                             height: abs(bottomRightMapPoint.y - topLeftMapPoint.y))
+
+        return MKMapRect(origin: origin, size: size)
+    }
+
     public static func makeCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> MapGeoBox? {
         guard coordinates.count > 1 else { return calculateCoordinateRegion(from: coordinates) }
 

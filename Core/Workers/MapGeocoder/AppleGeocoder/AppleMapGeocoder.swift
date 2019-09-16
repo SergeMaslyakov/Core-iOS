@@ -5,7 +5,7 @@ import MapKit
 import RxSwift
 import RxCocoa
 
-extension MapGeoBox {
+public extension MapGeoBox {
     func toRegion() -> MKCoordinateRegion {
         return MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta))
     }
