@@ -48,7 +48,6 @@ final public class NetworkQualityMonitoring: NSObject {
             .skip(1)
             .map { NetworkQualityType.make(fromRadio: $0, andReachability: $1) }
             .asDriver(onErrorJustReturn: .unknown)
-            .do(onNext: { print($0) })
             .drive(qualityRelay)
             .disposed(by: disposeBag)
     }
