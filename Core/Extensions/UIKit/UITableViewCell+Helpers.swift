@@ -3,7 +3,7 @@ import UIKit
 public extension UITableViewCell {
 
     static func emptyCellWithAssert() -> UITableViewCell {
-        assert(false, "Empty UITableViewCell")
+        assertionFailure("Empty UITableViewCell")
         return UITableViewCell()
     }
 }
