@@ -25,4 +25,10 @@ public final class SyncMemoryCache<KeyType, ObjectType> where KeyType: NSObject,
             self.cache.removeObject(forKey: key)
         }
     }
+
+    public func invalidate() {
+        syncQueue.async(flags: .barrier) {
+            self.cache.removeAllObjects()
+        }
+    }
 }
