@@ -30,6 +30,17 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         return userHeadingRelay.value ?? CLHeading()
     }
 
+    public func requestAccessToLocation(_ desiredLevel: CLAuthorizationStatus) {
+        switch desiredLevel {
+        case .authorizedWhenInUse:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways:
+            locationManager.requestAlwaysAuthorization()
+        default:
+            break
+        }
+    }
+
     private let authStatusRelay: BehaviorRelay<CLAuthorizationStatus>
     private let userLocationRelay: BehaviorRelay<CLLocation?>
     private let userHeadingRelay: BehaviorRelay<CLHeading?>
@@ -37,7 +48,7 @@ public final class LocationManagerImpl: NSObject, LocationManager {
 
     private let locationManager = CLLocationManager()
 
-    public init(defaultCoord: CLLocationCoordinate2D) {
+    public init(defaultCoord: CLLocationCoordinate2D, askAuthorizationStatus: Bool = false) {
         self.userLocationRelay = BehaviorRelay(value: nil)
         self.userHeadingRelay = BehaviorRelay(value: nil)
         self.authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
@@ -49,7 +60,9 @@ public final class LocationManagerImpl: NSObject, LocationManager {
 
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            if askAuthorizationStatus {
+                locationManager.requestWhenInUseAuthorization()
+            }
         case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
