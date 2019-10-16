@@ -7,7 +7,9 @@ import RxCocoa
 public protocol LocationManager: class {
 
     var authStatus: Observable<CLAuthorizationStatus> { get }
+
     func requestAccessToLocation(_ desiredLevel: CLAuthorizationStatus)
+    func lastKnownAuthStatus() -> CLAuthorizationStatus
 
     var userLocation: Observable<CLLocation?> { get }
     var userHeading: Observable<CLHeading?> { get }

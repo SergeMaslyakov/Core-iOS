@@ -41,6 +41,10 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         }
     }
 
+    public func lastKnownAuthStatus() -> CLAuthorizationStatus {
+        return authStatusRelay.value
+    }
+
     private let authStatusRelay: BehaviorRelay<CLAuthorizationStatus>
     private let userLocationRelay: BehaviorRelay<CLLocation?>
     private let userHeadingRelay: BehaviorRelay<CLHeading?>
