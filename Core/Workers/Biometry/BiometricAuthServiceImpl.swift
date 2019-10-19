@@ -26,7 +26,7 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
         do {
             try unsecuredStorage.setData(success, forKey: pincodeKey)
         } catch {
-            print(error)
+            debugPrint(error)
         }
     }
 
