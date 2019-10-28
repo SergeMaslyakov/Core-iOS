@@ -112,6 +112,18 @@ public enum ImageUtils {
         return resultImage
     }
 
+    public static func scaleImage(_ image: UIImage, maxHeight height: CGFloat) -> UIImage {
+        let currentSize = image.size
+        let newSize = CGSize(width: currentSize.width * height / currentSize.height, height: height)
+        let renderer = UIGraphicsImageRenderer(size: newSize)
+
+        let resultImage = renderer.image { _ in
+            image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        }
+
+        return resultImage
+    }
+
     private enum Utils {
 
         // swiftlint:disable function_body_length superfluous_disable_command
