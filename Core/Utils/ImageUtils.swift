@@ -6,13 +6,6 @@ import RxSwift
 
 public enum ImageUtils {
 
-    public static func resizeBatch(assets: [PHAsset], imageScalingSize: CGFloat) -> Observable<[UIImage]> {
-        let observables = assets.compactMap {
-            $0.rx.image.flatMap { ImageUtils.resize(image: $0, imageScalingSize: imageScalingSize) }
-        }
-        return Observable.combineLatest(observables)
-    }
-
     public static func resize(image: UIImage, imageScalingSize: CGFloat) -> Observable<UIImage> {
         return Observable.create { observer -> Disposable in
 

@@ -32,19 +32,12 @@
 		DA9ECB622243841500EDAF4A /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB602243841500EDAF4A /* SVProgressHUD.framework */; };
 		DAC7E86B2246F14600B94425 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E86A2246F14600B94425 /* UIColor+Helpers.swift */; };
 		DAC7E89A224F7E1F00B94425 /* AppVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E899224F7E1F00B94425 /* AppVersionTests.swift */; };
-		DD65406AB049EDF6EB78B061 /* DeepLinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65450502F9F27ED8F86B84 /* DeepLinkType.swift */; };
 		DD6540E86AAFEACB24EEC619 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD654112BE891C3F985C6B55 /* Identity.swift */; };
-		DD6545AF8222513F2805728B /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD654EB93F771E4F92368CC2 /* DeepLinkManager.swift */; };
-		DD6546296E9E2CFC96FE8D3C /* DeepLinkManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6540CF11B74E02BBEB2D32 /* DeepLinkManagerImpl.swift */; };
-		DD65497FF85C6B4EF6F94A51 /* DeepLinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD65480BC4F87EE806629195 /* DeepLinkParser.swift */; };
-		DD654BBDFB9265A64E44A9FB /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD654B1989922DA2DA1BBE24 /* DeepLinkHandler.swift */; };
-		DD654CB9FB9ED94D932E0DEA /* UserActivityParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD654C6B4A6898E67248912B /* UserActivityParser.swift */; };
 		E0FD11E721477A5F008C2EF8 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FD11DD21477A5F008C2EF8 /* Core.framework */; };
 		E0FD11EE21477A5F008C2EF8 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = E0FD11E021477A5F008C2EF8 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB02DDEC22AE72A20028284E /* BiometricAuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */; };
 		FB02DDEE22AE76940028284E /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDED22AE76940028284E /* BiometricAuthService.swift */; };
 		FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */; };
-		FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */; };
 		FB0ED137228B55CD00D4F033 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0ED136228B55CD00D4F033 /* RxRelay.framework */; };
 		FB153BE322A007BD00EBEB80 /* UITextView+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB153BE222A007BD00EBEB80 /* UITextView+Html.swift */; };
 		FB2CFB98226B923300B85FB9 /* AppFlagsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2CFB97226B923300B85FB9 /* AppFlagsService.swift */; };
@@ -79,10 +72,6 @@
 		FB7BCE032243C2EE00EDB121 /* DateFormatter+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE022243C2EE00EDB121 /* DateFormatter+Helpers.swift */; };
 		FB7BCE132243CDC200EDB121 /* NotificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE122243CDC200EDB121 /* NotificationToken.swift */; };
 		FB7BCE352246923900EDB121 /* ConcurrentDispatchQueueScheduler+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE342246923900EDB121 /* ConcurrentDispatchQueueScheduler+Factory.swift */; };
-		FB7BCE462246962800EDB121 /* CountryServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE412246962800EDB121 /* CountryServiceImpl.swift */; };
-		FB7BCE472246962800EDB121 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE422246962800EDB121 /* CountryService.swift */; };
-		FB7BCE482246962800EDB121 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = FB7BCE442246962800EDB121 /* CountryCodes.json */; };
-		FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE452246962800EDB121 /* CountryModel.swift */; };
 		FB7BCE4B2246976F00EDB121 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */; };
 		FB970D9622C5424300416E2F /* DisposableStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB970D9522C5424300416E2F /* DisposableStick.swift */; };
 		FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */; };
@@ -144,15 +133,9 @@
 		DA9ECB602243841500EDAF4A /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = ../Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		DAC7E86A2246F14600B94425 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		DAC7E899224F7E1F00B94425 /* AppVersionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionTests.swift; sourceTree = "<group>"; };
-		DD6540CF11B74E02BBEB2D32 /* DeepLinkManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkManagerImpl.swift; sourceTree = "<group>"; };
 		DD654112BE891C3F985C6B55 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
-		DD65450502F9F27ED8F86B84 /* DeepLinkType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkType.swift; sourceTree = "<group>"; };
 		DD6547A027B4CCB9610983FF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		DD65480BC4F87EE806629195 /* DeepLinkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkParser.swift; sourceTree = "<group>"; };
 		DD6548F2A9355055D6F860D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		DD654B1989922DA2DA1BBE24 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
-		DD654C6B4A6898E67248912B /* UserActivityParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityParser.swift; sourceTree = "<group>"; };
-		DD654EB93F771E4F92368CC2 /* DeepLinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		E0FD11DD21477A5F008C2EF8 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11E021477A5F008C2EF8 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		E0FD11E621477A5F008C2EF8 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +151,6 @@
 		FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthServiceImpl.swift; sourceTree = "<group>"; };
 		FB02DDED22AE76940028284E /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
 		FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
-		FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Rx.swift"; sourceTree = "<group>"; };
 		FB0ED136228B55CD00D4F033 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = ../Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		FB153BE222A007BD00EBEB80 /* UITextView+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Html.swift"; sourceTree = "<group>"; };
 		FB2CFB97226B923300B85FB9 /* AppFlagsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlagsService.swift; sourceTree = "<group>"; };
@@ -204,10 +186,6 @@
 		FB7BCE022243C2EE00EDB121 /* DateFormatter+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Helpers.swift"; sourceTree = "<group>"; };
 		FB7BCE122243CDC200EDB121 /* NotificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationToken.swift; sourceTree = "<group>"; };
 		FB7BCE342246923900EDB121 /* ConcurrentDispatchQueueScheduler+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConcurrentDispatchQueueScheduler+Factory.swift"; sourceTree = "<group>"; };
-		FB7BCE412246962800EDB121 /* CountryServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryServiceImpl.swift; sourceTree = "<group>"; };
-		FB7BCE422246962800EDB121 /* CountryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
-		FB7BCE442246962800EDB121 /* CountryCodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
-		FB7BCE452246962800EDB121 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		FB7BCE4A2246976F00EDB121 /* CountryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceTests.swift; sourceTree = "<group>"; };
 		FB970D9522C5424300416E2F /* DisposableStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableStick.swift; sourceTree = "<group>"; };
 		FB9B48F12291E9E90069A116 /* TimeFormattingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormattingUtils.swift; sourceTree = "<group>"; };
@@ -343,9 +321,7 @@
 				FB02DDEA22AE72270028284E /* Biometry */,
 				FBF2617D2287A3E2006DB6C4 /* SmsCodesManager */,
 				FB2CFB96226B920A00B85FB9 /* AppFlags */,
-				FB7BCE402246962800EDB121 /* CountryService */,
 				FB7BCDE62243BFE000EDB121 /* NetworkMonitoring */,
-				DD6540D5B5C615E70FF9385C /* DeepLinkManager */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -356,7 +332,6 @@
 				DA9ECB5D224383B400EDAF4A /* SVProgressHUD+Rx.swift */,
 				FB7BCE342246923900EDB121 /* ConcurrentDispatchQueueScheduler+Factory.swift */,
 				FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */,
-				FB0D74C7226D278000E351A5 /* PHAsset+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -369,16 +344,6 @@
 			path = AppVersion;
 			sourceTree = "<group>";
 		};
-		DD6540D5B5C615E70FF9385C /* DeepLinkManager */ = {
-			isa = PBXGroup;
-			children = (
-				DD65441CE67E669B4FE02BD6 /* Data */,
-				DD654EB93F771E4F92368CC2 /* DeepLinkManager.swift */,
-				DD6540CF11B74E02BBEB2D32 /* DeepLinkManagerImpl.swift */,
-			);
-			path = DeepLinkManager;
-			sourceTree = "<group>";
-		};
 		DD6542ECCBCBE2A70882A7E9 /* Identity-0.1.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,17 +352,6 @@
 				DD6548F2A9355055D6F860D3 /* README.md */,
 			);
 			path = "Identity-0.1.0";
-			sourceTree = "<group>";
-		};
-		DD65441CE67E669B4FE02BD6 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				DD65450502F9F27ED8F86B84 /* DeepLinkType.swift */,
-				DD654B1989922DA2DA1BBE24 /* DeepLinkHandler.swift */,
-				DD65480BC4F87EE806629195 /* DeepLinkParser.swift */,
-				DD654C6B4A6898E67248912B /* UserActivityParser.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		E0C82F27214789D8009EA559 /* Frameworks */ = {
@@ -643,25 +597,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		FB7BCE402246962800EDB121 /* CountryService */ = {
-			isa = PBXGroup;
-			children = (
-				FB7BCE412246962800EDB121 /* CountryServiceImpl.swift */,
-				FB7BCE422246962800EDB121 /* CountryService.swift */,
-				FB7BCE432246962800EDB121 /* Data */,
-			);
-			path = CountryService;
-			sourceTree = "<group>";
-		};
-		FB7BCE432246962800EDB121 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				FB7BCE442246962800EDB121 /* CountryCodes.json */,
-				FB7BCE452246962800EDB121 /* CountryModel.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		FBCA630C226673F50021655F /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -839,7 +774,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB7BCE482246962800EDB121 /* CountryCodes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,14 +806,12 @@
 				953C3FC72304655300E720F0 /* MapGeoBox.swift in Sources */,
 				FB2CFB98226B923300B85FB9 /* AppFlagsService.swift in Sources */,
 				FB7BCDFC2243C18800EDB121 /* AppVersion.swift in Sources */,
-				FB0D74C8226D278000E351A5 /* PHAsset+Rx.swift in Sources */,
 				95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */,
 				953C3F712301626500E720F0 /* MapGeocodingData+Apple.swift in Sources */,
 				FB513EBD2234FDF600F11CC9 /* UIView+Helpers.swift in Sources */,
 				95AE3DA022F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift in Sources */,
 				FBE5385D22BFB367002CF9F7 /* LocationManagerImpl.swift in Sources */,
 				FB513E822234FB7B00F11CC9 /* AppBundleFileLoader.swift in Sources */,
-				FB7BCE492246962800EDB121 /* CountryModel.swift in Sources */,
 				FB02DDEC22AE72A20028284E /* BiometricAuthServiceImpl.swift in Sources */,
 				FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */,
 				FB7BCE352246923900EDB121 /* ConcurrentDispatchQueueScheduler+Factory.swift in Sources */,
@@ -891,12 +823,10 @@
 				FB513EB72234FDF600F11CC9 /* AppBundle.swift in Sources */,
 				953C3FCB23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift in Sources */,
 				FB513EC12234FDF600F11CC9 /* ConfigurableCell.swift in Sources */,
-				FB7BCE472246962800EDB121 /* CountryService.swift in Sources */,
 				FB513EB62234FDF600F11CC9 /* String+Localizable.swift in Sources */,
 				FB153BE322A007BD00EBEB80 /* UITextView+Html.swift in Sources */,
 				953C3F702301626500E720F0 /* AppleMapGeocoder.swift in Sources */,
 				FB970D9622C5424300416E2F /* DisposableStick.swift in Sources */,
-				FB7BCE462246962800EDB121 /* CountryServiceImpl.swift in Sources */,
 				FBE815772281DF2F00FB5CF7 /* PasswordValidatorImpl.swift in Sources */,
 				FB513EBB2234FDF600F11CC9 /* UIViewController+Helpers.swift in Sources */,
 				FBF2617F2287A3E2006DB6C4 /* SmsCodesManager.swift in Sources */,
@@ -931,12 +861,6 @@
 				FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */,
 				FB7BCDF12243BFE000EDB121 /* RadioTechnologyType.swift in Sources */,
 				FBE815722281DE3D00FB5CF7 /* EmailValidatorImpl.swift in Sources */,
-				DD654BBDFB9265A64E44A9FB /* DeepLinkHandler.swift in Sources */,
-				DD65497FF85C6B4EF6F94A51 /* DeepLinkParser.swift in Sources */,
-				DD654CB9FB9ED94D932E0DEA /* UserActivityParser.swift in Sources */,
-				DD6545AF8222513F2805728B /* DeepLinkManager.swift in Sources */,
-				DD6546296E9E2CFC96FE8D3C /* DeepLinkManagerImpl.swift in Sources */,
-				DD65406AB049EDF6EB78B061 /* DeepLinkType.swift in Sources */,
 				DD6540E86AAFEACB24EEC619 /* Identity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
