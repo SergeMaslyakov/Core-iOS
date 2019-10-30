@@ -18,12 +18,8 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         return userHeadingRelay.asObservable()
     }
 
-    public var defaultCoord: Observable<CLLocationCoordinate2D> {
-        return defaultCoordRelay.asObservable()
-    }
-
-    public var lastKnownUserLocation: CLLocation {
-        return userLocationRelay.value ?? CLLocation(latitude: defaultCoordRelay.value.latitude, longitude: defaultCoordRelay.value.longitude)
+    public var lastKnownUserLocation: CLLocation? {
+        return userLocationRelay.value
     }
 
     public var lastKnownUserHeading: CLHeading {
@@ -48,15 +44,13 @@ public final class LocationManagerImpl: NSObject, LocationManager {
     private let authStatusRelay: BehaviorRelay<CLAuthorizationStatus>
     private let userLocationRelay: BehaviorRelay<CLLocation?>
     private let userHeadingRelay: BehaviorRelay<CLHeading?>
-    private let defaultCoordRelay: BehaviorRelay<CLLocationCoordinate2D>
 
     private let locationManager = CLLocationManager()
 
-    public init(defaultCoord: CLLocationCoordinate2D, askAuthorizationStatus: Bool = false) {
+    public init(askAuthorizationStatus: Bool = false) {
         self.userLocationRelay = BehaviorRelay(value: nil)
         self.userHeadingRelay = BehaviorRelay(value: nil)
         self.authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
-        self.defaultCoordRelay = BehaviorRelay(value: defaultCoord)
 
         super.init()
 
