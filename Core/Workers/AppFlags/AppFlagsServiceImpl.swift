@@ -6,7 +6,6 @@ public final class AppFlagsServiceImpl: AppFlagsService {
         case firstLaunchDate = "app_first_launch_date"
         case initialVersion = "app_initial_version"
         case currentVersion = "app_current_version"
-        case onboardingWasFinished = "onboarding_was_finished"
 
         var bundleRelatedKey: String {
             return AppBundle.bundleIdentifier + "." + self.rawValue
@@ -59,29 +58,7 @@ public final class AppFlagsServiceImpl: AppFlagsService {
         return AppBundle.displayVersion
     }
 
-    public var onboardingWasFinished: Bool {
-        get {
-            do {
-                if let flag = try storage.getData(forKey: Keys.onboardingWasFinished.bundleRelatedKey) as? Bool {
-                    return flag
-                }
-            } catch {
-                logger.error("AppFlagsService: error during fetching `OnboardingWasFinished flag`")
-            }
-
-            return false
-        }
-
-        set {
-            do {
-                try storage.setData(newValue, forKey: Keys.onboardingWasFinished.bundleRelatedKey)
-            } catch {
-                logger.error("AppFlagsService: error during saving `OnboardingWasFinished flag`")
-            }
-        }
-    }
-
-    public func processAppUpdateIfNeeded(handler: ((String, String) -> Void)?) {
+    public func processAppUpdateIfNeeded(handler: ((NewVersionData) -> Void)?) {
         let version = currentVersion
         let isAppWasUpdated = version != AppBundle.displayVersion
 
@@ -92,11 +69,11 @@ public final class AppFlagsServiceImpl: AppFlagsService {
         }
 
         if isAppWasUpdated {
-            handler?(version, AppBundle.displayVersion)
+            handler?(NewVersionData(initialVersion: version, newVersion: AppBundle.displayVersion))
         }
     }
 
-    public func processFirstLaunchIfNeeded(handler: ((Bool, Date?) -> Void)?) {
+    public func processFirstLaunchIfNeeded(handler: ((FirstLaunchData) -> Void)?) {
         let date = firstLaunchDate
         let isFirstLaunch = date == nil
 
@@ -109,6 +86,6 @@ public final class AppFlagsServiceImpl: AppFlagsService {
             }
         }
 
-        handler?(isFirstLaunch, date)
+        handler?(FirstLaunchData(isFirstLaunch: isFirstLaunch, firstLaunchDate: date))
     }
 }
