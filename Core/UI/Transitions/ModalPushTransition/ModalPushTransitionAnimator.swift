@@ -27,8 +27,9 @@ public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimat
         if presenting {
             transitionContext.containerView.addSubview(toVC.view)
         }
+        let duration = transitionContext.isAnimated ? transitionDuration : 0
 
-        UIView.animate(withDuration: 0.6,
+        UIView.animate(withDuration: duration,
                        delay: 0,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 4, options: [.curveEaseOut],
