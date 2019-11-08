@@ -85,6 +85,9 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
                 userLocationRelay.accept(location)
             }
         } else {
+            userLocationRelay.accept(nil)
+            userHeadingRelay.accept(nil)
+
             locationManager.stopUpdatingLocation()
             locationManager.stopUpdatingHeading()
         }
