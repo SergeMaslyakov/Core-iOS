@@ -19,21 +19,20 @@ public final class AppleMapGeocoder: MapGeocoder {
 
     // MARK: - MapGeocoder
 
-    public func reverseGeocoding(by location: CLLocation, addressExtractor: MapGeocoderAddressExtractor?) -> Observable<[MapGeocodingData]> {
-        return Observable.create { [locale = prefferedLocale] observer -> Disposable in
+    public func reverseGeocoding(by location: CLLocation, addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
+        return Single.create { [locale = prefferedLocale] single -> Disposable in
 
             let worker = CLGeocoder()
             let completion: CLGeocodeCompletionHandler = { placemarks, error in
                 if let error = error {
-                    observer.onError(error)
+                    single(.error(error))
                 } else {
                     if let placemarks = placemarks, !placemarks.isEmpty {
-                        observer.onNext(placemarks.compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) })
+                        single(.success(placemarks.compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) }))
                     } else {
-                        observer.onNext([])
+                        single(.success([]))
                     }
 
-                    observer.onCompleted()
                 }
             }
 
@@ -49,21 +48,20 @@ public final class AppleMapGeocoder: MapGeocoder {
         }
     }
 
-    public func forwardGeocoding(place: String, addressExtractor: MapGeocoderAddressExtractor?) -> Observable<[MapGeocodingData]> {
-        return Observable.create { [locale = prefferedLocale] observer -> Disposable in
+    public func forwardGeocoding(place: String, addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
+        return Single.create { [locale = prefferedLocale] single -> Disposable in
 
             let worker = CLGeocoder()
             let completion: CLGeocodeCompletionHandler = { placemarks, error in
                 if let error = error {
-                    observer.onError(error)
+                    single(.error(error))
                 } else {
                     if let placemarks = placemarks, !placemarks.isEmpty {
-                        observer.onNext(placemarks.compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) })
+                        single(.success(placemarks.compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) }))
                     } else {
-                        observer.onNext([])
+                        single(.success([]))
                     }
 
-                    observer.onCompleted()
                 }
             }
 
@@ -79,8 +77,8 @@ public final class AppleMapGeocoder: MapGeocoder {
         }
     }
 
-    public func addressSearch(query: String, box: MapGeoBox, addressExtractor: MapGeocoderAddressExtractor?) -> Observable<[MapGeocodingData]> {
-        return Observable.create { observer -> Disposable in
+    public func addressSearch(query: String, box: MapGeoBox, addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
+        return Single.create { single -> Disposable in
 
             let request = MKLocalSearch.Request()
             request.naturalLanguageQuery = query
@@ -90,16 +88,15 @@ public final class AppleMapGeocoder: MapGeocoder {
 
             let completion: MKLocalSearch.CompletionHandler = { response, error in
                 if let error = error {
-                    observer.onError(error)
+                    single(.error(error))
                 } else {
                     if let response = response {
                         let items = response.mapItems
-                        observer.onNext(items.compactMap { MapGeocodingData(mapItem: $0, addressExtractor: addressExtractor) })
+                        single(.success(items.compactMap { MapGeocodingData(mapItem: $0, addressExtractor: addressExtractor) }))
                     } else {
-                        observer.onNext([])
+                        single(.success([]))
                     }
 
-                    observer.onCompleted()
                 }
             }
 
