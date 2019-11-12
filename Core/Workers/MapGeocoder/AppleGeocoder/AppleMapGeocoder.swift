@@ -19,7 +19,9 @@ public final class AppleMapGeocoder: MapGeocoder {
 
     // MARK: - MapGeocoder
 
-    public func reverseGeocoding(by location: CLLocation, addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
+    public func reverseGeocoding(by location: CLLocation,
+                                 filter: @escaping MapGeocoderFilter,
+                                 addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
         return Single.create { [locale = prefferedLocale] single -> Disposable in
 
             let worker = CLGeocoder()
@@ -28,7 +30,10 @@ public final class AppleMapGeocoder: MapGeocoder {
                     single(.error(error))
                 } else {
                     if let placemarks = placemarks, !placemarks.isEmpty {
-                        single(.success(placemarks.compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) }))
+                        let data = placemarks.lazy
+                            .filter { filter($0) }
+                            .compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) }
+                        single(.success(Array(data)))
                     } else {
                         single(.success([]))
                     }
@@ -48,7 +53,9 @@ public final class AppleMapGeocoder: MapGeocoder {
         }
     }
 
-    public func forwardGeocoding(place: String, addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
+    public func forwardGeocoding(place: String,
+                                 filter: @escaping MapGeocoderFilter,
+                                 addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
         return Single.create { [locale = prefferedLocale] single -> Disposable in
 
             let worker = CLGeocoder()
@@ -57,7 +64,10 @@ public final class AppleMapGeocoder: MapGeocoder {
                     single(.error(error))
                 } else {
                     if let placemarks = placemarks, !placemarks.isEmpty {
-                        single(.success(placemarks.compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) }))
+                        let data = placemarks.lazy
+                            .filter { filter($0) }
+                            .compactMap { MapGeocodingData(placemark: $0, addressExtractor: addressExtractor) }
+                        single(.success(Array(data)))
                     } else {
                         single(.success([]))
                     }
@@ -77,7 +87,10 @@ public final class AppleMapGeocoder: MapGeocoder {
         }
     }
 
-    public func addressSearch(query: String, box: MapGeoBox, addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
+    public func addressSearch(query: String,
+                              box: MapGeoBox,
+                              filter: @escaping MapGeocoderFilter,
+                              addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
         return Single.create { single -> Disposable in
 
             let request = MKLocalSearch.Request()
@@ -92,7 +105,8 @@ public final class AppleMapGeocoder: MapGeocoder {
                 } else {
                     if let response = response {
                         let items = response.mapItems
-                        single(.success(items.compactMap { MapGeocodingData(mapItem: $0, addressExtractor: addressExtractor) }))
+                        let data = items.lazy.filter { filter($0) }.compactMap { MapGeocodingData(mapItem: $0, addressExtractor: addressExtractor) }
+                        single(.success(Array(data)))
                     } else {
                         single(.success([]))
                     }
