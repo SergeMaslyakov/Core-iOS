@@ -1,6 +1,6 @@
 import Foundation
 
-public enum NetworkQualityType {
+public enum NetworkQualityType: Equatable {
     case unknown
     case good(ReachabilityStatus)
     case average
@@ -25,4 +25,17 @@ public enum NetworkQualityType {
             }
         }
     }
+
+    // MARK: - Equatable
+
+    public static func == (lhs: NetworkQualityType, rhs: NetworkQualityType) -> Bool {
+        switch (lhs, rhs) {
+        case (.unknown, .unknown): return true
+        case (.average, .average): return true
+        case (.bad, .bad): return true
+        case (.good(let s1), .good(let s2)): return s1 == s2
+        default: return false
+        }
+    }
+
 }
