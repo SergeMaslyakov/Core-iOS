@@ -75,9 +75,7 @@ public extension UIView {
     func roundCorners(radius: CGFloat) {
         guard radius > 0 else { return }
 
-        if #available(iOS 11, *) {
-            layer.maskedCorners = []
-        }
+        layer.maskedCorners = []
 
         clipsToBounds = true
         layer.cornerRadius = radius

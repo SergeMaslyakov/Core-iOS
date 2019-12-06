@@ -12,78 +12,54 @@ public final class AppFlagsServiceImpl: AppFlagsService {
         }
     }
 
-    private let logger: Logger
     private let storage: DataStorageProtocol
 
-    public init(storage: DataStorageProtocol, logger: Logger) {
+    public init(storage: DataStorageProtocol) {
         self.storage = storage
-        self.logger = logger
     }
 
     // MARK: - AppFlagsService
 
-    public var firstLaunchDate: Date? {
-        do {
-            if let ti = try storage.getData(forKey: Keys.firstLaunchDate.bundleRelatedKey) as? Double {
-                return Date(timeIntervalSince1970: ti)
-            }
-        } catch {
-            logger.error("AppFlagsService: error during fetching `FirstLaunchDate`")
+    public func retreiveFirstLaunchDate() throws -> Date? {
+        let ti = try storage.getData(forKey: Keys.firstLaunchDate.bundleRelatedKey)
+
+        if let ti = ti as? Double {
+            return Date(timeIntervalSince1970: ti)
         }
 
         return nil
     }
 
-    public var initialVersion: String {
-        do {
-            if let version = try storage.getData(forKey: Keys.initialVersion.bundleRelatedKey) as? String {
-                return version
-            }
-        } catch {
-            logger.error("AppFlagsService: error during fetching `InitialVersion flag`")
-        }
+    public func retreiveInitialVersion() throws -> String {
+        let version = try storage.getData(forKey: Keys.initialVersion.bundleRelatedKey) as? String
 
-        return AppBundle.displayVersion
+        return version ?? AppBundle.displayVersion
     }
 
-    public var currentVersion: String {
-        do {
-            if let version = try storage.getData(forKey: Keys.currentVersion.bundleRelatedKey) as? String {
-                return version
-            }
-        } catch {
-            logger.error("AppFlagsService: error during fetching `CurrentVersion flag`")
-        }
+    public func retreiveCurrentVersion() throws -> String {
+        let version = try storage.getData(forKey: Keys.currentVersion.bundleRelatedKey) as? String
 
-        return AppBundle.displayVersion
+        return version ?? AppBundle.displayVersion
     }
 
-    public func processAppUpdateIfNeeded(handler: ((NewVersionData) -> Void)?) {
-        let version = currentVersion
+    public func processAppUpdateIfNeeded(handler: ((NewVersionData) -> Void)?) throws {
+        let version = try retreiveCurrentVersion()
         let isAppWasUpdated = version != AppBundle.displayVersion
 
-        do {
-            try storage.setData(AppBundle.displayVersion, forKey: Keys.currentVersion.bundleRelatedKey)
-        } catch {
-            logger.error("AppFlagsService: error during saving `CurrentVersion flag`")
-        }
+        try storage.setData(AppBundle.displayVersion, forKey: Keys.currentVersion.bundleRelatedKey)
 
         if isAppWasUpdated {
             handler?(NewVersionData(initialVersion: version, newVersion: AppBundle.displayVersion))
         }
     }
 
-    public func processFirstLaunchIfNeeded(handler: ((FirstLaunchData) -> Void)?) {
-        let date = firstLaunchDate
+    public func processFirstLaunchIfNeeded(handler: ((FirstLaunchData) -> Void)?) throws {
+        let date = try retreiveFirstLaunchDate()
         let isFirstLaunch = date == nil
 
         if isFirstLaunch {
-            do {
-                try storage.setData(Date().timeIntervalSince1970, forKey: Keys.firstLaunchDate.bundleRelatedKey)
-                try storage.setData(AppBundle.displayVersion, forKey: Keys.initialVersion.bundleRelatedKey)
-            } catch {
-                logger.error("AppFlagsService: error during saving `FirstLaunchDate`")
-            }
+            try storage.setData(Date().timeIntervalSince1970, forKey: Keys.firstLaunchDate.bundleRelatedKey)
+            try storage.setData(AppBundle.displayVersion, forKey: Keys.initialVersion.bundleRelatedKey)
         }
 
         handler?(FirstLaunchData(isFirstLaunch: isFirstLaunch, firstLaunchDate: date))

@@ -33,23 +33,16 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
     // MARK: - BiometricAuthService
 
     public func obtainBiometryType() -> BiometryType {
-        let available = biometricContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        guard biometricContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) else { return .none }
 
-        if available {
-            if #available(iOS 11.0, *) {
-                return biometricContext.biometryType == .touchID ? .touchID : .faceID
-            } else {
-                return .touchID
-            }
-        }
-
-        return .none
+        return biometricContext.biometryType == .touchID ? .touchID : .faceID
     }
 
     public var isPincodeStored: Bool {
         do {
             return try unsecuredStorage.getData(forKey: pincodeKey) as? Bool ?? false
         } catch {
+            debugPrint(error)
             return false
         }
     }

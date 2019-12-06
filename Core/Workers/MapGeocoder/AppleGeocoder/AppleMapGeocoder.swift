@@ -41,11 +41,7 @@ public final class AppleMapGeocoder: MapGeocoder {
                 }
             }
 
-            if #available(iOS 11.0, *) {
-                worker.reverseGeocodeLocation(location, preferredLocale: locale, completionHandler: completion)
-            } else {
-                worker.reverseGeocodeLocation(location, completionHandler: completion)
-            }
+            worker.reverseGeocodeLocation(location, preferredLocale: locale, completionHandler: completion)
 
             return Disposables.create {
                 worker.cancelGeocode()
@@ -75,11 +71,7 @@ public final class AppleMapGeocoder: MapGeocoder {
                 }
             }
 
-            if #available(iOS 11.0, *) {
-                worker.geocodeAddressString(place, in: nil, preferredLocale: locale, completionHandler: completion)
-            } else {
-                worker.geocodeAddressString(place, completionHandler: completion)
-            }
+            worker.geocodeAddressString(place, in: nil, preferredLocale: locale, completionHandler: completion)
 
             return Disposables.create {
                 worker.cancelGeocode()
