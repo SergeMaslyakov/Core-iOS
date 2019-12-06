@@ -8,12 +8,10 @@ import Security
 
 public final class KeychainDataStorage: DataStorageProtocol {
 
-    private let logger: Logger
     private let keyPrefix: String
-    private let accessGroup: String?  /// errSecMissingEntitlement = -34018
+    private let accessGroup: String?  /// errSecMissingEntitlement = -34018; errSecInteractionNotAllowed = -25308
 
-    public init(logger: Logger, keyPrefix: String, accessGroup: String?) {
-        self.logger = logger
+    public init(keyPrefix: String, accessGroup: String?) {
         self.keyPrefix = keyPrefix
         self.accessGroup = accessGroup
     }
@@ -51,7 +49,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
             let status = SecItemAdd(attr as CFDictionary, nil)
 
             if status != errSecSuccess && status != errSecDuplicateItem {
-                logger.error("KeychainDataStorage: error during writing data \(status)")
+                debugPrint("KeychainDataStorage: error during writing data \(status)")
                 throw DataStorageError.keychainWriteError(status)
             }
 
@@ -79,7 +77,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
             let status = SecItemUpdate(query as CFDictionary, changes as CFDictionary)
 
             if status != errSecSuccess && status != errSecItemNotFound {
-                logger.error("KeychainDataStorage: error during updating data \(status)")
+                debugPrint("KeychainDataStorage: error during updating data \(status)")
                 throw DataStorageError.keychainUpdateError(status)
             }
         } else {
@@ -105,7 +103,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
             return result
         }
 
-        logger.error("KeychainDataStorage: error during reading data \(status)")
+        debugPrint("KeychainDataStorage: error during reading data \(status)")
         throw DataStorageError.keychainReadError(status)
     }
 
@@ -119,7 +117,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
 
         let status = SecItemDelete(query as CFDictionary)
         if status != errSecSuccess && status != errSecItemNotFound {
-            logger.error("KeychainDataStorage: error during removing data \(status)")
+            debugPrint("KeychainDataStorage: error during removing data \(status)")
             throw DataStorageError.keychainDeleteError(status)
         }
     }
@@ -133,7 +131,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
 
         let status = SecItemDelete(query as CFDictionary)
         if status != errSecSuccess && status != errSecItemNotFound {
-            logger.error("KeychainDataStorage: error during wiping out data \(status)")
+            debugPrint("KeychainDataStorage: error during wiping out data \(status)")
             throw DataStorageError.keychainDeleteError(status)
         }
     }
