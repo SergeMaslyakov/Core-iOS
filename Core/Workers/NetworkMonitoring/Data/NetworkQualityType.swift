@@ -15,7 +15,7 @@ public enum NetworkQualityType: Equatable {
         case .cellular:
             switch radio {
             case .unknown:
-                return .unknown
+                return .average
             case .LTE:
                 return .good(.cellular)
             case .r3G:
