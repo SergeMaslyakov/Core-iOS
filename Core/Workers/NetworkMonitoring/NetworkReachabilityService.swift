@@ -69,9 +69,9 @@ final public class NetworkReachabilityService {
         SCNetworkReachabilitySetCallback(reachability, nil, nil)
         SCNetworkReachabilitySetDispatchQueue(reachability, nil)
 
-        serialQueue.async { [unowned self] in
-            self.reachabilityChanged(SCNetworkReachabilityFlags([]))
-        }
+//        serialQueue.async { [unowned self] in
+//            self.reachabilityChanged(SCNetworkReachabilityFlags([]))
+//        }
     }
 }
 

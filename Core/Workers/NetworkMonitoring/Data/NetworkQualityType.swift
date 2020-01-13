@@ -1,7 +1,7 @@
 import Foundation
 
 public enum NetworkQualityType: Equatable {
-    case unknown
+    case unknown(ReachabilityStatus)
     case good(ReachabilityStatus)
     case average
     case bad
@@ -9,7 +9,7 @@ public enum NetworkQualityType: Equatable {
     public static func make(fromRadio radio: RadioTechnologyType, andReachability reachability: ReachabilityStatus) -> NetworkQualityType {
         switch reachability {
         case .unknown, .unreachable:
-            return .unknown
+            return .unknown(reachability)
         case .wifi:
             return .good(.wifi)
         case .cellular:
@@ -30,7 +30,7 @@ public enum NetworkQualityType: Equatable {
 
     public static func == (lhs: NetworkQualityType, rhs: NetworkQualityType) -> Bool {
         switch (lhs, rhs) {
-        case (.unknown, .unknown): return true
+        case (.unknown(let s1), .unknown(let s2)): return s1 == s2
         case (.average, .average): return true
         case (.bad, .bad): return true
         case (.good(let s1), .good(let s2)): return s1 == s2

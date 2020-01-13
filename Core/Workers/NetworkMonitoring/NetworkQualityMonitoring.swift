@@ -38,7 +38,7 @@ final public class NetworkQualityMonitoring: NSObject {
             self.radioRelay = BehaviorRelay<RadioTechnologyType>(value: value)
         }
 
-        self.qualityRelay = BehaviorRelay<NetworkQualityType>(value: .unknown)
+        self.qualityRelay = BehaviorRelay<NetworkQualityType>(value: .unknown(.unknown))
         self.networkQuality = qualityRelay.asObservable().share(replay: 1, scope: .forever)
 
         super.init()
@@ -47,7 +47,7 @@ final public class NetworkQualityMonitoring: NSObject {
             .combineLatest(radioRelay, reachabilityService.reachabilityStatus)
             .skip(1)
             .map { NetworkQualityType.make(fromRadio: $0, andReachability: $1) }
-            .asDriver(onErrorJustReturn: .unknown)
+            .asDriver(onErrorJustReturn: .unknown(.unknown))
             .drive(qualityRelay)
             .disposed(by: disposeBag)
     }
