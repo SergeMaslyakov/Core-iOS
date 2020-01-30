@@ -1,6 +1,6 @@
 import UIKit
 
-public class GradientView: PassthroughView {
+open class GradientView: PassthroughView {
 
     public var startColor: UIColor = .init(white: 1, alpha: 0.1) {
         didSet { updateColors() }
