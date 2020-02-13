@@ -83,4 +83,23 @@ public extension UIView {
         layer.cornerRadius = radius
     }
 
+    func setAnchorPoint(_ point: CGPoint) {
+        var newPoint = CGPoint(x: bounds.width * point.x, y: bounds.height * point.y)
+        var oldPoint = CGPoint(x: bounds.width * layer.anchorPoint.x, y: bounds.height * layer.anchorPoint.y)
+
+        newPoint = newPoint.applying(transform)
+        oldPoint = oldPoint.applying(transform)
+
+        var position = layer.position
+
+        position.x -= oldPoint.x
+        position.x += newPoint.x
+
+        position.y -= oldPoint.y
+        position.y += newPoint.y
+
+        layer.position = position
+        layer.anchorPoint = point
+    }
+
 }
