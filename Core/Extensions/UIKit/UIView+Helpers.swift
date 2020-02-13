@@ -102,4 +102,25 @@ public extension UIView {
         layer.anchorPoint = point
     }
 
+    func applySketchShadow(color: UIColor = .black,
+                           alpha: Float = 0.5,
+                           offsetX: CGFloat = 0,
+                           offsetY: CGFloat = 2,
+                           blur: CGFloat = 4,
+                           spread: CGFloat = 0) {
+
+        clipsToBounds = false
+
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = alpha
+        layer.shadowOffset = CGSize(width: offsetX, height: offsetY)
+        layer.shadowRadius = blur / 2
+        layer.shadowPath = nil
+
+        if spread > 0 {
+            let dx = -spread
+            let rect = bounds.insetBy(dx: dx, dy: dx)
+            layer.shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+    }
 }
