@@ -15,9 +15,9 @@ final public class NetworkQualityMonitoring: NSObject {
     private let radioRelay: BehaviorRelay<RadioTechnologyType>
     private let qualityRelay: BehaviorRelay<NetworkQualityType>
 
-    private let logger: Logger
+    private let logger: AppLoggerProtocol
 
-    public init?(logger: Logger) {
+    public init?(logger: AppLoggerProtocol) {
         self.serialQueue = DispatchQueue(label: "network-monitoring-service.serial", qos: .default, target: nil)
         self.telephonyInfo = CTTelephonyNetworkInfo()
         self.logger = logger

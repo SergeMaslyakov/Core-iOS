@@ -1,18 +1,14 @@
 import Foundation
 
-public final class PrintLogger: Logger {
+public final class PrintLogger: AppLoggerProtocol {
 
     public init() { }
 
-    public func verbose(_ string: String) {
+    public func info(_ string: String) {
         print(string)
     }
 
     public func debug(_ string: String) {
-        print(string)
-    }
-
-    public func info(_ string: String) {
         print(string)
     }
 

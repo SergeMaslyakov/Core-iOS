@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,8 @@
 		95BD163F22F820E200CFFD68 /* MKMapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD163E22F820E200CFFD68 /* MKMapUtils.swift */; };
 		95BD164422F8787A00CFFD68 /* MKMapUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */; };
 		95C4C9BC22C3954500278E85 /* UIDevice+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */; };
+		95FCC95E247CF81E00762FE4 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 95FCC95D247CF81E00762FE4 /* Logging */; };
+		95FCC960247CF85800762FE4 /* AppleSwiftLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCC95F247CF85800762FE4 /* AppleSwiftLogger.swift */; };
 		DA9ECB4C2243190100EDAF4A /* RxGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB422243190000EDAF4A /* RxGesture.framework */; };
 		DA9ECB4D2243190100EDAF4A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB432243190100EDAF4A /* RxBlocking.framework */; };
 		DA9ECB4E2243190100EDAF4A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB442243190100EDAF4A /* RxSwift.framework */; };
@@ -79,9 +81,7 @@
 		FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */; };
 		FBC412EE226CD55800AB3554 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC412ED226CD55800AB3554 /* AvatarImageView.swift */; };
 		FBC412F0226CE12400AB3554 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC412EF226CE12400AB3554 /* Nuke.framework */; };
-		FBCA630E226674110021655F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCA630D226674110021655F /* Logger.swift */; };
-		FBCA63102266748A0021655F /* SwiftyBeaverLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCA630F2266748A0021655F /* SwiftyBeaverLogger.swift */; };
-		FBCA6312226675C20021655F /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCA6311226675C20021655F /* SwiftyBeaver.framework */; };
+		FBCA630E226674110021655F /* AppLoggerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCA630D226674110021655F /* AppLoggerProtocol.swift */; };
 		FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */; };
 		FBD0463722689D5800722DDA /* Codextended.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0462A22689D5700722DDA /* Codextended.swift */; };
 		FBE5385D22BFB367002CF9F7 /* LocationManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5385B22BFB367002CF9F7 /* LocationManagerImpl.swift */; };
@@ -124,6 +124,7 @@
 		95BD163E22F820E200CFFD68 /* MKMapUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtils.swift; sourceTree = "<group>"; };
 		95BD164322F8787A00CFFD68 /* MKMapUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapUtilsTests.swift; sourceTree = "<group>"; };
 		95C4C9BB22C3954500278E85 /* UIDevice+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Utils.swift"; sourceTree = "<group>"; };
+		95FCC95F247CF85800762FE4 /* AppleSwiftLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSwiftLogger.swift; sourceTree = "<group>"; };
 		DA9ECB422243190000EDAF4A /* RxGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGesture.framework; path = ../Carthage/Build/iOS/RxGesture.framework; sourceTree = "<group>"; };
 		DA9ECB432243190100EDAF4A /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = ../Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		DA9ECB442243190100EDAF4A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -194,8 +195,7 @@
 		FB9F8E3D22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialDispatchQueueScheduler+Factory.swift"; sourceTree = "<group>"; };
 		FBC412ED226CD55800AB3554 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		FBC412EF226CE12400AB3554 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = ../Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
-		FBCA630D226674110021655F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		FBCA630F2266748A0021655F /* SwiftyBeaverLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverLogger.swift; sourceTree = "<group>"; };
+		FBCA630D226674110021655F /* AppLoggerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoggerProtocol.swift; sourceTree = "<group>"; };
 		FBCA6311226675C20021655F /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		FBCBCBC222B7A14E00A3CE24 /* AttributedStringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringUtils.swift; sourceTree = "<group>"; };
 		FBD0461D22689D5700722DDA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -221,11 +221,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC412F0226CE12400AB3554 /* Nuke.framework in Frameworks */,
-				FBCA6312226675C20021655F /* SwiftyBeaver.framework in Frameworks */,
 				DA9ECB612243841500EDAF4A /* RxSwiftUtilities.framework in Frameworks */,
 				DA9ECB622243841500EDAF4A /* SVProgressHUD.framework in Frameworks */,
 				DA9ECB4E2243190100EDAF4A /* RxSwift.framework in Frameworks */,
 				FB0ED137228B55CD00D4F033 /* RxRelay.framework in Frameworks */,
+				95FCC95E247CF81E00762FE4 /* Logging in Frameworks */,
 				DA9ECB502243190100EDAF4A /* RxCocoa.framework in Frameworks */,
 				DA9ECB532243190100EDAF4A /* RxSwiftExt.framework in Frameworks */,
 				DA9ECB522243190100EDAF4A /* RxKeyboard.framework in Frameworks */,
@@ -603,9 +603,9 @@
 		FBCA630C226673F50021655F /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				FBCA630D226674110021655F /* Logger.swift */,
-				FBCA630F2266748A0021655F /* SwiftyBeaverLogger.swift */,
+				FBCA630D226674110021655F /* AppLoggerProtocol.swift */,
 				FB2CFB9B226B9C8200B85FB9 /* PrintLogger.swift */,
+				95FCC95F247CF85800762FE4 /* AppleSwiftLogger.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -711,6 +711,9 @@
 			dependencies = (
 			);
 			name = Core;
+			packageProductDependencies = (
+				95FCC95D247CF81E00762FE4 /* Logging */,
+			);
 			productName = Core;
 			productReference = E0FD11DD21477A5F008C2EF8 /* Core.framework */;
 			productType = "com.apple.product-type.framework";
@@ -762,6 +765,9 @@
 				Base,
 			);
 			mainGroup = E0FD11D321477A5F008C2EF8;
+			packageReferences = (
+				95FCC95C247CF81E00762FE4 /* XCRemoteSwiftPackageReference "swift-log" */,
+			);
 			productRefGroup = E0FD11DE21477A5F008C2EF8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -839,6 +845,7 @@
 				FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */,
 				953C3F732301626500E720F0 /* MapGeocoder.swift in Sources */,
 				FB513EBC2234FDF600F11CC9 /* UICollectionViewCell+Helpers.swift in Sources */,
+				95FCC960247CF85800762FE4 /* AppleSwiftLogger.swift in Sources */,
 				FBE815702281DE2D00FB5CF7 /* EmailValidator.swift in Sources */,
 				95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */,
 				FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */,
@@ -853,14 +860,13 @@
 				95BD163D22F47FEA00CFFD68 /* SyncMemoryCache.swift in Sources */,
 				FB7BCDF22243BFE000EDB121 /* NetworkQualityMonitoring.swift in Sources */,
 				FBE8154522819C6600FB5CF7 /* PassthroughView.swift in Sources */,
-				FBCA63102266748A0021655F /* SwiftyBeaverLogger.swift in Sources */,
 				FB513EA32234FDEB00F11CC9 /* DataStorageError.swift in Sources */,
 				95AE3DA222F9CCB70060FFFC /* ModalPushTransitionAnimator.swift in Sources */,
 				FBE8156B2281DC2300FB5CF7 /* PhoneValidator.swift in Sources */,
 				FBE8154722819C9F00FB5CF7 /* GradientView.swift in Sources */,
 				FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */,
 				DAC7E86B2246F14600B94425 /* UIColor+Helpers.swift in Sources */,
-				FBCA630E226674110021655F /* Logger.swift in Sources */,
+				FBCA630E226674110021655F /* AppLoggerProtocol.swift in Sources */,
 				FB7BCDFA2243C0D500EDB121 /* Date+Helpers.swift in Sources */,
 				FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */,
 				FB7BCDF12243BFE000EDB121 /* RadioTechnologyType.swift in Sources */,
@@ -1001,6 +1007,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		95FCC95C247CF81E00762FE4 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		95FCC95D247CF81E00762FE4 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95FCC95C247CF81E00762FE4 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0FD11D421477A5F008C2EF8 /* Project object */;
 }
