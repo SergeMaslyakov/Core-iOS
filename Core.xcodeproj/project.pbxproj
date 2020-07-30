@@ -13,6 +13,7 @@
 		953C3F732301626500E720F0 /* MapGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6F2301626500E720F0 /* MapGeocoder.swift */; };
 		953C3FC72304655300E720F0 /* MapGeoBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3FC62304655300E720F0 /* MapGeoBox.swift */; };
 		953C3FCB23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3FCA23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift */; };
+		9542D9C924D34D8B0004E69B /* AppleLoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9542D9C824D34D8B0004E69B /* AppleLoginProvider.swift */; };
 		95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */; };
 		95ACDE4023AA7A3A009326DF /* DispatchWorkItemStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACDE3F23AA7A3A009326DF /* DispatchWorkItemStick.swift */; };
 		95AE3DA022F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */; };
@@ -115,6 +116,7 @@
 		953C3F6F2301626500E720F0 /* MapGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGeocoder.swift; sourceTree = "<group>"; };
 		953C3FC62304655300E720F0 /* MapGeoBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGeoBox.swift; sourceTree = "<group>"; };
 		953C3FCA23054DEE00E720F0 /* CLLocationCoordinate2D+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Helpers.swift"; sourceTree = "<group>"; };
+		9542D9C824D34D8B0004E69B /* AppleLoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginProvider.swift; sourceTree = "<group>"; };
 		95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helpers.swift"; sourceTree = "<group>"; };
 		95ACDE3F23AA7A3A009326DF /* DispatchWorkItemStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchWorkItemStick.swift; sourceTree = "<group>"; };
 		95AE3D9B22F9CCB70060FFFC /* ModalBubbleTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalBubbleTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -265,6 +267,14 @@
 			path = AppleGeocoder;
 			sourceTree = "<group>";
 		};
+		9542D9C724D34D620004E69B /* AppleLoginProvider */ = {
+			isa = PBXGroup;
+			children = (
+				9542D9C824D34D8B0004E69B /* AppleLoginProvider.swift */,
+			);
+			path = AppleLoginProvider;
+			sourceTree = "<group>";
+		};
 		95AE3D9922F9CCB70060FFFC /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +328,7 @@
 		DA768A9A224303BA0001C87C /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				9542D9C724D34D620004E69B /* AppleLoginProvider */,
 				953C3F6A2301626500E720F0 /* MapGeocoder */,
 				FBE5385A22BFB367002CF9F7 /* LocationManager */,
 				FB02DDEA22AE72270028284E /* Biometry */,
@@ -853,6 +864,7 @@
 				FB7BCE032243C2EE00EDB121 /* DateFormatter+Helpers.swift in Sources */,
 				FB7BCDF42243BFE000EDB121 /* NetworkQualityType.swift in Sources */,
 				95AE3DA122F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift in Sources */,
+				9542D9C924D34D8B0004E69B /* AppleLoginProvider.swift in Sources */,
 				FB48FDF8229062E2007F28CC /* QRCodeUtils.swift in Sources */,
 				FB7BCDF32243BFE000EDB121 /* NetworkReachabilityService.swift in Sources */,
 				FBD0463722689D5800722DDA /* Codextended.swift in Sources */,
