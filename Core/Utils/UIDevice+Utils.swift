@@ -9,6 +9,9 @@ public extension UIDevice {
         case iphoneXR
         case iphoneX
         case iphoneXMax
+        case iphone12Mini
+        case iphone12
+        case iphone12Pro
 
         var screenHeight: CGFloat {
             switch self {
@@ -21,9 +24,15 @@ public extension UIDevice {
             case .iphoneXR:
                 return 1792
             case .iphone6:
-                return 1134
+                return 1334
             case .iphone6Plus:
                 return 1920
+            case . iphone12Mini:
+                return 2340
+            case . iphone12:
+                return 2532
+            case . iphone12Pro:
+                return 2778
             }
         }
 
