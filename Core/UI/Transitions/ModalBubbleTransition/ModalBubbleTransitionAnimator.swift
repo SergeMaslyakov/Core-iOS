@@ -1,12 +1,10 @@
 import UIKit
 
-public protocol ModalBubbleTransitionAnimatorDelegate: class {
-
+public protocol ModalBubbleTransitionAnimatorDelegate: AnyObject {
     func originPointForBubbleAnimation(_ animator: ModalBubbleTransitionAnimator) -> CGPoint
 }
 
 public final class ModalBubbleTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
-
     public var transitionDuration: TimeInterval = 0.4
     public var presenting: Bool = true
 
@@ -20,7 +18,6 @@ public final class ModalBubbleTransitionAnimator: NSObject, UIViewControllerAnim
     }
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-
         guard let fromVC = transitionContext.viewController(forKey: .from), let toVC = transitionContext.viewController(forKey: .to) else {
             transitionContext.cancelInteractiveTransition()
             return
@@ -50,14 +47,13 @@ public final class ModalBubbleTransitionAnimator: NSObject, UIViewControllerAnim
     private var transitionContext: UIViewControllerContextTransitioning?
 
     private func animate(view: UIView, presenting: Bool) {
-
         let origin = delegate?.originPointForBubbleAnimation(self) ?? .zero
 
         let viewHeight = view.bounds.height
         let viewWidth = view.bounds.height
 
-        let originX = origin.x < viewWidth/2 ? viewWidth : -viewWidth
-        let originY = origin.y < viewHeight/2 ? viewHeight : -viewHeight
+        let originX = origin.x < viewWidth / 2 ? viewWidth : -viewWidth
+        let originY = origin.y < viewHeight / 2 ? viewHeight : -viewHeight
 
         let extremePoint = CGPoint(x: originX, y: originY)
         let radius = sqrt(extremePoint.x * extremePoint.x + extremePoint.y * extremePoint.y)
@@ -82,5 +78,4 @@ public final class ModalBubbleTransitionAnimator: NSObject, UIViewControllerAnim
         maskLayerAnimation.delegate = self
         maskLayer.add(maskLayerAnimation, forKey: "path")
     }
-
 }

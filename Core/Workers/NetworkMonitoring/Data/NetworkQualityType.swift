@@ -30,12 +30,11 @@ public enum NetworkQualityType: Equatable {
 
     public static func == (lhs: NetworkQualityType, rhs: NetworkQualityType) -> Bool {
         switch (lhs, rhs) {
-        case (.unknown(let s1), .unknown(let s2)): return s1 == s2
+        case let (.unknown(s1), .unknown(s2)): return s1 == s2
         case (.average, .average): return true
         case (.bad, .bad): return true
-        case (.good(let s1), .good(let s2)): return s1 == s2
+        case let (.good(s1), .good(s2)): return s1 == s2
         default: return false
         }
     }
-
 }

@@ -1,11 +1,10 @@
 import CoreLocation
 
-extension CLLocationCoordinate2D: Comparable {}
+extension CLLocationCoordinate2D: Comparable { }
 
 public extension CLLocationCoordinate2D {
-
     var location: CLLocation {
-        return CLLocation(latitude: latitude, longitude: longitude)
+        CLLocation(latitude: latitude, longitude: longitude)
     }
 
     func toString(verbose: Bool = false) -> String {
@@ -19,14 +18,14 @@ public extension CLLocationCoordinate2D {
     // MARK: - Comparable
 
     static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
-        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+        lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 
     static func < (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
-        return lhs.latitude < rhs.latitude && lhs.longitude < rhs.longitude
+        lhs.latitude < rhs.latitude && lhs.longitude < rhs.longitude
     }
 
     static func > (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
-        return lhs.latitude > rhs.latitude &&  lhs.longitude > rhs.longitude
+        lhs.latitude > rhs.latitude && lhs.longitude > rhs.longitude
     }
 }

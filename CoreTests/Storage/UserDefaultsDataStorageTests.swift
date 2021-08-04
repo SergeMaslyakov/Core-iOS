@@ -1,8 +1,7 @@
-import XCTest
 @testable import Core
+import XCTest
 
 class UserDefaultsDataStorageTests: XCTestCase {
-
     typealias DataSample = (data: Data?, reference: String)
 
     private var dataStorage: UserDefaultsDataStorage!
@@ -28,7 +27,6 @@ class UserDefaultsDataStorageTests: XCTestCase {
     }
 
     func testAddingToUserDefaultsDataStorage() {
-
         let inputData = sampleData()
         var outputData: Data!
         XCTAssertNotNil(inputData.data)
@@ -46,7 +44,6 @@ class UserDefaultsDataStorageTests: XCTestCase {
     }
 
     func testRemovingFromUserDefaultsDataStorage() {
-
         let inputData = sampleData()
         var outputData: Data!
         XCTAssertNotNil(inputData.data)
@@ -68,10 +65,8 @@ class UserDefaultsDataStorageTests: XCTestCase {
 // MARK: - Sample data
 
 private extension UserDefaultsDataStorageTests {
-
     func sampleData() -> DataSample {
         let str = "SampleData+\(Date().timeIntervalSince1970)"
         return DataSample(data: str.data(using: .utf8), reference: str)
     }
-
 }

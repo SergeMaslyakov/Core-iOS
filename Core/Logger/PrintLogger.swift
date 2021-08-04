@@ -1,7 +1,6 @@
 import Foundation
 
 public final class PrintLogger: AppLoggerProtocol {
-
     public init() { }
 
     public func info(_ string: String) {

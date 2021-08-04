@@ -1,9 +1,8 @@
-import UIKit
 import LocalAuthentication
+import UIKit
 
 public final class BiometricAuthServiceImpl: BiometricAuthService {
-
-    private lazy var biometricContext: LAContext = LAContext()
+    private lazy var biometricContext = LAContext()
 
     private let unsecuredStorage: DataStorageProtocol
     private let securedStorage: DataStorageProtocol
@@ -19,7 +18,7 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
     // MARK: - Private
 
     private var pincodeKey: String {
-        return "keychain.pincode." + AppBundle.bundleIdentifier
+        "keychain.pincode." + AppBundle.bundleIdentifier
     }
 
     private func markPincodeAsStored(_ success: Bool) {
@@ -54,7 +53,6 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
         } catch {
             debugPrint(error)
         }
-
     }
 
     public func retrievePincode(completion: @escaping (_ result: Result<String?, Error>) -> Void) {
@@ -63,33 +61,33 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
         if biometricContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
             biometricContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
                                             localizedReason: touchIDMessage) { success, error in
-                                                // FYI: It's a background thread
-                                                if success {
-                                                    do {
-                                                        let data = try self.securedStorage.getData(forKey: self.pincodeKey)
-                                                        var pincode: String?
+                // FYI: It's a background thread
+                if success {
+                    do {
+                        let data = try self.securedStorage.getData(forKey: self.pincodeKey)
+                        var pincode: String?
 
-                                                        if let data = data as? Data {
-                                                            pincode = String(data: data, encoding: .utf8)
-                                                        }
+                        if let data = data as? Data {
+                            pincode = String(data: data, encoding: .utf8)
+                        }
 
-                                                        DispatchQueue.main.async {
-                                                            completion(.success(pincode))
-                                                        }
-                                                    } catch {
-                                                        DispatchQueue.main.async {
-                                                            completion(.failure(error))
-                                                        }
-                                                    }
-                                                } else {
-                                                    DispatchQueue.main.async {
-                                                        if let err = error {
-                                                            completion(.failure(err))
-                                                        } else {
-                                                            completion(.success(nil))
-                                                        }
-                                                    }
-                                                }
+                        DispatchQueue.main.async {
+                            completion(.success(pincode))
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            completion(.failure(error))
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        if let err = error {
+                            completion(.failure(err))
+                        } else {
+                            completion(.success(nil))
+                        }
+                    }
+                }
             }
         } else {
             DispatchQueue.main.async {
@@ -124,5 +122,4 @@ public final class BiometricAuthServiceImpl: BiometricAuthService {
             return .failure(error)
         }
     }
-
 }

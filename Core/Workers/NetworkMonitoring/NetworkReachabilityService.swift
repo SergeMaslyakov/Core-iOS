@@ -3,11 +3,10 @@
 import Foundation
 import SystemConfiguration
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
-final public class NetworkReachabilityService {
-
+public final class NetworkReachabilityService {
     private let serialQueue: DispatchQueue
     private let reachability: SCNetworkReachability
     private var isStarted = false
@@ -22,8 +21,8 @@ final public class NetworkReachabilityService {
         }
 
         self.serialQueue = serialQueue
-        self.reachability = reference
-        self.reachabilityStatus = BehaviorRelay(value: .unknown)
+        reachability = reference
+        reachabilityStatus = BehaviorRelay(value: .unknown)
     }
 
     // MARK: - Public
@@ -33,7 +32,7 @@ final public class NetworkReachabilityService {
     public func start() throws {
         guard !isStarted else { return }
 
-        let callback: SCNetworkReachabilityCallBack = { (reachability, flags, info) in
+        let callback: SCNetworkReachabilityCallBack = { reachability, flags, info in
             guard let info = info else { return }
 
             let reachability = Unmanaged<NetworkReachabilityService>.fromOpaque(info).takeUnretainedValue()
@@ -72,14 +71,11 @@ final public class NetworkReachabilityService {
 }
 
 private extension NetworkReachabilityService {
-
     func reachabilityChanged(_ flags: SCNetworkReachabilityFlags) {
-
         #if targetEnvironment(simulator)
-        reachabilityStatus.accept(.wifi)
+            reachabilityStatus.accept(.wifi)
         #else
-        reachabilityStatus.accept(ReachabilityStatus.make(from: flags))
+            reachabilityStatus.accept(ReachabilityStatus.make(from: flags))
         #endif
-
     }
 }

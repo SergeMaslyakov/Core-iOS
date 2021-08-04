@@ -1,18 +1,21 @@
 import UIKit
 
 public extension UIViewController {
-
     static func loadFromXib(bundle: Bundle? = nil, overriddenXib: String? = nil) -> Self {
         let identifier = String(describing: self)
         return self.init(nibName: overriddenXib ?? identifier, bundle: bundle)
     }
 
-    static func loadFromStoryboard(_ name: String? = nil, id: String? = nil, bundle: Bundle? = nil) -> UIViewController {
+    static func loadFromStoryboard(_ name: String? = nil, id: String? = nil, bundle: Bundle? = nil) -> Self {
         let identifier = String(describing: self)
         let id = id ?? identifier
         let storyboard = name ?? identifier.replacingOccurrences(of: "ViewController", with: "")
 
-        return UIStoryboard(name: storyboard, bundle: bundle).instantiateViewController(withIdentifier: id)
+        let optionalVC: Self? = UIStoryboard(name: storyboard, bundle: bundle).instantiateViewController(identifier: id, creator: nil)
+
+        guard let vc = optionalVC else { fatalError("Error instantiating view controller of type \(identifier)") }
+
+        return vc
     }
 
     static func emptyViewControllerWithAssert() -> UIViewController {
@@ -21,7 +24,7 @@ public extension UIViewController {
     }
 
     static func findVisibleController() -> UIViewController? {
-        var topController = UIApplication.shared.keyWindow?.rootViewController
+        var topController = UIApplication.shared.firstKeyWindow?.rootViewController
 
         while topController?.presentedViewController != nil {
             topController = topController?.presentedViewController
@@ -33,7 +36,6 @@ public extension UIViewController {
     // MARK: - Embedding
 
     func embed(controller: UIViewController, inContainer container: UIView, insets: UIEdgeInsets = .zero) {
-
         addChild(controller)
 
         controller.view.frame = container.frame
@@ -49,5 +51,4 @@ public extension UIViewController {
 
         completion?()
     }
-
 }

@@ -2,11 +2,10 @@ import Foundation
 import Logging
 
 public final class AppleSwiftLogger: AppLoggerProtocol {
-
     private let logger: Logging.Logger
 
     public init(label: String) {
-        self.logger = Logger(label: label)
+        logger = Logger(label: label)
     }
 
     public func info(_ string: String) {

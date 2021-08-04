@@ -1,12 +1,10 @@
-import UIKit
 import AuthenticationServices
+import UIKit
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
-@available(iOS 13.0, *)
 public final class AppleLoginProvider: NSObject {
-
     public enum AppleLoginProviderError: Error {
         case unknown
         case cancelled
@@ -36,13 +34,13 @@ public final class AppleLoginProvider: NSObject {
 
     public init(storage: DataStorageProtocol) {
         self.storage = storage
-        self.appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider = ASAuthorizationAppleIDProvider()
 
         super.init()
     }
 
     public func requestCredential() -> Single<RequestResult> {
-        return Single.create { [unowned self] observer -> Disposable in
+        Single.create { [unowned self] observer -> Disposable in
             assert(Thread.isMainThread)
 
             let request = self.appleIDProvider.createRequest()
@@ -56,13 +54,13 @@ public final class AppleLoginProvider: NSObject {
                 if let result = result {
                     observer(.success(result))
                 } else {
-                    observer(.error(error ?? AppleLoginProviderError.unknown))
+                    observer(.failure(error ?? AppleLoginProviderError.unknown))
                 }
             }
 
             self.authController?.performRequests()
 
-            return Disposables.create() {
+            return Disposables.create {
                 self.authController = nil
                 self.requestCompletion = nil
             }
@@ -70,7 +68,7 @@ public final class AppleLoginProvider: NSObject {
     }
 
     public func checkCredential(appleIdToken: String) -> Single<CheckResult> {
-        return Single.create { [unowned self] observer -> Disposable in
+        Single.create { [unowned self] observer -> Disposable in
             assert(Thread.isMainThread)
 
             self.appleIDProvider.getCredentialState(forUserID: appleIdToken) { state, error in
@@ -88,18 +86,14 @@ public final class AppleLoginProvider: NSObject {
 
             return Disposables.create()
         }
-
     }
 }
 
-@available(iOS 13.0, *)
 extension AppleLoginProvider: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
-
     // MARK: - ASAuthorizationControllerDelegate
 
     public func authorizationController(controller: ASAuthorizationController,
                                         didCompleteWithAuthorization authorization: ASAuthorization) {
-
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
 
@@ -146,7 +140,6 @@ extension AppleLoginProvider: ASAuthorizationControllerDelegate, ASAuthorization
 
     public func authorizationController(controller: ASAuthorizationController,
                                         didCompleteWithError error: Error) {
-
         requestCompletion?(nil, error)
     }
 
@@ -160,5 +153,4 @@ extension AppleLoginProvider: ASAuthorizationControllerDelegate, ASAuthorization
 
         return keyWindow
     }
-
 }

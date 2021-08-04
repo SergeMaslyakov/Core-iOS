@@ -1,12 +1,11 @@
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
 import SVProgressHUD
+import UIKit
 
 public extension Reactive where Base: SVProgressHUD {
-
     static var isAnimating: Binder<Bool> {
-        return Binder(UIApplication.shared) { _, isVisible in
+        Binder(UIApplication.shared) { _, isVisible in
             if isVisible {
                 SVProgressHUD.show()
             } else {
@@ -16,7 +15,7 @@ public extension Reactive where Base: SVProgressHUD {
     }
 
     static var isBlockingAnimating: Binder<Bool> {
-        return Binder(UIApplication.shared) { _, isVisible in
+        Binder(UIApplication.shared) { _, isVisible in
             if isVisible {
                 SVProgressHUD.setDefaultMaskType(.black)
                 SVProgressHUD.show()

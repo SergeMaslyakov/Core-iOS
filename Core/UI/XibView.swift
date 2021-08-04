@@ -1,7 +1,6 @@
 import UIKit
 
 open class XibView: UIView {
-
     public var contentView: UIView?
 
     override init(frame: CGRect) {

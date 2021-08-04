@@ -1,7 +1,6 @@
 import UIKit
 
 open class GradientView: PassthroughView {
-
     public var startColor: UIColor = .init(white: 1, alpha: 0.1) {
         didSet { updateColors() }
     }
@@ -27,7 +26,7 @@ open class GradientView: PassthroughView {
     }
 
     override public class var layerClass: AnyClass {
-        return CAGradientLayer.self
+        CAGradientLayer.self
     }
 
     override public func layoutSubviews() {
@@ -40,16 +39,16 @@ open class GradientView: PassthroughView {
 
     private var gradientLayer: CAGradientLayer {
         // swiftlint:disable:next force_cast
-        return layer as! CAGradientLayer
+        layer as! CAGradientLayer
     }
 
     private func updatePoints() {
         if horizontalMode {
             gradientLayer.startPoint = diagonalMode ? CGPoint(x: 1, y: 0) : CGPoint(x: 0, y: 0.5)
-            gradientLayer.endPoint   = diagonalMode ? CGPoint(x: 0, y: 1) : CGPoint(x: 1, y: 0.5)
+            gradientLayer.endPoint = diagonalMode ? CGPoint(x: 0, y: 1) : CGPoint(x: 1, y: 0.5)
         } else {
             gradientLayer.startPoint = diagonalMode ? CGPoint(x: 0, y: 0) : CGPoint(x: 0.5, y: 0)
-            gradientLayer.endPoint   = diagonalMode ? CGPoint(x: 1, y: 1) : CGPoint(x: 0.5, y: 1)
+            gradientLayer.endPoint = diagonalMode ? CGPoint(x: 1, y: 1) : CGPoint(x: 0.5, y: 1)
         }
     }
 
@@ -60,5 +59,4 @@ open class GradientView: PassthroughView {
     private func updateColors() {
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
     }
-
 }

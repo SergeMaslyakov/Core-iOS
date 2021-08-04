@@ -1,31 +1,30 @@
 import MapKit
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
 public extension MapGeoBox {
     func toRegion() -> MKCoordinateRegion {
-        return MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta))
+        MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta))
     }
 }
 
 public final class AppleMapGeocoder: MapGeocoder {
-
     public var prefferedLocale: Locale?
 
-    public init() {}
+    public init() { }
 
     // MARK: - MapGeocoder
 
     public func reverseGeocoding(by location: CLLocation,
                                  filter: @escaping MapGeocoderFilter,
                                  addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
-        return Single.create { [locale = prefferedLocale] single -> Disposable in
+        Single.create { [locale = prefferedLocale] single -> Disposable in
 
             let worker = CLGeocoder()
             let completion: CLGeocodeCompletionHandler = { placemarks, error in
                 if let error = error {
-                    single(.error(error))
+                    single(.failure(error))
                 } else {
                     if let placemarks = placemarks, !placemarks.isEmpty {
                         let data = placemarks.lazy
@@ -35,7 +34,6 @@ public final class AppleMapGeocoder: MapGeocoder {
                     } else {
                         single(.success([]))
                     }
-
                 }
             }
 
@@ -50,12 +48,12 @@ public final class AppleMapGeocoder: MapGeocoder {
     public func forwardGeocoding(place: String,
                                  filter: @escaping MapGeocoderFilter,
                                  addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
-        return Single.create { [locale = prefferedLocale] single -> Disposable in
+        Single.create { [locale = prefferedLocale] single -> Disposable in
 
             let worker = CLGeocoder()
             let completion: CLGeocodeCompletionHandler = { placemarks, error in
                 if let error = error {
-                    single(.error(error))
+                    single(.failure(error))
                 } else {
                     if let placemarks = placemarks, !placemarks.isEmpty {
                         let data = placemarks.lazy
@@ -65,7 +63,6 @@ public final class AppleMapGeocoder: MapGeocoder {
                     } else {
                         single(.success([]))
                     }
-
                 }
             }
 
@@ -81,7 +78,7 @@ public final class AppleMapGeocoder: MapGeocoder {
                               box: MapGeoBox,
                               filter: @escaping MapGeocoderFilter,
                               addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]> {
-        return Single.create { single -> Disposable in
+        Single.create { single -> Disposable in
 
             let request = MKLocalSearch.Request()
             request.naturalLanguageQuery = query
@@ -91,16 +88,19 @@ public final class AppleMapGeocoder: MapGeocoder {
 
             let completion: MKLocalSearch.CompletionHandler = { response, error in
                 if let error = error {
-                    single(.error(error))
+                    single(.failure(error))
                 } else {
                     if let response = response {
                         let items = response.mapItems
-                        let data = items.lazy.filter { filter($0) }.compactMap { MapGeocodingData(mapItem: $0, addressExtractor: addressExtractor) }
+                        let data = items
+                            .lazy
+                            .filter { filter($0) }
+                            .compactMap { MapGeocodingData(mapItem: $0, addressExtractor: addressExtractor) }
+
                         single(.success(Array(data)))
                     } else {
                         single(.success([]))
                     }
-
                 }
             }
 
@@ -110,6 +110,5 @@ public final class AppleMapGeocoder: MapGeocoder {
                 worker.cancel()
             }
         }
-
     }
 }

@@ -2,8 +2,7 @@ import Foundation
 import RxSwift
 
 public final class DisposableStick {
-
-    public init() {}
+    public init() { }
 
     public var disposable: Disposable? {
         didSet {

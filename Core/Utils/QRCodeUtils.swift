@@ -2,10 +2,8 @@ import Foundation
 import RxSwift
 
 public enum QRCodeUtils {
-
     public static func generateQRCode(for message: String) -> Observable<UIImage> {
-
-        return Observable.create { observer -> Disposable in
+        Observable.create { observer -> Disposable in
 
             if let filter = CIFilter(name: "CIQRCodeGenerator") {
                 let data = String(message).data(using: .ascii)

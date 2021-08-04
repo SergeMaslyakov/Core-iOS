@@ -1,7 +1,6 @@
 import UIKit
 
 public extension UIView {
-
     static func loadFromXib(_ name: String? = nil, _ bundle: Bundle? = nil) -> UIView? {
         let nib = UINib(nibName: name ?? String(describing: self), bundle: bundle ?? Bundle(for: self))
         let view = nib.instantiate(withOwner: self, options: nil).first as? UIView
@@ -15,17 +14,15 @@ public extension UIView {
         }
 
         translatesAutoresizingMaskIntoConstraints = false
-        superView.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-\(insets.left)-[view]-\(insets.right)-|",
-            options: [],
-            metrics: nil,
-            views: ["view": self]))
+        superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(insets.left)-[view]-\(insets.right)-|",
+                                                                options: [],
+                                                                metrics: nil,
+                                                                views: ["view": self]))
 
-        superView.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-\(insets.top)-[view]-\(insets.bottom)-|",
-            options: [],
-            metrics: nil,
-            views: ["view": self]))
+        superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(insets.top)-[view]-\(insets.bottom)-|",
+                                                                options: [],
+                                                                metrics: nil,
+                                                                views: ["view": self]))
 
         superView.layoutIfNeeded()
     }
@@ -41,9 +38,9 @@ public extension UIView {
     func addWidthConstraint(_ value: Int) {
         translatesAutoresizingMaskIntoConstraints = false
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(\(value))]",
-            options: [],
-            metrics: nil,
-            views: ["view": self]))
+                                                      options: [],
+                                                      metrics: nil,
+                                                      views: ["view": self]))
     }
 
     func snapshotImage(in frame: CGRect? = nil) -> UIImage? {
@@ -108,7 +105,6 @@ public extension UIView {
                            offsetY: CGFloat = 2,
                            blur: CGFloat = 4,
                            spread: CGFloat = 0) {
-
         clipsToBounds = false
 
         layer.shadowColor = color.cgColor

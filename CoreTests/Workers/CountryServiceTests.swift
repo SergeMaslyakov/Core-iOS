@@ -1,10 +1,9 @@
-import XCTest
 @testable import Core
+import XCTest
 
 import RxSwift
 
 class CountryServiceTests: XCTestCase {
-
     private var service: CountryServiceImpl!
     private var promise: XCTestExpectation!
 

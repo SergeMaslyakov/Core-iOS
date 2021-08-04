@@ -1,13 +1,12 @@
 import Foundation
 
 public final class DispatchWorkItemStick {
-
-    public init() {}
+    public init() { }
 
     private var _identifier: Int = 0
 
     public var identifier: Int {
-        return _identifier
+        _identifier
     }
 
     public var item: DispatchWorkItem? {
@@ -26,5 +25,4 @@ public final class DispatchWorkItemStick {
     deinit {
         item?.cancel()
     }
-
 }

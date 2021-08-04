@@ -8,7 +8,6 @@ public enum ReachabilityStatus {
     case cellular
 
     public static func make(from flags: SCNetworkReachabilityFlags) -> ReachabilityStatus {
-
         if !flags.contains(.reachable) {
             return .unreachable
         }
@@ -21,7 +20,7 @@ public enum ReachabilityStatus {
             return .wifi
         }
 
-        if !flags.intersection([.connectionOnTraffic, .connectionOnDemand]).isEmpty && !flags.contains(.interventionRequired) {
+        if !flags.intersection([.connectionOnTraffic, .connectionOnDemand]).isEmpty, !flags.contains(.interventionRequired) {
             return .wifi
         }
 

@@ -1,7 +1,6 @@
 import Foundation
 
 public final class SmsCodesManager {
-
     public typealias Phone = String
 
     private var storage: [Phone: TimeInterval] = [:]
@@ -10,7 +9,7 @@ public final class SmsCodesManager {
 
     public init(resendTimeout: TimeInterval) {
         self.resendTimeout = resendTimeout
-        self.accessQueue = DispatchQueue(label: "sms-codes-manager.access-queue", qos: .background, attributes: .concurrent)
+        accessQueue = DispatchQueue(label: "sms-codes-manager.access-queue", qos: .background, attributes: .concurrent)
     }
 
     public func setTimestamp(forPhone phone: Phone) {
@@ -20,7 +19,7 @@ public final class SmsCodesManager {
     }
 
     public func remainingCoolDown(forPhone phone: Phone) -> Int {
-        return accessQueue.sync {
+        accessQueue.sync {
             let ts = storage[phone] ?? 0
             let elapsedTime = Date().timeIntervalSince1970 - ts
             return Int(max(0, resendTimeout - elapsedTime))

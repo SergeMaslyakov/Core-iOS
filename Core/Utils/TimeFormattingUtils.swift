@@ -1,12 +1,10 @@
 import Foundation
 
 public enum TimeFormatter {
-
     /// string like 01:59:01
     public static func timeFrom(seconds: Int) -> String {
-
         func stringify(value: Int) -> String {
-            return value < 10 ? "0\(value)" : "\(value)"
+            value < 10 ? "0\(value)" : "\(value)"
         }
 
         let hrs = stringify(value: seconds / 3600)

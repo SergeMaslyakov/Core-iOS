@@ -1,7 +1,6 @@
 import Foundation
 
 public extension Date {
-
     func ifPeriodExpired(_ period: DateComponents) -> Bool {
         let nowDate = Date()
 

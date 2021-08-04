@@ -1,7 +1,6 @@
 import Foundation
 
-public protocol AppLoggerProtocol: class {
-
+public protocol AppLoggerProtocol: AnyObject {
     /// Logs info data
     ///
     /// - Parameter string: The data to be logged as string.

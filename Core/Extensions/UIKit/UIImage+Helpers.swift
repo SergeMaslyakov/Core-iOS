@@ -1,7 +1,6 @@
 import UIKit
 
 public extension UIImage {
-
     static func image(with color: UIColor, bounds: CGRect) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
 
@@ -29,7 +28,6 @@ public extension UIImage {
     }
 
     func merge(foregroundImage: UIImage, at point: CGPoint) -> UIImage {
-
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
 
         draw(at: .zero)

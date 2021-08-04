@@ -1,29 +1,28 @@
-import Foundation
 import CoreLocation
+import Foundation
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
 public final class LocationManagerImpl: NSObject, LocationManager {
-
     public var authStatus: Observable<CLAuthorizationStatus> {
-        return authStatusRelay.asObservable()
+        authStatusRelay.asObservable().share()
     }
 
     public var userLocation: Observable<CLLocation?> {
-        return userLocationRelay.asObservable()
+        userLocationRelay.asObservable().share()
     }
 
     public var userHeading: Observable<CLHeading?> {
-        return userHeadingRelay.asObservable()
+        userHeadingRelay.asObservable().share()
     }
 
     public var lastKnownUserLocation: CLLocation? {
-        return userLocationRelay.value
+        userLocationRelay.value
     }
 
     public var lastKnownUserHeading: CLHeading {
-        return userHeadingRelay.value ?? CLHeading()
+        userHeadingRelay.value ?? CLHeading()
     }
 
     public func requestAccessToLocation(_ desiredLevel: CLAuthorizationStatus) {
@@ -38,7 +37,7 @@ public final class LocationManagerImpl: NSObject, LocationManager {
     }
 
     public func lastKnownAuthStatus() -> CLAuthorizationStatus {
-        return authStatusRelay.value
+        authStatusRelay.value
     }
 
     private let authStatusRelay: BehaviorRelay<CLAuthorizationStatus>
@@ -48,9 +47,9 @@ public final class LocationManagerImpl: NSObject, LocationManager {
     private let locationManager = CLLocationManager()
 
     public init(askAuthorizationStatus: Bool = false) {
-        self.userLocationRelay = BehaviorRelay(value: nil)
-        self.userHeadingRelay = BehaviorRelay(value: nil)
-        self.authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
+        userLocationRelay = BehaviorRelay(value: nil)
+        userHeadingRelay = BehaviorRelay(value: nil)
+        authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
 
         super.init()
 
@@ -67,14 +66,12 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         default:
             break
         }
-
     }
 }
 
 extension LocationManagerImpl: CLLocationManagerDelegate {
-
-    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-
+    public func locationManager(_ manager: CLLocationManager,
+                                didChangeAuthorization status: CLAuthorizationStatus) {
         authStatusRelay.accept(status)
 
         if status == .authorizedAlways || status == .authorizedWhenInUse {
@@ -104,6 +101,6 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
     }
 
     public func locationManagerShouldDisplayHeadingCalibration(_ manager: CLLocationManager) -> Bool {
-        return true
+        true
     }
 }

@@ -1,14 +1,13 @@
-import Foundation
 import CoreLocation
+import Foundation
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
 public typealias MapGeocoderAddressExtractor = (Any) -> String?
 public typealias MapGeocoderFilter = (Any) -> Bool
 
-public protocol MapGeocoder: class {
-
+public protocol MapGeocoder: AnyObject {
     func reverseGeocoding(by location: CLLocation,
                           filter: @escaping MapGeocoderFilter,
                           addressExtractor: MapGeocoderAddressExtractor?) -> Single<[MapGeocodingData]>

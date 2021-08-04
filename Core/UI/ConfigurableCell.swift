@@ -1,7 +1,6 @@
 import UIKit
 
 public protocol ConfigurableCell {
-
     associatedtype T
 
     static var nib: UINib? { get }
@@ -13,13 +12,12 @@ public protocol ConfigurableCell {
 }
 
 public extension ConfigurableCell where Self: UICollectionViewCell {
-
     static var nib: UINib? {
-        return UINib(nibName: reuseId, bundle: Bundle(for: self))
+        UINib(nibName: reuseId, bundle: Bundle(for: self))
     }
 
     static var reuseId: String {
-        return String(describing: self)
+        String(describing: self)
     }
 
     static func registerNib(in collectionView: UICollectionView) {
@@ -32,13 +30,12 @@ public extension ConfigurableCell where Self: UICollectionViewCell {
 }
 
 public extension ConfigurableCell where Self: UICollectionReusableView {
-
     static var nib: UINib? {
-        return UINib(nibName: reuseId, bundle: Bundle(for: self))
+        UINib(nibName: reuseId, bundle: Bundle(for: self))
     }
 
     static var reuseId: String {
-        return String(describing: self)
+        String(describing: self)
     }
 
     static func registerNib(in collectionView: UICollectionView, forSupplementaryViewOfKind kind: String) {
@@ -51,13 +48,12 @@ public extension ConfigurableCell where Self: UICollectionReusableView {
 }
 
 public extension ConfigurableCell where Self: UITableViewCell {
-
     static var nib: UINib? {
-        return UINib(nibName: reuseId, bundle: Bundle(for: self))
+        UINib(nibName: reuseId, bundle: Bundle(for: self))
     }
 
     static var reuseId: String {
-        return String(describing: self)
+        String(describing: self)
     }
 
     static func registerNib(in tableView: UITableView) {
