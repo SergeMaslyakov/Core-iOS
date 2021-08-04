@@ -7,9 +7,8 @@ import Security
 ///
 
 public final class KeychainDataStorage: DataStorageProtocol {
-
     private let keyPrefix: String
-    private let accessGroup: String?  /// errSecMissingEntitlement = -34018; errSecInteractionNotAllowed = -25308
+    private let accessGroup: String? /// errSecMissingEntitlement = -34018; errSecInteractionNotAllowed = -25308
 
     public init(keyPrefix: String, accessGroup: String?) {
         self.keyPrefix = keyPrefix
@@ -19,11 +18,11 @@ public final class KeychainDataStorage: DataStorageProtocol {
     // MARK: - Private
 
     private func toString(_ value: CFString) -> String {
-        return value as String
+        value as String
     }
 
     private func keyWithPrefix(_ key: String) -> String {
-        return "\(keyPrefix)\(key)"
+        "\(keyPrefix)\(key)"
     }
 
     private func addAccessGroupWhenPresent(_ items: inout [String: Any]) {
@@ -35,9 +34,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
     // MARK: - DataStorageProtocol
 
     public func setData(_ data: Any?, forKey key: String) throws {
-
         if let data = data {
-
             var attr: [String: Any] = [
                 toString(kSecClass): kSecClassGenericPassword,
                 toString(kSecAttrService): keyWithPrefix(key),
@@ -48,7 +45,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
 
             let status = SecItemAdd(attr as CFDictionary, nil)
 
-            if status != errSecSuccess && status != errSecDuplicateItem {
+            if status != errSecSuccess, status != errSecDuplicateItem {
                 debugPrint("KeychainDataStorage: error during writing data \(status)")
                 throw DataStorageError.keychainWriteError(status)
             }
@@ -63,9 +60,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
     }
 
     public func updateData(_ data: Any?, forKey key: String) throws {
-
         if let data = data {
-
             let changes: [String: Any] = [toString(kSecValueData): data]
             var query: [String: Any] = [
                 toString(kSecClass): kSecClassGenericPassword,
@@ -76,7 +71,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
 
             let status = SecItemUpdate(query as CFDictionary, changes as CFDictionary)
 
-            if status != errSecSuccess && status != errSecItemNotFound {
+            if status != errSecSuccess, status != errSecItemNotFound {
                 debugPrint("KeychainDataStorage: error during updating data \(status)")
                 throw DataStorageError.keychainUpdateError(status)
             }
@@ -86,7 +81,6 @@ public final class KeychainDataStorage: DataStorageProtocol {
     }
 
     public func getData(forKey key: String) throws -> Any? {
-
         var query: [String: Any] = [
             toString(kSecClass): kSecClassGenericPassword,
             toString(kSecAttrService): keyWithPrefix(key),
@@ -116,7 +110,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
         addAccessGroupWhenPresent(&query)
 
         let status = SecItemDelete(query as CFDictionary)
-        if status != errSecSuccess && status != errSecItemNotFound {
+        if status != errSecSuccess, status != errSecItemNotFound {
             debugPrint("KeychainDataStorage: error during removing data \(status)")
             throw DataStorageError.keychainDeleteError(status)
         }
@@ -130,7 +124,7 @@ public final class KeychainDataStorage: DataStorageProtocol {
         addAccessGroupWhenPresent(&query)
 
         let status = SecItemDelete(query as CFDictionary)
-        if status != errSecSuccess && status != errSecItemNotFound {
+        if status != errSecSuccess, status != errSecItemNotFound {
             debugPrint("KeychainDataStorage: error during wiping out data \(status)")
             throw DataStorageError.keychainDeleteError(status)
         }

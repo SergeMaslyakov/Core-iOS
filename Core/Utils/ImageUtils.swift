@@ -1,36 +1,57 @@
-import UIKit
 import Photos
 import RxSwift
+import UIKit
 
 // Resizing utils copyright - https://github.com/gavinbunney/Toucan
 
 public enum ImageUtils {
+    public static func changeFileExtension(filename: String, to ext: String) -> String {
+        var pieces = filename.split(separator: ".")
 
-    public static func resize(image: UIImage, imageScalingSize: CGFloat) -> Observable<UIImage> {
-        return Observable.create { observer -> Disposable in
+        guard pieces.count > 1, let last = pieces.last, last != ext else { return filename }
+
+        _ = pieces.removeLast()
+        let reassembledName = pieces.joined(separator: ".")
+        return reassembledName + "." + ext
+    }
+
+    public static func convertToJpeg(_ data: Data, quality: CGFloat = 1.0) -> Single<Data> {
+        Single.create { single -> Disposable in
+            if let jpegData = UIImage(data: data)?.jpegData(compressionQuality: quality) {
+                single(.success(jpegData))
+            } else {
+                single(.failure(NSError(domain: "core.image.utils",
+                                        code: -1,
+                                        userInfo: [NSLocalizedDescriptionKey: "compression error"])))
+            }
+
+            return Disposables.create()
+        }
+    }
+
+    public static func resize(image: UIImage, imageScalingSize: CGFloat) -> Single<UIImage> {
+        Single.create { single -> Disposable in
 
             let originalSize = image.size
 
-            if originalSize.height < imageScalingSize && originalSize.width < imageScalingSize {
-                observer.onNext(image)
+            if originalSize.height < imageScalingSize, originalSize.width < imageScalingSize {
+                single(.success(image))
             } else {
                 let ratio = imageScalingSize / max(originalSize.height, originalSize.width)
                 let size = CGSize(width: originalSize.width * ratio, height: originalSize.height * ratio)
 
                 if let resizedImage = ImageUtils.resize(image: image, byScaling: size) {
-                    observer.onNext(resizedImage)
+                    single(.success(resizedImage))
                 } else {
-                    observer.onNext(image)
+                    single(.success(image))
                 }
             }
 
-            observer.onCompleted()
             return Disposables.create()
         }
     }
 
     public static func resize(image: UIImage, byScaling size: CGSize) -> UIImage? {
-
         let imgRef = Utils.cgImageWithCorrectOrientation(image)
         let originalWidth = CGFloat(imgRef?.width ?? 0)
         let originalHeight = CGFloat(imgRef?.height ?? 0)
@@ -60,7 +81,7 @@ public enum ImageUtils {
     public static func makeGradientImage(colors: [UIColor], points: [CGPoint], bounds: CGRect) -> UIImage {
         let layer = CAGradientLayer()
         layer.frame = bounds
-        layer.colors = colors.map { $0.cgColor }
+        layer.colors = colors.map(\.cgColor)
 
         if points.count > 1 {
             layer.startPoint = points[0]
@@ -118,24 +139,22 @@ public enum ImageUtils {
     }
 
     private enum Utils {
-
         // swiftlint:disable function_body_length superfluous_disable_command
         static func cgImageWithCorrectOrientation(_ image: UIImage) -> CGImage? {
-
             if image.imageOrientation == UIImage.Orientation.up {
                 return image.cgImage
             }
 
-            var transform: CGAffineTransform = CGAffineTransform.identity
+            var transform = CGAffineTransform.identity
 
             switch image.imageOrientation {
-            case UIImageOrientation.right, UIImageOrientation.rightMirrored:
+            case UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
                 transform = transform.translatedBy(x: 0, y: image.size.height)
                 transform = transform.rotated(by: .pi / -2.0)
-            case UIImageOrientation.left, UIImageOrientation.leftMirrored:
+            case UIImage.Orientation.left, UIImage.Orientation.leftMirrored:
                 transform = transform.translatedBy(x: image.size.width, y: 0)
                 transform = transform.rotated(by: .pi / 2.0)
-            case UIImageOrientation.down, UIImageOrientation.downMirrored:
+            case UIImage.Orientation.down, UIImage.Orientation.downMirrored:
                 transform = transform.translatedBy(x: image.size.width, y: image.size.height)
                 transform = transform.rotated(by: .pi)
             default:
@@ -143,10 +162,10 @@ public enum ImageUtils {
             }
 
             switch image.imageOrientation {
-            case UIImageOrientation.rightMirrored, UIImageOrientation.leftMirrored:
+            case UIImage.Orientation.rightMirrored, UIImage.Orientation.leftMirrored:
                 transform = transform.translatedBy(x: image.size.height, y: 0)
                 transform = transform.scaledBy(x: -1, y: 1)
-            case UIImageOrientation.downMirrored, UIImageOrientation.upMirrored:
+            case UIImage.Orientation.downMirrored, UIImage.Orientation.upMirrored:
                 transform = transform.translatedBy(x: image.size.width, y: 0)
                 transform = transform.scaledBy(x: -1, y: 1)
             default:
@@ -157,8 +176,8 @@ public enum ImageUtils {
             let contextHeight: Int
 
             switch image.imageOrientation {
-            case UIImageOrientation.left, UIImageOrientation.leftMirrored,
-                 UIImageOrientation.right, UIImageOrientation.rightMirrored:
+            case UIImage.Orientation.left, UIImage.Orientation.leftMirrored,
+                 UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
                 contextWidth = image.cgImage?.height ?? 0
                 contextHeight = image.cgImage?.width ?? 0
             default:
@@ -166,22 +185,26 @@ public enum ImageUtils {
                 contextHeight = image.cgImage?.height ?? 0
             }
 
-            let context: CGContext = CGContext(data: nil, width: contextWidth, height: contextHeight,
-                                               bitsPerComponent: image.cgImage?.bitsPerComponent ?? 0,
-                                               bytesPerRow: 0,
-                                               space: image.cgImage?.colorSpace ??  CGColorSpace(name: CGColorSpace.sRGB)!,
-                                               bitmapInfo: image.cgImage!.bitmapInfo.rawValue)!
+            let context = CGContext(data: nil, width: contextWidth, height: contextHeight,
+                                    bitsPerComponent: image.cgImage?.bitsPerComponent ?? 0,
+                                    bytesPerRow: 0,
+                                    space: image.cgImage?.colorSpace ?? CGColorSpace(name: CGColorSpace.sRGB)!,
+                                    bitmapInfo: image.cgImage!.bitmapInfo.rawValue)!
 
             context.concatenate(transform)
-            context.draw(image.cgImage!, in: CGRect(x: 0, y: 0, width: CGFloat(contextWidth), height: CGFloat(contextHeight)))
+            context.draw(image.cgImage!, in: CGRect(x: 0,
+                                                    y: 0,
+                                                    width: CGFloat(contextWidth),
+                                                    height: CGFloat(contextHeight)))
 
             let cgImage = context.makeImage()
             return cgImage
         }
+
         // swiftlint:enable function_body_length superfluous_disable_command
 
         static func draw(image: UIImage, in bounds: CGRect, scale: CGFloat) -> UIImage? {
-            guard bounds.width > 0.0 && bounds.height > 0.0 else {
+            guard bounds.width > 0.0, bounds.height > 0.0 else {
                 debugPrint("Resize UIImage - wrong params")
                 return nil
             }
@@ -196,5 +219,4 @@ public enum ImageUtils {
             return scaledImage
         }
     }
-
 }

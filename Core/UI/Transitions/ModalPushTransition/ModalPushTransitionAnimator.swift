@@ -1,7 +1,6 @@
 import UIKit
 
 public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-
     public var transitionDuration: TimeInterval = 0.6
     public var presenting: Bool = true
 
@@ -27,7 +26,7 @@ public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimat
         var initialToFrame = toVC.view.frame
         var finalToFrame = toVC.view.frame
 
-        initialToFrame.origin.x = presenting ? width : -(width/3)
+        initialToFrame.origin.x = presenting ? width : -(width / 3)
         finalToFrame.origin.x = 0
 
         toVC.view.frame = initialToFrame
@@ -36,7 +35,7 @@ public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimat
         var finalFromFrame = fromVC.view.frame
 
         initialFromFrame.origin.x = 0
-        finalFromFrame.origin.x = presenting ? -(width/3) : width
+        finalFromFrame.origin.x = presenting ? -(width / 3) : width
 
         fromVC.view.frame = initialFromFrame
 
@@ -55,12 +54,11 @@ public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimat
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 4, options: [.curveEaseOut],
                        animations: {
-
-            toVC.view.frame = finalToFrame
-            fromVC.view.frame = finalFromFrame
-        }, completion: { _ in
-            completion?()
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        })
+                           toVC.view.frame = finalToFrame
+                           fromVC.view.frame = finalFromFrame
+                       }, completion: { _ in
+                           completion?()
+                           transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                       })
     }
 }

@@ -1,7 +1,6 @@
 import UIKit
 
 public final class ModalFadeTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-
     public var transitionDuration: TimeInterval = 0.25
     public var presenting: Bool = true
 
@@ -37,5 +36,4 @@ public final class ModalFadeTransitionAnimator: NSObject, UIViewControllerAnimat
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
-
 }

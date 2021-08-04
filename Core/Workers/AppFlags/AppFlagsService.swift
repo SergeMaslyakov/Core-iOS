@@ -1,7 +1,4 @@
-import Foundation
-
-public protocol AppFlagsService: class {
-
+public protocol AppFlagsService: AnyObject {
     typealias FirstLaunchData = (isFirstLaunch: Bool, firstLaunchDate: Date?)
     typealias NewVersionData = (initialVersion: String, newVersion: String)
 

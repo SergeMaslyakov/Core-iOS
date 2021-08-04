@@ -1,14 +1,11 @@
-import Foundation
-
 public final class AppFlagsServiceImpl: AppFlagsService {
-
     private enum Keys: String {
         case firstLaunchDate = "app_first_launch_date"
         case initialVersion = "app_initial_version"
         case currentVersion = "app_current_version"
 
         var bundleRelatedKey: String {
-            return AppBundle.bundleIdentifier + "." + self.rawValue
+            AppBundle.bundleIdentifier + "." + rawValue
         }
     }
 

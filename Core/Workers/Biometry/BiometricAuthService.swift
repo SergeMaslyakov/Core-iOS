@@ -5,7 +5,6 @@ public enum BiometryType {
 }
 
 public protocol BiometricAuthService {
-
     var isPincodeStored: Bool { get }
 
     func obtainBiometryType() -> BiometryType

@@ -70,10 +70,10 @@ public protocol AnyDecoder {
     func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T
 }
 
-extension JSONDecoder: AnyDecoder {}
+extension JSONDecoder: AnyDecoder { }
 
 #if canImport(ObjectiveC) || swift(>=5.1)
-extension PropertyListDecoder: AnyDecoder {}
+    extension PropertyListDecoder: AnyDecoder { }
 #endif
 
 public extension Data {
@@ -81,7 +81,7 @@ public extension Data {
     /// If no explicit encoder is passed, then the data is decoded as JSON.
     func decoded<T: Decodable>(as type: T.Type = T.self,
                                using decoder: AnyDecoder = JSONDecoder()) throws -> T {
-        return try decoder.decode(T.self, from: self)
+        try decoder.decode(T.self, from: self)
     }
 }
 
@@ -94,7 +94,7 @@ public extension Decoder {
 
     /// Decode a value for a given key, specified as a string.
     func decode<T: Decodable>(_ key: String, as type: T.Type = T.self) throws -> T {
-        return try decode(AnyCodingKey(key), as: type)
+        try decode(AnyCodingKey(key), as: type)
     }
 
     /// Decode a value for a given key, specified as a `CodingKey`.
@@ -107,7 +107,7 @@ public extension Decoder {
     /// specific formatter. To decode a date using the decoder's default settings,
     /// simply decode it like any other value instead of using this method.
     func decode<F: AnyDateFormatter>(_ key: String, using formatter: F) throws -> Date {
-        return try decode(AnyCodingKey(key), using: formatter)
+        try decode(AnyCodingKey(key), using: formatter)
     }
 
     /// Decode a date from a string for a given key (specified as a `CodingKey`), using
@@ -118,11 +118,9 @@ public extension Decoder {
         let rawString = try container.decode(String.self, forKey: key)
 
         guard let date = formatter.date(from: rawString) else {
-            throw DecodingError.dataCorruptedError(
-                forKey: key,
-                in: container,
-                debugDescription: "Unable to format date string"
-            )
+            throw DecodingError.dataCorruptedError(forKey: key,
+                                                   in: container,
+                                                   debugDescription: "Unable to format date string")
         }
 
         return date
@@ -140,10 +138,10 @@ public protocol AnyDateFormatter {
     func string(from date: Date) -> String
 }
 
-extension DateFormatter: AnyDateFormatter {}
+extension DateFormatter: AnyDateFormatter { }
 
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, *)
-extension ISO8601DateFormatter: AnyDateFormatter {}
+extension ISO8601DateFormatter: AnyDateFormatter { }
 
 // MARK: - Private supporting types
 
@@ -161,6 +159,6 @@ private struct AnyCodingKey: CodingKey {
 
     init?(intValue: Int) {
         self.intValue = intValue
-        self.stringValue = String(intValue)
+        stringValue = String(intValue)
     }
 }

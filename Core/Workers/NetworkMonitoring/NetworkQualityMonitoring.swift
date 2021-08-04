@@ -1,11 +1,10 @@
-import Foundation
 import CoreTelephony
+import Foundation
 
 import RxCocoa
 import RxSwift
 
-final public class NetworkQualityMonitoring: NSObject {
-
+public final class NetworkQualityMonitoring: NSObject {
     private let disposeBag = DisposeBag()
 
     private let serialQueue: DispatchQueue
@@ -18,28 +17,23 @@ final public class NetworkQualityMonitoring: NSObject {
     private let logger: AppLoggerProtocol
 
     public init?(logger: AppLoggerProtocol) {
-        self.serialQueue = DispatchQueue(label: "network-monitoring-service.serial", qos: .default, target: nil)
-        self.telephonyInfo = CTTelephonyNetworkInfo()
+        serialQueue = DispatchQueue(label: "network-monitoring-service.serial", qos: .default, target: nil)
+        telephonyInfo = CTTelephonyNetworkInfo()
         self.logger = logger
 
         do {
-            self.reachabilityService = try NetworkReachabilityService(serialQueue: self.serialQueue)
+            reachabilityService = try NetworkReachabilityService(serialQueue: serialQueue)
         } catch {
             logger.error(error.localizedDescription)
             return nil
         }
 
-        if #available(iOS 12.0, *) {
-            let values = telephonyInfo.serviceCurrentRadioAccessTechnology?.values.map { RadioTechnologyType.make(from: $0) }
-            let value = values?.first(where: { $0 != .unknown }) ?? .unknown
-            self.radioRelay = BehaviorRelay<RadioTechnologyType>(value: value)
-        } else {
-            let value = RadioTechnologyType.make(from: telephonyInfo.currentRadioAccessTechnology ?? "")
-            self.radioRelay = BehaviorRelay<RadioTechnologyType>(value: value)
-        }
+        let values = telephonyInfo.serviceCurrentRadioAccessTechnology?.values.map { RadioTechnologyType.make(from: $0) }
+        let value = values?.first(where: { $0 != .unknown }) ?? .unknown
 
-        self.qualityRelay = BehaviorRelay<NetworkQualityType>(value: .unknown(.unknown))
-        self.networkQuality = qualityRelay.asObservable().share(replay: 1, scope: .forever)
+        radioRelay = BehaviorRelay<RadioTechnologyType>(value: value)
+        qualityRelay = BehaviorRelay<NetworkQualityType>(value: .unknown(.unknown))
+        networkQuality = qualityRelay.asObservable().share(replay: 1, scope: .forever)
 
         super.init()
 
@@ -57,48 +51,21 @@ final public class NetworkQualityMonitoring: NSObject {
     public let networkQuality: Observable<NetworkQualityType>
 
     public func start() {
-
-        if #available(iOS 13.0, *) {
-            telephonyInfo.delegate = self
-        } else if #available(iOS 12.0, *) {
-            telephonyInfo.serviceSubscriberCellularProvidersDidUpdateNotifier = { [unowned self] identifier in
-                self.serialQueue.async {
-                    let value = RadioTechnologyType.make(from: identifier)
-                    self.radioRelay.accept(value)
-                }
-            }
-        } else {
-            telephonyInfo.subscriberCellularProviderDidUpdateNotifier = { [unowned self] carrier in
-                self.serialQueue.async {
-                    let value = RadioTechnologyType.make(from: self.telephonyInfo.currentRadioAccessTechnology ?? "")
-                    self.radioRelay.accept(value)
-                }
-            }
-        }
-
+        telephonyInfo.delegate = self
         try? reachabilityService.start()
     }
 
     public func stop() {
-        if #available(iOS 13.0, *) {
-            telephonyInfo.delegate = nil
-        } else if #available(iOS 12.0, *) {
-            telephonyInfo.serviceSubscriberCellularProvidersDidUpdateNotifier = nil
-        } else {
-            telephonyInfo.subscriberCellularProviderDidUpdateNotifier = nil
-        }
+        telephonyInfo.delegate = nil
         reachabilityService.stop()
     }
-
 }
 
 extension NetworkQualityMonitoring: CTTelephonyNetworkInfoDelegate {
-
     public func dataServiceIdentifierDidChange(_ identifier: String) {
         serialQueue.async {
             let value = RadioTechnologyType.make(from: identifier)
             self.radioRelay.accept(value)
         }
     }
-
 }

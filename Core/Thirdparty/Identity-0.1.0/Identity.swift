@@ -34,7 +34,7 @@ public struct Identifier<Value: Identifiable> {
 // MARK: - Integer literal support
 
 extension Identifier: ExpressibleByIntegerLiteral
-          where Value.RawIdentifier: ExpressibleByIntegerLiteral {
+    where Value.RawIdentifier: ExpressibleByIntegerLiteral {
     public init(integerLiteral value: Value.RawIdentifier.IntegerLiteralType) {
         rawValue = .init(integerLiteral: value)
     }
@@ -43,21 +43,21 @@ extension Identifier: ExpressibleByIntegerLiteral
 // MARK: - String literal support
 
 extension Identifier: ExpressibleByUnicodeScalarLiteral
-          where Value.RawIdentifier: ExpressibleByUnicodeScalarLiteral {
+    where Value.RawIdentifier: ExpressibleByUnicodeScalarLiteral {
     public init(unicodeScalarLiteral value: Value.RawIdentifier.UnicodeScalarLiteralType) {
         rawValue = .init(unicodeScalarLiteral: value)
     }
 }
 
 extension Identifier: ExpressibleByExtendedGraphemeClusterLiteral
-          where Value.RawIdentifier: ExpressibleByExtendedGraphemeClusterLiteral {
+    where Value.RawIdentifier: ExpressibleByExtendedGraphemeClusterLiteral {
     public init(extendedGraphemeClusterLiteral value: Value.RawIdentifier.ExtendedGraphemeClusterLiteralType) {
         rawValue = .init(extendedGraphemeClusterLiteral: value)
     }
 }
 
 extension Identifier: ExpressibleByStringLiteral
-          where Value.RawIdentifier: ExpressibleByStringLiteral {
+    where Value.RawIdentifier: ExpressibleByStringLiteral {
     public init(stringLiteral value: Value.RawIdentifier.StringLiteralType) {
         rawValue = .init(stringLiteral: value)
     }
@@ -65,8 +65,8 @@ extension Identifier: ExpressibleByStringLiteral
 
 // MARK: - Compiler-generated protocol support
 
-extension Identifier: Equatable where Value.RawIdentifier: Equatable {}
-extension Identifier: Hashable where Value.RawIdentifier: Hashable {}
+extension Identifier: Equatable where Value.RawIdentifier: Equatable { }
+extension Identifier: Hashable where Value.RawIdentifier: Hashable { }
 
 // MARK: - Codable support
 

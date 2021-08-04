@@ -1,9 +1,8 @@
 import Foundation
 
 public extension String {
-
     func localizable(_ file: String? = nil) -> String {
-        return NSLocalizedString(self, tableName: file, bundle: .main, value: "", comment: "")
+        NSLocalizedString(self, tableName: file, bundle: .main, value: "", comment: "")
     }
 
     func pluralForm(_ args: CVarArg...) -> String {
@@ -12,10 +11,10 @@ public extension String {
     }
 
     var isAlphanumerics: Bool {
-        return rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) == nil && !isEmpty
+        rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) == nil && !isEmpty
     }
 
     var isDigits: Bool {
-        return rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && !isEmpty
+        rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && !isEmpty
     }
 }

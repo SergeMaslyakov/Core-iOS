@@ -1,5 +1,5 @@
-import Foundation
 import CoreTelephony
+import Foundation
 
 public enum RadioTechnologyType {
     case unknown

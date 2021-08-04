@@ -2,7 +2,6 @@ import Foundation
 import RxSwift
 
 public final class PasswordValidatorImpl: PasswordValidator {
-
     private let minLength: Int
     private let maxLength: Int
 
@@ -12,7 +11,7 @@ public final class PasswordValidatorImpl: PasswordValidator {
     }
 
     public func validateRx(_ password1: String, _ password2: String) -> Observable<PasswordValidatorResult> {
-        return Observable.deferred { [unowned self] in
+        Observable.deferred { [unowned self] in
             .just(self.validate(password1, password2))
         }
     }
@@ -40,5 +39,4 @@ public final class PasswordValidatorImpl: PasswordValidator {
 
         return .valid
     }
-
 }

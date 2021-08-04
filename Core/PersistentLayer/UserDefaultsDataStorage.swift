@@ -6,7 +6,6 @@ import Foundation
 ///
 
 public final class UserDefaultsDataStorage: DataStorageProtocol {
-
     private let defaults: UserDefaults
     private let suiteName: String?
     private let keyPrefix: String
@@ -16,16 +15,16 @@ public final class UserDefaultsDataStorage: DataStorageProtocol {
         self.suiteName = suiteName
 
         if let suiteName = suiteName {
-            self.defaults = UserDefaults(suiteName: keyPrefix + suiteName) ?? .standard
+            defaults = UserDefaults(suiteName: keyPrefix + suiteName) ?? .standard
         } else {
-            self.defaults = UserDefaults.standard
+            defaults = UserDefaults.standard
         }
     }
 
     // MARK: - Private
 
     private func keyWithPrefix(_ key: String) -> String {
-        return "\(keyPrefix)\(key)"
+        "\(keyPrefix)\(key)"
     }
 
     // MARK: - DataStorageProtocol
@@ -50,7 +49,7 @@ public final class UserDefaultsDataStorage: DataStorageProtocol {
 
     public func removeData(forKey key: String) throws {
         defaults.set(nil, forKey: keyWithPrefix(key))
-        //defaults.removeObject(forKey: keyWithPrefix(key))
+        // defaults.removeObject(forKey: keyWithPrefix(key))
     }
 
     public func removeAll() throws {

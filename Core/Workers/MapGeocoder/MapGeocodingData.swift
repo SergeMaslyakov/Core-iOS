@@ -1,8 +1,7 @@
-import Foundation
 import CoreLocation
+import Foundation
 
 public struct MapGeocodingData {
-
     public let coord: CLLocationCoordinate2D
     public let name: String
     public let address: String
@@ -17,8 +16,7 @@ public struct MapGeocodingData {
         self.coord = coord
 
         let coordStr = coord.toString()
-        self.name = coordStr
-        self.address = coordStr
+        name = coordStr
+        address = coordStr
     }
-
 }

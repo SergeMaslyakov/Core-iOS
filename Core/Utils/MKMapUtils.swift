@@ -1,13 +1,12 @@
 import MapKit
 
 public enum MKMapUtils {
-
     public static func regionToRect(_ region: MKCoordinateRegion) -> MKMapRect {
-        let topLeft = CLLocationCoordinate2D(latitude: region.center.latitude + region.span.latitudeDelta/2.0,
-                                             longitude: region.center.longitude - region.span.longitudeDelta/2.0)
+        let topLeft = CLLocationCoordinate2D(latitude: region.center.latitude + region.span.latitudeDelta / 2.0,
+                                             longitude: region.center.longitude - region.span.longitudeDelta / 2.0)
 
-        let bottomRight = CLLocationCoordinate2D(latitude: region.center.latitude - region.span.latitudeDelta/2.0,
-                                                 longitude: region.center.longitude + (region.span.longitudeDelta/2.0))
+        let bottomRight = CLLocationCoordinate2D(latitude: region.center.latitude - region.span.latitudeDelta / 2.0,
+                                                 longitude: region.center.longitude + (region.span.longitudeDelta / 2.0))
 
         let topLeftMapPoint = MKMapPoint(topLeft)
         let bottomRightMapPoint = MKMapPoint(bottomRight)
@@ -22,7 +21,7 @@ public enum MKMapUtils {
     public static func makeCoordinateRegion(from coordinates: [CLLocationCoordinate2D]) -> MapGeoBox? {
         guard coordinates.count > 1 else { return calculateCoordinateRegion(from: coordinates) }
 
-        let polygon: MKPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
+        let polygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
         let mapRect = polygon.boundingMapRect.insetBy(dx: 100, dy: 100)
 
         let region = MKCoordinateRegion(mapRect)
@@ -66,6 +65,6 @@ public enum MKMapUtils {
     public static func addInsetsInMeters(span: MKCoordinateSpan, inset: Double) -> MKCoordinateSpan {
         // one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         // one degree of longitude spans a distance of approximately 111 kilometers (69 miles) at the equator but shrinks to 0 kilometers at the poles.
-        return MKCoordinateSpan(latitudeDelta: span.latitudeDelta + inset/111000, longitudeDelta: span.longitudeDelta + inset/111000)
+        MKCoordinateSpan(latitudeDelta: span.latitudeDelta + inset / 111_000, longitudeDelta: span.longitudeDelta + inset / 111_000)
     }
 }

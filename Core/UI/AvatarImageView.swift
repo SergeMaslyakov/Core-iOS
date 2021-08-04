@@ -1,22 +1,32 @@
 import UIKit
 
-final public class AvatarImageView: UIImageView {
+public final class AvatarImageView: UIImageView {
+    public let label = UILabel(frame: .zero)
 
     public convenience init() {
         self.init(frame: CGRect.zero)
-        clipsToBounds = true
+
+        addSubview(label)
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        maskRoundCorners(radius: frame.width / 2)
+        addSubview(label)
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        maskRoundCorners(radius: frame.width / 2)
+        addSubview(label)
     }
 
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+
+        maskRoundCorners(radius: frame.width / 2)
+        label.frame = CGRect(origin: .init(x: 5, y: 5),
+                             size: .init(width: bounds.width - 10,
+                                         height: bounds.height - 10))
+    }
 }

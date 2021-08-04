@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36A6C0FB25E82CDD005A14AA /* UIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6C0FA25E82CDD005A14AA /* UIApplication+Helpers.swift */; };
 		953C3F702301626500E720F0 /* AppleMapGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6C2301626500E720F0 /* AppleMapGeocoder.swift */; };
 		953C3F712301626500E720F0 /* MapGeocodingData+Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6D2301626500E720F0 /* MapGeocodingData+Apple.swift */; };
 		953C3F722301626500E720F0 /* MapGeocodingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3F6E2301626500E720F0 /* MapGeocodingData.swift */; };
@@ -39,6 +40,11 @@
 		DD6540E86AAFEACB24EEC619 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD654112BE891C3F985C6B55 /* Identity.swift */; };
 		E0FD11E721477A5F008C2EF8 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FD11DD21477A5F008C2EF8 /* Core.framework */; };
 		E0FD11EE21477A5F008C2EF8 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = E0FD11E021477A5F008C2EF8 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E60000AC2699D4A400D976B9 /* UIFont+Stylistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60000AB2699D4A400D976B9 /* UIFont+Stylistics.swift */; };
+		E627E02326B40221000FBD78 /* PHImageManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E627E02226B40221000FBD78 /* PHImageManager+Rx.swift */; };
+		E632ED2726B087E700785247 /* PhotoGalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E632ED2626B087E700785247 /* PhotoGalleryService.swift */; };
+		E64FC61426B1DB46007A524A /* PhotoGalleryService+Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FC61326B1DB46007A524A /* PhotoGalleryService+Authorization.swift */; };
+		E64FC61626B21AC6007A524A /* PHAssetResourceManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FC61526B21AC6007A524A /* PHAssetResourceManager+Rx.swift */; };
 		FB02DDEC22AE72A20028284E /* BiometricAuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */; };
 		FB02DDEE22AE76940028284E /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDED22AE76940028284E /* BiometricAuthService.swift */; };
 		FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */; };
@@ -110,6 +116,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36A6C0FA25E82CDD005A14AA /* UIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		953C3F6C2301626500E720F0 /* AppleMapGeocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleMapGeocoder.swift; sourceTree = "<group>"; };
 		953C3F6D2301626500E720F0 /* MapGeocodingData+Apple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapGeocodingData+Apple.swift"; sourceTree = "<group>"; };
 		953C3F6E2301626500E720F0 /* MapGeocodingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapGeocodingData.swift; sourceTree = "<group>"; };
@@ -153,6 +160,11 @@
 		E0FD122E214786AE008C2EF8 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		E0FD122F214786AE008C2EF8 /* ReleaseTest.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseTest.xcconfig; sourceTree = "<group>"; };
 		E0FD1232214786EF008C2EF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E60000AB2699D4A400D976B9 /* UIFont+Stylistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Stylistics.swift"; sourceTree = "<group>"; };
+		E627E02226B40221000FBD78 /* PHImageManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHImageManager+Rx.swift"; sourceTree = "<group>"; };
+		E632ED2626B087E700785247 /* PhotoGalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryService.swift; sourceTree = "<group>"; };
+		E64FC61326B1DB46007A524A /* PhotoGalleryService+Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoGalleryService+Authorization.swift"; sourceTree = "<group>"; };
+		E64FC61526B21AC6007A524A /* PHAssetResourceManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAssetResourceManager+Rx.swift"; sourceTree = "<group>"; };
 		FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthServiceImpl.swift; sourceTree = "<group>"; };
 		FB02DDED22AE76940028284E /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
 		FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
@@ -328,6 +340,7 @@
 		DA768A9A224303BA0001C87C /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				E632ED2526B087C200785247 /* PhotoGalleryService */,
 				9542D9C724D34D620004E69B /* AppleLoginProvider */,
 				953C3F6A2301626500E720F0 /* MapGeocoder */,
 				FBE5385A22BFB367002CF9F7 /* LocationManager */,
@@ -466,6 +479,17 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		E632ED2526B087C200785247 /* PhotoGalleryService */ = {
+			isa = PBXGroup;
+			children = (
+				E632ED2626B087E700785247 /* PhotoGalleryService.swift */,
+				E64FC61326B1DB46007A524A /* PhotoGalleryService+Authorization.swift */,
+				E64FC61526B21AC6007A524A /* PHAssetResourceManager+Rx.swift */,
+				E627E02226B40221000FBD78 /* PHImageManager+Rx.swift */,
+			);
+			path = PhotoGalleryService;
+			sourceTree = "<group>";
+		};
 		FB02DDEA22AE72270028284E /* Biometry */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +600,8 @@
 				DAC7E86A2246F14600B94425 /* UIColor+Helpers.swift */,
 				FB153BE222A007BD00EBEB80 /* UITextView+Html.swift */,
 				95A6F4FC22E5B6C100B11224 /* UISearchBar+Helpers.swift */,
+				36A6C0FA25E82CDD005A14AA /* UIApplication+Helpers.swift */,
+				E60000AB2699D4A400D976B9 /* UIFont+Stylistics.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -712,6 +738,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0FD11F121477A5F008C2EF8 /* Build configuration list for PBXNativeTarget "Core" */;
 			buildPhases = (
+				E6D1B8AB26BAC5B5009C7058 /* ShellScript */,
 				E0FD11D821477A5F008C2EF8 /* Headers */,
 				E0FD11D921477A5F008C2EF8 /* Sources */,
 				E0FD11DA21477A5F008C2EF8 /* Frameworks */,
@@ -754,7 +781,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "serge.maslyakov@gmail.com";
 				TargetAttributes = {
 					E0FD11DC21477A5F008C2EF8 = {
@@ -806,6 +833,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E6D1B8AB26BAC5B5009C7058 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh \"${PROJECT_DIR}/Tools/Scripts/swiftformat.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0FD11D921477A5F008C2EF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -854,6 +901,7 @@
 				FB513EB82234FDF600F11CC9 /* AppError.swift in Sources */,
 				FB7BCE132243CDC200EDB121 /* NotificationToken.swift in Sources */,
 				FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */,
+				E60000AC2699D4A400D976B9 /* UIFont+Stylistics.swift in Sources */,
 				953C3F732301626500E720F0 /* MapGeocoder.swift in Sources */,
 				FB513EBC2234FDF600F11CC9 /* UICollectionViewCell+Helpers.swift in Sources */,
 				95FCC960247CF85800762FE4 /* AppleSwiftLogger.swift in Sources */,
@@ -861,11 +909,14 @@
 				95A6F4FD22E5B6C100B11224 /* UISearchBar+Helpers.swift in Sources */,
 				FB9F8E3E22537C0E00DF6139 /* SerialDispatchQueueScheduler+Factory.swift in Sources */,
 				FBE815752281DF2100FB5CF7 /* PasswordValidator.swift in Sources */,
+				E627E02326B40221000FBD78 /* PHImageManager+Rx.swift in Sources */,
 				FB7BCE032243C2EE00EDB121 /* DateFormatter+Helpers.swift in Sources */,
 				FB7BCDF42243BFE000EDB121 /* NetworkQualityType.swift in Sources */,
 				95AE3DA122F9CCB70060FFFC /* ModalFadeTransitionAnimator.swift in Sources */,
 				9542D9C924D34D8B0004E69B /* AppleLoginProvider.swift in Sources */,
+				36A6C0FB25E82CDD005A14AA /* UIApplication+Helpers.swift in Sources */,
 				FB48FDF8229062E2007F28CC /* QRCodeUtils.swift in Sources */,
+				E64FC61426B1DB46007A524A /* PhotoGalleryService+Authorization.swift in Sources */,
 				FB7BCDF32243BFE000EDB121 /* NetworkReachabilityService.swift in Sources */,
 				FBD0463722689D5800722DDA /* Codextended.swift in Sources */,
 				953C3F722301626500E720F0 /* MapGeocodingData.swift in Sources */,
@@ -878,12 +929,14 @@
 				FBE8154722819C9F00FB5CF7 /* GradientView.swift in Sources */,
 				FB9B48F22291E9E90069A116 /* TimeFormattingUtils.swift in Sources */,
 				DAC7E86B2246F14600B94425 /* UIColor+Helpers.swift in Sources */,
+				E64FC61626B21AC6007A524A /* PHAssetResourceManager+Rx.swift in Sources */,
 				FBCA630E226674110021655F /* AppLoggerProtocol.swift in Sources */,
 				FB7BCDFA2243C0D500EDB121 /* Date+Helpers.swift in Sources */,
 				FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */,
 				FB7BCDF12243BFE000EDB121 /* RadioTechnologyType.swift in Sources */,
 				FBE815722281DE3D00FB5CF7 /* EmailValidatorImpl.swift in Sources */,
 				DD6540E86AAFEACB24EEC619 /* Identity.swift in Sources */,
+				E632ED2726B087E700785247 /* PhotoGalleryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,9 +966,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0FD122C214786AD008C2EF8 /* Framework.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -949,6 +1003,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0FD122C214786AD008C2EF8 /* Framework.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
@@ -957,7 +1012,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

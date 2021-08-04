@@ -1,10 +1,9 @@
-import XCTest
 import MapKit
+import XCTest
 
 @testable import Core
 
 class MKMapUtilsTests: XCTestCase {
-
     private var singleCoord: CLLocationCoordinate2D!
     private var coords: [CLLocationCoordinate2D]!
     private var span: MKCoordinateSpan!
@@ -33,7 +32,6 @@ class MKMapUtilsTests: XCTestCase {
     }
 
     func testMakingRegionFromSingleCoord() {
-
         let box = MKMapUtils.makeCoordinateRegion(from: [singleCoord])!
 
         XCTAssertTrue(abs(box.center.latitude - 40.759211) < 0.0000001)
@@ -41,7 +39,6 @@ class MKMapUtilsTests: XCTestCase {
     }
 
     func testMakingRegionFromCoords() {
-
         let box = MKMapUtils.makeCoordinateRegion(from: coords)!
 
         XCTAssertTrue(abs(box.center.latitude - 40.737196013) < 0.0000001)
@@ -49,7 +46,6 @@ class MKMapUtilsTests: XCTestCase {
     }
 
     func testAddingInsetForSpan() {
-
         let spanWithInset = MKMapUtils.addInsetsInMeters(span: span, inset: 1000)
 
         XCTAssertTrue(spanWithInset.latitudeDelta > span.latitudeDelta)

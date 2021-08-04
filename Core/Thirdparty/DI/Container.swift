@@ -1,8 +1,6 @@
 /// Inversion of control container that can be used for resolving dependencies.
 public class Container {
-
     enum ObjectLifetime {
-
         /// - The object is a Singleton, i.e. it is created only once and that single instance is used.
         case single
 

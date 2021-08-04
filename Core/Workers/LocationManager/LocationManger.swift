@@ -1,11 +1,10 @@
-import Foundation
 import CoreLocation
+import Foundation
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
-public protocol LocationManager: class {
-
+public protocol LocationManager: AnyObject {
     var authStatus: Observable<CLAuthorizationStatus> { get }
 
     func requestAccessToLocation(_ desiredLevel: CLAuthorizationStatus)

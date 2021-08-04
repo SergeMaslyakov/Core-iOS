@@ -1,15 +1,14 @@
-import UIKit
 import AVFoundation
+import UIKit
 
 public final class AVPlayerView: UIView {
-
     override public static var layerClass: AnyClass {
-        return AVPlayerLayer.self
+        AVPlayerLayer.self
     }
 
     public var player: AVPlayer? {
         get {
-            return playerLayer.player
+            playerLayer.player
         }
         set {
             playerLayer.player = newValue
@@ -18,7 +17,7 @@ public final class AVPlayerView: UIView {
 
     public var playerLayer: AVPlayerLayer {
         // swiftlint:disable:next force_cast
-        return layer as! AVPlayerLayer
+        layer as! AVPlayerLayer
     }
 
     public func togglePlayerState() {
@@ -28,5 +27,4 @@ public final class AVPlayerView: UIView {
             player?.pause()
         }
     }
-
 }

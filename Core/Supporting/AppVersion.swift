@@ -1,7 +1,6 @@
 import Foundation
 
 public struct AppVersion: Comparable {
-
     let major: Int
     let minor: Int
     let patch: Int
@@ -9,15 +8,15 @@ public struct AppVersion: Comparable {
     // MARK: - Comparable
 
     public static func == (lhs: AppVersion, rhs: AppVersion) -> Bool {
-        return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch
+        lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.patch == rhs.patch
     }
 
     public static func > (lhs: AppVersion, rhs: AppVersion) -> Bool {
         if lhs.major > rhs.major {
             return true
-        } else if lhs.major >= rhs.major && lhs.minor > rhs.minor {
+        } else if lhs.major >= rhs.major, lhs.minor > rhs.minor {
             return true
-        } else if lhs.major >= rhs.major && lhs.minor >= rhs.minor && lhs.patch > rhs.patch {
+        } else if lhs.major >= rhs.major, lhs.minor >= rhs.minor, lhs.patch > rhs.patch {
             return true
         }
 
@@ -25,15 +24,13 @@ public struct AppVersion: Comparable {
     }
 
     public static func < (lhs: AppVersion, rhs: AppVersion) -> Bool {
-        return rhs > lhs
+        rhs > lhs
     }
-
 }
 
 // MARK: - Factory
 
 public extension AppVersion {
-
     static func makeFromString(_ string: String) -> AppVersion? {
         let components = string.components(separatedBy: ".")
 
@@ -46,6 +43,6 @@ public extension AppVersion {
     }
 
     static func makeZeroVersion() -> AppVersion {
-        return AppVersion(major: 0, minor: 0, patch: 0)
+        AppVersion(major: 0, minor: 0, patch: 0)
     }
 }
