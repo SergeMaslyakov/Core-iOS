@@ -16,7 +16,7 @@ public struct MapGeocodingData {
         self.coord = coord
 
         let coordStr = coord.toString()
-        name = coordStr
-        address = coordStr
+        self.name = coordStr
+        self.address = coordStr
     }
 }

@@ -10,6 +10,8 @@ public protocol LocationManager: AnyObject {
     func requestAccessToLocation(_ desiredLevel: CLAuthorizationStatus)
     func lastKnownAuthStatus() -> CLAuthorizationStatus
 
+    var firstUserLocationAcquired: Observable<Void> { get }
+
     var userLocation: Observable<CLLocation?> { get }
     var userHeading: Observable<CLHeading?> { get }
 

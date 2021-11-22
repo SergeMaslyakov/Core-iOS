@@ -17,12 +17,12 @@ public final class NetworkQualityMonitoring: NSObject {
     private let logger: AppLoggerProtocol
 
     public init?(logger: AppLoggerProtocol) {
-        serialQueue = DispatchQueue(label: "network-monitoring-service.serial", qos: .default, target: nil)
-        telephonyInfo = CTTelephonyNetworkInfo()
+        self.serialQueue = DispatchQueue(label: "network-monitoring-service.serial", qos: .userInitiated)
+        self.telephonyInfo = CTTelephonyNetworkInfo()
         self.logger = logger
 
         do {
-            reachabilityService = try NetworkReachabilityService(serialQueue: serialQueue)
+            self.reachabilityService = try NetworkReachabilityService(serialQueue: serialQueue)
         } catch {
             logger.error(error.localizedDescription)
             return nil
@@ -31,9 +31,9 @@ public final class NetworkQualityMonitoring: NSObject {
         let values = telephonyInfo.serviceCurrentRadioAccessTechnology?.values.map { RadioTechnologyType.make(from: $0) }
         let value = values?.first(where: { $0 != .unknown }) ?? .unknown
 
-        radioRelay = BehaviorRelay<RadioTechnologyType>(value: value)
-        qualityRelay = BehaviorRelay<NetworkQualityType>(value: .unknown(.unknown))
-        networkQuality = qualityRelay.asObservable().share(replay: 1, scope: .forever)
+        self.radioRelay = BehaviorRelay<RadioTechnologyType>(value: value)
+        self.qualityRelay = BehaviorRelay<NetworkQualityType>(value: .unknown(.unknown))
+        self.networkQuality = qualityRelay.asObservable().share(replay: 1, scope: .forever)
 
         super.init()
 

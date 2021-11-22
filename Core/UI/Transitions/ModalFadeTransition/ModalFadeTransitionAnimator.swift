@@ -21,6 +21,12 @@ public final class ModalFadeTransitionAnimator: NSObject, UIViewControllerAnimat
             return
         }
 
+        let toVC = transitionContext.viewController(forKey: .to)
+        let fromVC = transitionContext.viewController(forKey: .from)
+
+        fromVC?.beginAppearanceTransition(false, animated: transitionContext.isAnimated)
+        toVC?.beginAppearanceTransition(true, animated: transitionContext.isAnimated)
+
         let initialAlpha: CGFloat = presenting ? 0 : 1
         let finalAlpha: CGFloat = presenting ? 1 : 0
 
@@ -34,6 +40,9 @@ public final class ModalFadeTransitionAnimator: NSObject, UIViewControllerAnimat
             finalView.alpha = finalAlpha
         }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+
+            fromVC?.endAppearanceTransition()
+            toVC?.endAppearanceTransition()
         })
     }
 }
