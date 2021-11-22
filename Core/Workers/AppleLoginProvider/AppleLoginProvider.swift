@@ -34,7 +34,7 @@ public final class AppleLoginProvider: NSObject {
 
     public init(storage: DataStorageProtocol) {
         self.storage = storage
-        appleIDProvider = ASAuthorizationAppleIDProvider()
+        self.appleIDProvider = ASAuthorizationAppleIDProvider()
 
         super.init()
     }

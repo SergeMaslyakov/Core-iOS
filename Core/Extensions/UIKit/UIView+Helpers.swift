@@ -44,7 +44,7 @@ public extension UIView {
     }
 
     func snapshotImage(in frame: CGRect? = nil) -> UIImage? {
-        let bounds = frame ?? self.bounds
+        let bounds = frame ?? bounds
         let renderer = UIGraphicsImageRenderer(size: bounds.size)
 
         return renderer.image { _ in

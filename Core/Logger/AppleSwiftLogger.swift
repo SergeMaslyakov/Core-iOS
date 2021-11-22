@@ -5,7 +5,7 @@ public final class AppleSwiftLogger: AppLoggerProtocol {
     private let logger: Logging.Logger
 
     public init(label: String) {
-        logger = Logger(label: label)
+        self.logger = Logger(label: label)
     }
 
     public func info(_ string: String) {

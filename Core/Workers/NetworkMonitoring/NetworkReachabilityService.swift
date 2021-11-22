@@ -21,8 +21,8 @@ public final class NetworkReachabilityService {
         }
 
         self.serialQueue = serialQueue
-        reachability = reference
-        reachabilityStatus = BehaviorRelay(value: .unknown)
+        self.reachability = reference
+        self.reachabilityStatus = BehaviorRelay(value: .unknown)
     }
 
     // MARK: - Public
@@ -32,7 +32,7 @@ public final class NetworkReachabilityService {
     public func start() throws {
         guard !isStarted else { return }
 
-        let callback: SCNetworkReachabilityCallBack = { reachability, flags, info in
+        let callback: SCNetworkReachabilityCallBack = { _, flags, info in
             guard let info = info else { return }
 
             let reachability = Unmanaged<NetworkReachabilityService>.fromOpaque(info).takeUnretainedValue()

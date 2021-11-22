@@ -5,8 +5,12 @@ public final class SyncMemoryCache<KeyType, ObjectType> where KeyType: NSObject,
     private let syncQueue: DispatchQueue
 
     public init(label: String) {
-        cache = NSCache<KeyType, ObjectType>()
-        syncQueue = DispatchQueue(label: label, qos: .background, attributes: .concurrent)
+        self.cache = NSCache<KeyType, ObjectType>()
+        self.syncQueue = DispatchQueue(label: label,
+                                       qos: .userInitiated,
+                                       attributes: .concurrent,
+                                       autoreleaseFrequency: .inherit,
+                                       target: .global(qos: .background))
     }
 
     public func object(forKey key: KeyType) -> ObjectType? {

@@ -21,6 +21,9 @@ public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimat
             return
         }
 
+        fromVC.beginAppearanceTransition(false, animated: transitionContext.isAnimated)
+        toVC.beginAppearanceTransition(true, animated: transitionContext.isAnimated)
+
         let width = fromVC.view.bounds.width
 
         var initialToFrame = toVC.view.frame
@@ -59,6 +62,9 @@ public final class ModalPushTransitionAnimator: NSObject, UIViewControllerAnimat
                        }, completion: { _ in
                            completion?()
                            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+
+                           fromVC.endAppearanceTransition()
+                           toVC.endAppearanceTransition()
                        })
     }
 }

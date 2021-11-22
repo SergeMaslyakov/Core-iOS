@@ -15,17 +15,17 @@ public protocol AnyEncoder {
     func encode<T: Encodable>(_ value: T) throws -> Data
 }
 
-extension JSONEncoder: AnyEncoder {}
+extension JSONEncoder: AnyEncoder { }
 
 #if canImport(ObjectiveC) || swift(>=5.1)
-extension PropertyListEncoder: AnyEncoder {}
+    extension PropertyListEncoder: AnyEncoder { }
 #endif
 
 public extension Encodable {
     /// Encode this value, optionally using a specific encoder.
     /// If no explicit encoder is passed, then the value is encoded into JSON.
     func encoded(using encoder: AnyEncoder = JSONEncoder()) throws -> Data {
-        return try encoder.encode(self)
+        try encoder.encode(self)
     }
 }
 
@@ -43,7 +43,7 @@ public extension Encoder {
 
     /// Encode a value for a given key, specified as a `CodingKey`.
     func encode<T: Encodable, K: CodingKey>(_ value: T, for key: K) throws {
-        var container = self.container(keyedBy: K.self)
+        var container = container(keyedBy: K.self)
         try container.encode(value, forKey: key)
     }
 
@@ -99,7 +99,7 @@ public extension Decoder {
 
     /// Decode a value for a given key, specified as a `CodingKey`.
     func decode<T: Decodable, K: CodingKey>(_ key: K, as type: T.Type = T.self) throws -> T {
-        let container = try self.container(keyedBy: K.self)
+        let container = try container(keyedBy: K.self)
         return try container.decode(type, forKey: key)
     }
 
@@ -114,7 +114,7 @@ public extension Decoder {
     /// a specific formatter. To decode a date using the decoder's default settings,
     /// simply decode it like any other value instead of using this method.
     func decode<K: CodingKey, F: AnyDateFormatter>(_ key: K, using formatter: F) throws -> Date {
-        let container = try self.container(keyedBy: K.self)
+        let container = try container(keyedBy: K.self)
         let rawString = try container.decode(String.self, forKey: key)
 
         guard let date = formatter.date(from: rawString) else {
@@ -150,7 +150,7 @@ private struct AnyCodingKey: CodingKey {
     var intValue: Int?
 
     init(_ string: String) {
-        stringValue = string
+        self.stringValue = string
     }
 
     init?(stringValue: String) {
@@ -159,6 +159,6 @@ private struct AnyCodingKey: CodingKey {
 
     init?(intValue: Int) {
         self.intValue = intValue
-        stringValue = String(intValue)
+        self.stringValue = String(intValue)
     }
 }

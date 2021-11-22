@@ -25,6 +25,10 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         userHeadingRelay.value ?? CLHeading()
     }
 
+    public var firstUserLocationAcquired: Observable<Void> {
+        firstUserLocationAcquiredSubject.asObservable()
+    }
+
     public func requestAccessToLocation(_ desiredLevel: CLAuthorizationStatus) {
         switch desiredLevel {
         case .authorizedWhenInUse:
@@ -40,6 +44,7 @@ public final class LocationManagerImpl: NSObject, LocationManager {
         authStatusRelay.value
     }
 
+    private let firstUserLocationAcquiredSubject = PublishSubject<Void>()
     private let authStatusRelay: BehaviorRelay<CLAuthorizationStatus>
     private let userLocationRelay: BehaviorRelay<CLLocation?>
     private let userHeadingRelay: BehaviorRelay<CLHeading?>
@@ -47,9 +52,9 @@ public final class LocationManagerImpl: NSObject, LocationManager {
     private let locationManager = CLLocationManager()
 
     public init(askAuthorizationStatus: Bool = false) {
-        userLocationRelay = BehaviorRelay(value: nil)
-        userHeadingRelay = BehaviorRelay(value: nil)
-        authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
+        self.userLocationRelay = BehaviorRelay(value: nil)
+        self.userHeadingRelay = BehaviorRelay(value: nil)
+        self.authStatusRelay = BehaviorRelay(value: CLLocationManager.authorizationStatus())
 
         super.init()
 
@@ -80,6 +85,7 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
 
             if let location = manager.location, CLLocationCoordinate2DIsValid(location.coordinate) {
                 userLocationRelay.accept(location)
+                firstUserLocationAcquiredSubject.onNext(())
             }
         } else {
             userLocationRelay.accept(nil)
@@ -92,7 +98,12 @@ extension LocationManagerImpl: CLLocationManagerDelegate {
 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last, CLLocationCoordinate2DIsValid(location.coordinate) {
+            let isEmpty = userLocationRelay.value == nil
             userLocationRelay.accept(location)
+
+            if isEmpty {
+                firstUserLocationAcquiredSubject.onNext(())
+            }
         }
     }
 
