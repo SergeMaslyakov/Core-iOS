@@ -1,14 +1,18 @@
 # format options
+--header strip
 --allman false
 --elseposition same-line
 --guardelse auto
 --emptybraces spaced
---header strip
 --markextensions always
 --stripunusedargs closure-only
 --wraparguments after-first
 --wrapparameters after-first
---funcattributes prev-line
+--wrapcollections before-first
+--self init-only
+--funcattributes same-line
+--typeattributes prev-line
+--redundanttype explicit
 
 # file options
 --exclude Tools,DerivedData

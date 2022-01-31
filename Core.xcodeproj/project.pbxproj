@@ -37,7 +37,6 @@
 		DA9ECB622243841500EDAF4A /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9ECB602243841500EDAF4A /* SVProgressHUD.framework */; };
 		DAC7E86B2246F14600B94425 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E86A2246F14600B94425 /* UIColor+Helpers.swift */; };
 		DAC7E89A224F7E1F00B94425 /* AppVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E899224F7E1F00B94425 /* AppVersionTests.swift */; };
-		DD6540E86AAFEACB24EEC619 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD654112BE891C3F985C6B55 /* Identity.swift */; };
 		E0FD11E721477A5F008C2EF8 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FD11DD21477A5F008C2EF8 /* Core.framework */; };
 		E0FD11EE21477A5F008C2EF8 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = E0FD11E021477A5F008C2EF8 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E60000AC2699D4A400D976B9 /* UIFont+Stylistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60000AB2699D4A400D976B9 /* UIFont+Stylistics.swift */; };
@@ -45,6 +44,7 @@
 		E632ED2726B087E700785247 /* PhotoGalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E632ED2626B087E700785247 /* PhotoGalleryService.swift */; };
 		E64FC61426B1DB46007A524A /* PhotoGalleryService+Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FC61326B1DB46007A524A /* PhotoGalleryService+Authorization.swift */; };
 		E64FC61626B21AC6007A524A /* PHAssetResourceManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FC61526B21AC6007A524A /* PHAssetResourceManager+Rx.swift */; };
+		E6BD645127A7F360003EBD34 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E6BD645027A7F360003EBD34 /* README.md */; };
 		FB02DDEC22AE72A20028284E /* BiometricAuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */; };
 		FB02DDEE22AE76940028284E /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02DDED22AE76940028284E /* BiometricAuthService.swift */; };
 		FB0D74C6226D26FF00E351A5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */; };
@@ -102,7 +102,6 @@
 		FBE815752281DF2100FB5CF7 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815742281DF2100FB5CF7 /* PasswordValidator.swift */; };
 		FBE815772281DF2F00FB5CF7 /* PasswordValidatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE815762281DF2F00FB5CF7 /* PasswordValidatorImpl.swift */; };
 		FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF046BD2236F6E9009A7337 /* Array+Helpers.swift */; };
-		FBF2617F2287A3E2006DB6C4 /* SmsCodesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,9 +144,6 @@
 		DA9ECB602243841500EDAF4A /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = ../Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		DAC7E86A2246F14600B94425 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		DAC7E899224F7E1F00B94425 /* AppVersionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionTests.swift; sourceTree = "<group>"; };
-		DD654112BE891C3F985C6B55 /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
-		DD6547A027B4CCB9610983FF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		DD6548F2A9355055D6F860D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0FD11DD21477A5F008C2EF8 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11E021477A5F008C2EF8 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		E0FD11E621477A5F008C2EF8 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +161,7 @@
 		E632ED2626B087E700785247 /* PhotoGalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryService.swift; sourceTree = "<group>"; };
 		E64FC61326B1DB46007A524A /* PhotoGalleryService+Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoGalleryService+Authorization.swift"; sourceTree = "<group>"; };
 		E64FC61526B21AC6007A524A /* PHAssetResourceManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAssetResourceManager+Rx.swift"; sourceTree = "<group>"; };
+		E6BD645027A7F360003EBD34 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FB02DDEB22AE72A20028284E /* BiometricAuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthServiceImpl.swift; sourceTree = "<group>"; };
 		FB02DDED22AE76940028284E /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
 		FB0D74C5226D26FF00E351A5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
@@ -226,7 +223,6 @@
 		FBE815742281DF2100FB5CF7 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		FBE815762281DF2F00FB5CF7 /* PasswordValidatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatorImpl.swift; sourceTree = "<group>"; };
 		FBF046BD2236F6E9009A7337 /* Array+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helpers.swift"; sourceTree = "<group>"; };
-		FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmsCodesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,7 +341,6 @@
 				953C3F6A2301626500E720F0 /* MapGeocoder */,
 				FBE5385A22BFB367002CF9F7 /* LocationManager */,
 				FB02DDEA22AE72270028284E /* Biometry */,
-				FBF2617D2287A3E2006DB6C4 /* SmsCodesManager */,
 				FB2CFB96226B920A00B85FB9 /* AppFlags */,
 				FB7BCDE62243BFE000EDB121 /* NetworkMonitoring */,
 			);
@@ -370,16 +365,6 @@
 			path = AppVersion;
 			sourceTree = "<group>";
 		};
-		DD6542ECCBCBE2A70882A7E9 /* Identity-0.1.0 */ = {
-			isa = PBXGroup;
-			children = (
-				DD654112BE891C3F985C6B55 /* Identity.swift */,
-				DD6547A027B4CCB9610983FF /* LICENSE */,
-				DD6548F2A9355055D6F860D3 /* README.md */,
-			);
-			path = "Identity-0.1.0";
-			sourceTree = "<group>";
-		};
 		E0C82F27214789D8009EA559 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +386,7 @@
 		E0FD11D321477A5F008C2EF8 = {
 			isa = PBXGroup;
 			children = (
+				E6BD645027A7F360003EBD34 /* README.md */,
 				E0FD11DF21477A5F008C2EF8 /* Core */,
 				E0FD11EA21477A5F008C2EF8 /* CoreTests */,
 				E0FD11DE21477A5F008C2EF8 /* Products */,
@@ -652,7 +638,6 @@
 			children = (
 				FB513E3D2233DFC300F11CC9 /* DI */,
 				FBD0461B22689D5700722DDA /* Codextended-0.0.2 */,
-				DD6542ECCBCBE2A70882A7E9 /* Identity-0.1.0 */,
 			);
 			path = Thirdparty;
 			sourceTree = "<group>";
@@ -710,14 +695,6 @@
 				FBE815762281DF2F00FB5CF7 /* PasswordValidatorImpl.swift */,
 			);
 			path = PasswordValidator;
-			sourceTree = "<group>";
-		};
-		FBF2617D2287A3E2006DB6C4 /* SmsCodesManager */ = {
-			isa = PBXGroup;
-			children = (
-				FBF2617E2287A3E2006DB6C4 /* SmsCodesManager.swift */,
-			);
-			path = SmsCodesManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -821,6 +798,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6BD645127A7F360003EBD34 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +875,6 @@
 				FB970D9622C5424300416E2F /* DisposableStick.swift in Sources */,
 				FBE815772281DF2F00FB5CF7 /* PasswordValidatorImpl.swift in Sources */,
 				FB513EBB2234FDF600F11CC9 /* UIViewController+Helpers.swift in Sources */,
-				FBF2617F2287A3E2006DB6C4 /* SmsCodesManager.swift in Sources */,
 				FB513EB82234FDF600F11CC9 /* AppError.swift in Sources */,
 				FB7BCE132243CDC200EDB121 /* NotificationToken.swift in Sources */,
 				FBF046BE2236F6E9009A7337 /* Array+Helpers.swift in Sources */,
@@ -935,7 +912,6 @@
 				FBCBCBC322B7A14E00A3CE24 /* AttributedStringUtils.swift in Sources */,
 				FB7BCDF12243BFE000EDB121 /* RadioTechnologyType.swift in Sources */,
 				FBE815722281DE3D00FB5CF7 /* EmailValidatorImpl.swift in Sources */,
-				DD6540E86AAFEACB24EEC619 /* Identity.swift in Sources */,
 				E632ED2726B087E700785247 /* PhotoGalleryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,7 @@ public final class UserDefaultsDataStorage: DataStorageProtocol {
         if let suiteName = suiteName {
             self.defaults = UserDefaults(suiteName: keyPrefix + suiteName) ?? .standard
         } else {
-            self.defaults = UserDefaults.standard
+            self.defaults = .standard
         }
     }
 
